@@ -86,7 +86,7 @@ h3
       <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
       <div class="navbar-brand">
         <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-        Semantic HTML & UI
+        Bootatrap
       </div>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -99,6 +99,7 @@ h3
           <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
           <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
           <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
+          <li><a href= "#08" data-toggle="tab"> 08 </a> </li>
           <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
       </ul>
     </div>
@@ -110,397 +111,354 @@ h3
 <div class="tab-content">
   <div class="tab-pane active" id="Lab-05">
     <h1>Objectives</h1>
-<p>In this lab we reconfigure one of our earlier labs to use the Semantic UI CSS framework. This will involve downloading and installing the latest version into our project, and then reconfiguring the elements, classes and IDs we have been using to instead use the Semantic UI design vocabulary.</p>
+<p>In this lab we reconfigure one of our earlier labs to use the Bootstrap CSS framework. We will do this using the Pingendo bootstrap designer, allowing us to visually layout the pages.</p>
   </div>
 
     <div class="tab-pane fade" id="01">
       <h1>Setup</h1>
-<p>Create new project called lab05-spacebook. Copy over all sources from last weeks lab, which is available here:</p>
+<p>Download and install the following application:</p>
 <ul>
-<li><a href="./archives/lab04-spacebook.zip">lab04-spacebook.zip</a></li>
+<li><a href="https://dl.dropboxusercontent.com/u/2068306/pingendo/pingendo_win.zip">Pinegendo for Windows</a></li>
+<li><a href="https://dl.dropboxusercontent.com/u/2068306/pingendo/pingendo_osx.zip">Pinegendo for Mac</a></li>
 </ul>
-<p>Visit :</p>
+<p>An older version of this app is available here:</p>
 <ul>
-<li><a href="http://semantic-ui.com">http://semantic-ui.com</a></li>
+<li><a href="http://www.pingendo.com">http://www.pingendo.com</a></li>
 </ul>
-<p>and download the archive.</p>
-<p>Extract the archive. It contains a folder called 'packaged'. Rename this folder to 'semantic', and copy this folder into your WebContent folder in your new project.</p>
-<p>Include a new entry in head element which links to the new css file.</p>
-<h1>home.html</h1>
-<pre><code class="html">  &lt;head&gt;
-    &lt;title&gt;SpaceBook&lt;/title&gt;
-    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;semantic/css/semantic.min.css&quot; media=&quot;screen&quot; /&gt;
-    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;home.css&quot; media=&quot;screen&quot; /&gt;
-  &lt;/head&gt;
-</code></pre>
-
-<p><img alt="" src="./img/01.png"></p>
-<p>Remove all of contents of 'home.css' - but leave the file in place
-You should see the new semantic folder in your project explorer.</p>
-<p><img alt="" src="./img/02.png"></p>
+<p>Launch the app, and you will be presented with a blank workspace:</p>
+<p><img alt="" src="img/01x.png"></p>
+<p>Select 'File-&gt;New' - and also the 'Laptop' view (from toolbar):</p>
+<p><img alt="" src="img/02x.png"></p>
+<p>You now have a blank html page in the centre, on the left are two panels:</p>
+<h2>Sections</h2>
+<p><img alt="" src="img/03x.png"></p>
+<h2>Components</h2>
+<p><img alt="" src="img/04x.png"></p>
+<p>and on the left you have:</p>
+<h2>HTML</h2>
+<p><img alt="" src="img/05x.png"></p>
+<h2>THEME</h2>
+<p><img alt="" src="img/06x.png"></p>
+<p>Make sure you can locate all of the above panels</p>
     </div>
     <div class="tab-pane fade" id="02">
-      <h1>Menu</h1>
-<p>Move navigation section to top of body:</p>
-<pre><code class="html">  &lt;body id=&quot;home&quot;&gt;
-     &lt;div id=&quot;navigation&quot;&gt;
-      &lt;ul id=&quot;tabs&quot;&gt;
-        &lt;li id=&quot;home&quot;&gt;    &lt;a href=&quot;home.html&quot;&gt;Home&lt;/a&gt;     &lt;/li&gt;
-        &lt;li id=&quot;members&quot;&gt; &lt;a href=&quot;members.html&quot;&gt;Members&lt;/a&gt;  &lt;/li&gt;
-        &lt;li id=&quot;homreprofile&quot;&gt; &lt;a href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;  &lt;/li&gt;
-        &lt;li id=&quot;logout&quot;&gt;  &lt;a href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;   &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-    &lt;div id=&quot;header&quot;&gt;
-      &lt;h1&gt;SpaceBook: Homer's Home Page&lt;/h1&gt;
-    &lt;/div&gt;
-</code></pre>
-
-<p>Remove <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code> elements from within 'navigation' and change the id from navigation to the class ui menu:</p>
-<pre><code class="html">    &lt;div class=&quot;ui menu&quot;&gt;
-      &lt;a href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
-      &lt;a href=&quot;members.html&quot;&gt;Members&lt;/a&gt;  
-      &lt;a href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;  
-      &lt;a href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
-    &lt;/div&gt;
-</code></pre>
-
-<p><img alt="" src="./img/03.png"></p>
-<p>Introduce class for each menu item:</p>
-<pre><code class="html">    &lt;div class=&quot;ui menu&quot;&gt;
-      &lt;a class=&quot;ui item&quot; href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
-      &lt;a class=&quot;ui item&quot; href=&quot;members.html&quot;&gt;Members&lt;/a&gt;  
-      &lt;a class=&quot;ui item&quot; href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;  
-      &lt;a class=&quot;ui item&quot; href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
-    &lt;/div&gt;
-</code></pre>
-
-<p><img alt="" src="./img/04.png"></p>
-<p>Change to <code>&lt;nav&gt;</code>:</p>
-<pre><code class="html">    &lt;nav class=&quot;ui menu&quot;&gt;
-      &lt;a class=&quot;ui item&quot; href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
-      &lt;a class=&quot;ui item&quot; href=&quot;members.html&quot;&gt;Members&lt;/a&gt;  
-      &lt;a class=&quot;ui item&quot; href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;  
-      &lt;a class=&quot;ui item&quot; href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
-    &lt;/nav&gt;
-</code></pre>
-
-<p><img alt="" src="./img/04.png"></p>
-<p>Remove 'home' from body</p>
-<pre><code class="html">  &lt;body&gt;
-    &lt;nav class=&quot;ui menu&quot;&gt;
-      &lt;a class=&quot;ui item&quot; href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
-      &lt;a class=&quot;ui item&quot; href=&quot;members.html&quot;&gt;Members&lt;/a&gt;
-      &lt;a class=&quot;ui item&quot; href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;
-      &lt;a class=&quot;ui item&quot; href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
-    &lt;/nav&gt;
-</code></pre>
-
-<p>Replicate in:</p>
-<ul>
-<li>members.html</li>
-<li>homeprofile.html</li>
-</ul>
-<p>The above will not work, as also need :</p>
-<pre><code class="html">    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;semantic/css/semantic.min.css&quot; media=&quot;screen&quot; /&gt;
-</code></pre>
-
-<p>in members and profile.</p>
-<p><img alt="" src="./img/05.png">
-<img alt="" src="./img/06.png"></p>
-<h1>Exercise:</h1>
-<p>Explore alternative Menu styles here:</p>
-<ul>
-<li><a href="http://semantic-ui.com/collections/menu.html">http://semantic-ui.com/collections/menu.html</a></li>
-</ul>
-<p>Experiment and explore ....</p>
+      <h1>First Page</h1>
+<p>Using the 'Sections' panel, Drag and from a 'Full Width Navigation Bar' from the 'Header' and 'Two Columns' from the 'Empty' subsections:</p>
+<p><img alt="" src="img/07x.png"></p>
+<p>Now pull up the bottom tab to reveal the html view:</p>
+<p><img alt="" src="img/08x.png"></p>
+<p>Save the file into a new folder called 'lab05-pingendo' somewhere convenient. Call the file 'home.html'.</p>
+<p>Practice opening the file in chrome as well as in pingendo:</p>
+<p><img alt="" src="img/09x.png"></p>
+<p>Also in Chrome, locate and open 'Developer Tools':</p>
+<p><img alt="" src="img/10x.png"></p>
+<p>this allows you to inspect all aspects of the page independent of Pingendo.</p>
     </div>
     <div class="tab-pane fade" id="03">
-      <h1>Header</h1>
-<p>Explore:</p>
+      <h1>Home Page</h1>
+<p>You will recall the version of the Spacebook Home page from the last lab:</p>
 <ul>
-<li><a href="http://semantic-ui.com/elements/header.html">http://semantic-ui.com/elements/header.html</a></li>
+<li><a href="archives/lab04/home.html">Lab04</a></li>
 </ul>
-<p>Replace :</p>
-<pre><code class="html">    &lt;div class=&quot;header&quot;&gt;
-      &lt;h1&gt;SpaceBook: Homer's Home Page&lt;/h1&gt;
-    &lt;/div&gt;
-</code></pre>
-
-<p>with</p>
-<pre><code>    &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook: Homer's Home Page&lt;/h2&gt;
-</code></pre>
-
-<p>Similar for members and homeprofile....</p>
-<h1>Exercise:</h1>
-<p>Explore alternative Header styles here:</p>
-<ul>
-<li><a href="http://semantic-ui.com/elements/header.html">http://semantic-ui.com/elements/header.html</a></li>
-</ul>
-<p>Experiment and explore ....</p>
+<p><img alt="" src="img/11x.png"></p>
+<p>We wish to develop a version of this page (not exactly the same, but similiar) in Pingendo</p>
+<h2>Menu</h2>
+<p>'Home' is already in place - and we can just type 'Members' directly into the canvas:</p>
+<p><img alt="" src="img/12x.png"></p>
+<p>Note how the html is also updated:</p>
+<p><img alt="" src="img/13x.png"></p>
+<p>To add a new menu item, we select 'Navbar' in the 'HTML' view, and notice that a 'Children' section appears:</p>
+<p><img alt="" src="img/14x.png"></p>
+<p>Pressing '+' creates a new entry (click on 'Nav Item'). It should end up like this:</p>
+<p><img alt="" src="img/15x.png"></p>
+<h2>Friends</h2>
+<p>For Friends, select the 'Components' panel and drag a 'Headding' into the first empty column:</p>
+<p><img alt="" src="img/16x.png"></p>
+<p>Then drag a 'List' in below this heading:</p>
+<p><img alt="" src="img/17x.png"></p>
+<p>In the 'HTML' view, select the List node - this will allow you to locate and change the 'Ordered' checkbox:</p>
+<p><img alt="" src="img/18x.png"></p>
+<p>... changing the numbers to bullets (ordered to unordered)</p>
+<p>Working in the canvas, or by directly editing the HTML below, we can change the text in the list:</p>
+<p><img alt="" src="img/19x.png"></p>
+<h2>Messages</h2>
+<p>Using the same techniques as above, we can populate the second column:</p>
+<p><img alt="" src="img/20x.png"></p>
+<p>Make sure you can browse the page in chrome and it looks as expected:</p>
+<p><img alt="" src="img/21x.png"></p>
     </div>
     <div class="tab-pane fade" id="04">
-      <h1>Sections and Segments</h1>
-<p>Rework the body of home.html as follows:</p>
-<pre><code class="html">  &lt;body&gt;
-    &lt;nav class=&quot;ui menu&quot;&gt;
-      &lt;a class=&quot;ui item&quot; href=&quot;home.html&quot;&gt;Home&lt;/a&gt; &lt;a class=&quot;ui item&quot;
-        href=&quot;members.html&quot;&gt;Members&lt;/a&gt; &lt;a class=&quot;ui item&quot;
-        href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt; &lt;a class=&quot;ui item&quot;
-        href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
-    &lt;/nav&gt;
-    &lt;section&gt;
-      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook: Homer's Home Page&lt;/h2&gt;
-      &lt;div id=&quot;maincontent&quot;&gt;
-        &lt;div id=&quot;primary&quot;&gt;
-          &lt;h2&gt;Friends&lt;/h2&gt;
-          &lt;ul&gt;
-            &lt;li&gt;&lt;a href=&quot;marge.html&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)&lt;/li&gt;
-            &lt;li&gt;&lt;a href=&quot;lisa.html&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)&lt;/li&gt;
-          &lt;/ul&gt;
+      <h1>Bootstrap:</h1>
+<p>This is the complete html page generated so far:</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+    &lt;head&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+        &lt;link href=&quot;http://pingendo.github.io/pingendo-bootstrap-3.3.1/themes/pingendo/white/bootstrap.css&quot;
+        rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+        &lt;link href=&quot;http://download.pingendo.com/bootstrap-3.3.1/themes/default/glyphicons.css&quot;
+        rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;div class=&quot;navbar navbar-default navbar-static-top&quot;&gt;
+            &lt;div class=&quot;container&quot;&gt;
+                &lt;div class=&quot;navbar-header&quot;&gt;
+                    &lt;a type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;&lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Brand&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;collapse navbar-collapse navbar-ex1-collapse&quot;&gt;
+                    &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
+                        &lt;li class=&quot;active&quot;&gt;
+                            &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;#&quot;&gt;Members&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;#&quot;&gt;Profile&lt;br&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;#&quot;&gt;Logout&lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div id=&quot;secondary&quot;&gt;
-          &lt;h2&gt;Messages&lt;/h2&gt;
-          &lt;ul&gt;
-            &lt;li&gt;marge says...&quot;Hey there Homer, when are you going to
-              work?&quot;&lt;/li&gt;
-            &lt;li&gt;lisa says...&quot;Move off the couch dad!&quot;&lt;/li&gt;
-          &lt;/ul&gt;
+        &lt;div class=&quot;section&quot; draggable=&quot;true&quot;&gt;
+            &lt;div class=&quot;container&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;div class=&quot;col-md-6&quot;&gt;
+                        &lt;h1&gt;Friends
+                            &lt;br&gt;
+                        &lt;/h1&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;Marge&lt;/li&gt;
+                            &lt;li&gt;Lisa&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-md-6&quot;&gt;
+                        &lt;h1&gt;Messages&lt;/h1&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;marge says...&quot;Hey there Homer, when are you going to work?&quot;&lt;/li&gt;
+                            &lt;li&gt;lisa says...&quot;Move off the couch dad!&quot;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
-  &lt;/body&gt;
+    &lt;/body&gt;
+
+&lt;/html&gt;
 </code></pre>
 
-<p>i.e. new <code>&lt;section&gt;</code> tag replacing <code>&lt;div&gt;</code> with id 'maincontent'. Removed footer..</p>
-<p><img alt="" src="./img/07.png"></p>
-<pre><code class="html">    &lt;section class=&quot;ui segment&quot;&gt;
-</code></pre>
-
-<p><img alt="" src="./img/08.png"></p>
-<p>Reproduce on members and homeprofile</p>
-<h1>Exercise</h1>
-<p>Explore alternative segment styles here:</p>
+<p>The page links to a CSS library called 'Bootstrap':</p>
 <ul>
-<li><a href="http://semantic-ui.com/elements/segment.html">http://semantic-ui.com/elements/segment.html</a></li>
+<li><a href="http://getbootstrap.com">http://getbootstrap.com</a></li>
 </ul>
-<p>Experiment and explore ....</p>
+<p>This is one of the most popular CSS frameworks. It is designed to be hand coded:</p>
+<ul>
+<li><a href="http://getbootstrap.com/getting-started/">http://getbootstrap.com/getting-started/</a></li>
+</ul>
+<p>so most of the classes used are reasonable meaningful.</p>
+<p>Spend a few minutes perusing the documentation - and see if you can identify any of the class we are using in the above example.</p>
     </div>
     <div class="tab-pane fade" id="05">
-      <h1>Grid</h1>
-<p>change Home as follows:</p>
-<pre><code class="html">    &lt;section class=&quot;ui segment&quot;&gt;
-      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook: Homer's Home Page&lt;/h2&gt;
-      &lt;div class=&quot;ui two column grid segment&quot;&gt;
-        &lt;div class=&quot;ui row&quot;&gt;
-          &lt;div class=&quot;ui column&quot;&gt;
-            &lt;h2&gt;Friends&lt;/h2&gt;
-            &lt;ul&gt;
-              &lt;li&gt;&lt;a href=&quot;marge.html&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;lisa.html&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)&lt;/li&gt;
-            &lt;/ul&gt;
-           &lt;/div&gt;
-          &lt;div class=&quot;ui column&quot;&gt;
-            &lt;h2&gt;Messages&lt;/h2&gt;
-            &lt;ul&gt;
-              &lt;li&gt;marge says...&quot;Hey there Homer, when are you going to work?&quot;&lt;/li&gt;
-              &lt;li&gt;lisa says...&quot;Move off the couch dad!&quot;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/div&gt;
+      <h1>Members</h1>
+<p>Using the same techniques, create a single column members page to look like this:</p>
+<p><img alt="" src="img/21x.png"></p>
+<p>You may have ended up generating a page like this:</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+    &lt;head&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+        &lt;link href=&quot;http://pingendo.github.io/pingendo-bootstrap-3.3.1/themes/pingendo/white/bootstrap.css&quot;
+        rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+        &lt;link href=&quot;http://download.pingendo.com/bootstrap-3.3.1/themes/default/glyphicons.css&quot;
+        rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;div class=&quot;navbar navbar-default navbar-static-top&quot;&gt;
+            &lt;div class=&quot;container&quot;&gt;
+                &lt;div class=&quot;navbar-header&quot;&gt;
+                    &lt;a type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;&lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Brand&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;collapse navbar-collapse navbar-ex1-collapse&quot;&gt;
+                    &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
+                        &lt;li class=&quot;active&quot;&gt;
+                            &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;#&quot;&gt;Members&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;#&quot;&gt;Profile&lt;br&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;#&quot;&gt;Logout&lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
-</code></pre>
-
-<p><img alt="" src="./img/09.png"></p>
-<p>Do same for homeprofile and members:</p>
-<pre><code class="html">    &lt;section class=&quot;ui segment&quot;&gt;
-      &lt;h2 class=&quot;ui header&quot;&gt;Homer's Profile&lt;/h2&gt;
-      &lt;div class=&quot;ui two column grid segment&quot;&gt;
-        &lt;div class=&quot;ui row&quot;&gt;
-          &lt;div class=&quot;ui column&quot;&gt;
-            &lt;p&gt;
-              &lt;img src=&quot;images/homer.gif&quot; /&gt;
-            &lt;/p&gt;
-            &lt;form action=&quot;homeprofile/upload&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
-              &lt;input type=&quot;file&quot; name=&quot;userfile&quot; value=&quot;&quot; /&gt;
-              &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;upload&quot; /&gt;
-            &lt;/form&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;ui column&quot;&gt;
-            &lt;form action=&quot;homeprofile/changetext&quot; method=&quot;post&quot;&gt;
-              &lt;textarea name=&quot;profiletext&quot; cols=&quot;30&quot; rows=&quot;8&quot;&gt; &lt;/textarea&gt;
-              &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
-            &lt;/form&gt;
-          &lt;/div&gt;
+        &lt;div class=&quot;section&quot;&gt;
+            &lt;div class=&quot;container&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;div class=&quot;col-md-12&quot;&gt;
+                        &lt;h1&gt;Members&lt;/h1&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;div class=&quot;col-md-12&quot;&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;Marge&lt;/li&gt;
+                            &lt;li&gt;Homer&lt;/li&gt;
+                            &lt;li&gt;Lisa&lt;/li&gt;
+                            &lt;li&gt;Bart&lt;/li&gt;
+                            &lt;li&gt;Maggie&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
-</code></pre>
+    &lt;/body&gt;
 
-<p><img alt="" src="./img/10.png"></p>
-<pre><code>    &lt;section class=&quot;ui segment&quot;&gt;
-      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook's Members&lt;/h2&gt;  
-      &lt;ul&gt;
-        &lt;li&gt;marge [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;
-        &lt;li&gt;bart [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;
-        &lt;li&gt;lisa [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;
-        &lt;li&gt;maggie [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;  
-      &lt;/ul&gt;
-    &lt;/section&gt;
+&lt;/html&gt;
 </code></pre>
-
-<p><img alt="" src="./img/11.png"></p>
-<h1>Exercise</h1>
-<p>Explore alternative grid styles here:</p>
-<ul>
-<li><a href="http://semantic-ui.com/collections/grid.html">http://semantic-ui.com/collections/grid.html</a></li>
-</ul>
-<p>Experiment and explore ....</p>
     </div>
     <div class="tab-pane fade" id="06">
-      <h1>Lists</h1>
-<p>Open members - and adjust as follows:</p>
-<pre><code>    &lt;section class=&quot;ui segment&quot;&gt;
-      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook's Members&lt;/h2&gt;  
-      &lt;div class=&quot;ui list&quot;&gt;
-        &lt;div class=&quot;item&quot;&gt;
-          marge [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
-        &lt;/div&gt;
-        &lt;div class=&quot;item&quot;&gt;
-          bart  [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]  
-        &lt;/div&gt;
-        &lt;div class=&quot;item&quot;&gt;
-          lisa  [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
-        &lt;/div&gt;
-        &lt;div class=&quot;item&quot;&gt;
-          maggie [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
-</code></pre>
-
-<p><img alt="" src="./img/12.png"></p>
-<p>Add icon...:</p>
-<pre><code class="html">    &lt;section class=&quot;ui segment&quot;&gt;
-      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook's Members&lt;/h2&gt;  
-      &lt;div class=&quot;ui list&quot;&gt;
-        &lt;div class=&quot;item&quot;&gt;
-          &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
-          marge [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
-        &lt;/div&gt;
-        &lt;div class=&quot;item&quot;&gt;
-          &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
-          bart  [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]  
-        &lt;/div&gt;
-        &lt;div class=&quot;item&quot;&gt;
-          &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
-          lisa  [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
-        &lt;/div&gt;
-        &lt;div class=&quot;item&quot;&gt;
-          &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
-          maggie [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
-</code></pre>
-
-<p><img alt="" src="./img/13.png"></p>
-<p>Do same for lists on home</p>
-<pre><code class="html">    &lt;section class=&quot;ui segment&quot;&gt;
-      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook: Homer's Home Page&lt;/h2&gt;
-      &lt;div class=&quot;ui two column grid segment&quot;&gt;
-        &lt;div class=&quot;ui row&quot;&gt;
-          &lt;div class=&quot;ui column&quot;&gt;
-            &lt;h2&gt;Friends&lt;/h2&gt;
-            &lt;div class=&quot;ui list&quot;&gt;
-              &lt;div class=&quot;item&quot;&gt;
-                &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
-                &lt;a href=&quot;marge.html&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)
-              &lt;/div&gt;
-              &lt;div class=&quot;item&quot;&gt;
-                &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;  
-                &lt;a href=&quot;lisa.html&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)
-              &lt;/div&gt;
-             &lt;/div&gt;
-           &lt;/div&gt;
-          &lt;div class=&quot;ui column&quot;&gt;
-            &lt;h2&gt;Messages&lt;/h2&gt;
-            &lt;div class=&quot;ui list&quot;&gt;
-              &lt;div class=&quot;item&quot;&gt;
-                &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
-                 marge says...&quot;Hey there Homer, when are you going to work?&quot;
-               &lt;/div&gt;  
-              &lt;div class=&quot;item&quot;&gt;
-                &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
-                lisa says...&quot;Move off the couch dad!&quot;
-              &lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
-</code></pre>
-
-<p><img alt="" src="./img/14.png"></p>
-<h1>Exercise</h1>
-<p>Now try alternatives:</p>
+      <h1>Profile</h1>
+<p>Our profile page from the last lab looks a bit sad:</p>
+<p><img alt="" src="img/23x.png"></p>
+<p>Perhaps we can produce a more visually appealing layout. Create a new page called 'profile.html', bringing in the same menu as before:</p>
+<p><img alt="" src="img/24x.png"></p>
+<p>From Sections-&gt;Page select and drag over 'One Left Image'</p>
+<p><img alt="" src="img/25x.png"></p>
+<p>Locate an image online if your choice - this one might do:</p>
 <ul>
-<li><a href="http://semantic-ui.com/views/list.html">http://semantic-ui.com/views/list.html</a></li>
+<li>http://fc02.deviantart.net/fs71/i/2011/242/b/6/homer_simpson_by_marinav92-d48c6y1.jpg</li>
 </ul>
+<p>Selecting the image placeholder on the canvas, we can paste the link directly into the 'src' field in the 'HTML' panel.</p>
+<p><img alt="" src="img/26x.png"></p>
+<p>We have also change the Heading and subtitle + removed the paragraph.</p>
     </div>
     <div class="tab-pane fade" id="07">
       <h1>Forms</h1>
-<p>On homeprofile, change form as follows:</p>
-<pre><code class="html">          &lt;div class=&quot;ui column form segment&quot;&gt;
-            &lt;form action=&quot;homeprofile/changetext&quot; method=&quot;post&quot;&gt;
-              &lt;textarea name=&quot;profiletext&quot;&gt; &lt;/textarea&gt;
-              &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
+<p>Forms are general term for the visual components a user can operate to provide input to a web page. They are a large and diverse group - many of which are highly customisable. Bootstrap provides some structure around laying out forms - and our editor will let us set up some of these.</p>
+<p>Locate the 'FORMS' panel under components:</p>
+<p><img alt="" src="img/31x.png"></p>
+<p>Drag and drop the leftmost of these two components onto the canvas, dropping it directly below the 'Current Status' text:</p>
+<p><img alt="" src="img/32x.png"></p>
+<p>This creates a form on the page, which you can explore in the HTML view:</p>
+<p><img alt="" src="img/33x.png"></p>
+<p>The generated form is standard login form, which is purely a placeholder. We can tinker with this and produce a simplified version to look like this:</p>
+<p><img alt="" src="img/34x.png"></p>
+<p>This is the actual edited version of the form element to produce the above:</p>
+<pre><code>            &lt;form class=&quot;form-horizontal&quot; role=&quot;form&quot;&gt;
+              &lt;div class=&quot;form-group&quot; draggable=&quot;true&quot;&gt;
+                &lt;div class=&quot;col-sm-2&quot;&gt;
+                  &lt;label for=&quot;inputEmail3&quot; class=&quot;control-label&quot;&gt;Status&lt;/label&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-10&quot;&gt;
+                  &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;inputEmail3&quot; placeholder=&quot;status&quot;&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class=&quot;col-sm-offset-2 col-sm-10&quot;&gt;
+                  &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Change&lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
             &lt;/form&gt;
-          &lt;/div&gt;
+</code></pre>
+    </div>
+    <div class="tab-pane fade" id="08">
+      <h1>Navigation</h1>
+<h2>Active Menu Items</h2>
+<p>These are the three pages we have created so far in this lab:</p>
+<ul>
+<li><a href="archives/lab05-before-nav/home.html">home.html</a></li>
+<li><a href="archives/lab05-before-nav/members.html">members.html</a></li>
+<li><a href="archives/lab05-before-nav/profile.html">profile.html</a></li>
+</ul>
+<p>Notice that the navigation bar is mis-configured - particularly in the members and profile pages.</p>
+<p>Open the homer page in Pingendo, and select each of the menu options in turn and notice the properties associated with each menu item:</p>
+<p><img alt="" src="img/28x.png">
+<img alt="" src="img/29x.png">
+<img alt="" src="img/30x.png"></p>
+<p>Pay close attention to the 'State' field as you select each menu item. For the 'Home' page, the "Home" menu item is 'active', and the other three are not. This has the effect of highlighting the 'Home' menu item on the home page.</p>
+<p>We need to replicate this for each of the other two pages. So for instance the members page needs to have the 'Members' menu item active, and the profile page needs to have 'Profile' as the only active menu item. These can be changed be selecting 'x' to clear the state, and then selecting the 'active' state as appropriate.</p>
+<p>If the above goes according to plan, each of the pages should have the appropriate menu item highlighted. We could have implemented the above jsut by editing the menu items directly. Eg for the profile page the Profile menu us marked as 'active':</p>
+<pre><code>            &lt;li class=&quot;active&quot;&gt;
+              &lt;a href=&quot;#&quot;&gt;Profile&lt;br&gt;&lt;/a&gt;
+            &lt;/li&gt;
 </code></pre>
 
-<p><img alt="" src="./img/15.png"></p>
-<p>change button:</p>
-<pre><code class="html">              &lt;input class=&quot;ui blue button&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
+<h2>Navigation Links</h2>
+<p>The navigation bar for each of the pages can now be wired up. This is the profile page navigation for example:</p>
+<pre><code>          &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
+            &lt;li&gt;
+              &lt;a href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+              &lt;a href=&quot;members.html&quot;&gt;Members&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;active&quot;&gt;
+              &lt;a href=&quot;profile.html&quot;&gt;Profile&lt;br&gt;&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+              &lt;a href=&quot;#&quot;&gt;Logout&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
 </code></pre>
 
-<p><img alt="" src="./img/16.png"></p>
-<pre><code class="html">              &lt;textarea class=&quot;ui field&quot; name=&quot;profiletext&quot;&gt; &lt;/textarea&gt;
-</code></pre>
-
-<p><img alt="" src="./img/17.png"></p>
-<p>Put in a header:</p>
-<pre><code class="html">          &lt;div class=&quot;ui column form segment&quot;&gt;
-            &lt;h3 class=&quot;ui block header&quot;&gt; Enter Status&lt;/h3&gt;
-            &lt;form action=&quot;homeprofile/changetext&quot; method=&quot;post&quot;&gt;
-              &lt;textarea class=&quot;ui field&quot; name=&quot;profiletext&quot;&gt; &lt;/textarea&gt;
-              &lt;input class=&quot;ui blue button&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
-            &lt;/form&gt;
-          &lt;/div&gt;
-</code></pre>
-
-<p><img alt="" src="./img/18.png"></p>
-<p>change header color:</p>
-<pre><code class="html">            &lt;h3 class=&quot;ui teal block header&quot;&gt; Enter Status&lt;/h3&gt;
-</code></pre>
-
-<p>Invert it:</p>
-<pre><code class="html">            &lt;h3 class=&quot;ui inverted teal block header&quot;&gt; Enter Status&lt;/h3&gt;
-</code></pre>
-
-<p><img alt="" src="./img/19.png"></p>
+<p>These is a navigable version of the site we have been building so far:</p>
+<ul>
+<li><a href="archives/lab05-after-nav/home.html">home.html</a></li>
+</ul>
     </div>
     <div class="tab-pane fade" id="Exercises">
       <h1>Exercises</h1>
-<p>Lab so far</p>
+<p>This is the lab so far:</p>
 <ul>
-<li><a href="./archives/lab05-spacebook.zip">lab05-spacebook.zip</a></li>
+<li><a href="./archives/lab05-bootstrap.zip">lab05-bootstrap.zip</a></li>
 </ul>
-<p>Explore other components?</p>
+<h2>Exercise 1: Experiment with Sections</h2>
+<p>Create a selection of new pages based on 'Page' layouts here:</p>
+<p><img alt="" src="img/03x.png"></p>
+<p>Keep a close eye on the html generated in each case. See if you can identify the major components in the html content.</p>
+<h2>Exercise 2: Experiment with Components</h2>
+<p>For the pages created in Exercise 1, introduce a range of 'Typography', 'Components', and 'Buttons':</p>
+<p><img alt="" src="img/04x.png"></p>
+<p>Again, keep an eye on the html as generated.</p>
+<h2>Exercise 3: Bootstrap Documentation</h2>
+<p>This is the official Bootstrap site:</p>
+<ul>
+<li><a href="http://getbootstrap.com/">http://getbootstrap.com/</a></li>
+</ul>
+<p>The primary documentation is challenging, but you should be able to get the general feel from these two pages:</p>
+<ul>
+<li><a href="http://getbootstrap.com/css/">http://getbootstrap.com/css/</a></li>
+<li><a href="http://getbootstrap.com/components/">http://getbootstrap.com/components/</a></li>
+</ul>
+<p>Notice that most this documentation is concerned with the Html elements and classes your page needs equip it with the layouts you are seeking. A basic knowledge of CSS needed, but CSS rules rarely appear in the above guides.</p>
+<p>There are dozens of 'bootstrap tutorials' of varying quality (search for them). Make sure the tutorial refers to Bootstrap 3 (not 2).
+Here is a useful starting point:</p>
+<ul>
+<li><a href="http://www.sitepoint.com/understanding-twitter-bootstrap-3/">http://www.sitepoint.com/understanding-twitter-bootstrap-3/</a></li>
+</ul>
+<h2>Exercise 4: Rework Assignment</h2>
+<p>Rework you assignment using bootstrap. You could use Pingendo to design the basic basic structure, and the copy over the content from your assignment as appropriate.</p>
     </div>
 </div>
-<br>
+<br> <br>
 
 
     </div>

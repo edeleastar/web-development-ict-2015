@@ -1,0 +1,530 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <div class="navbar-brand">
+        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+        Semantic HTML & UI
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#Lab-05" data-toggle="tab"> Lab-05 </a> </li>
+          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
+          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
+          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
+          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
+          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
+          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
+          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
+          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Lab-05">
+    <h1>Objectives</h1>
+<p>In this lab we reconfigure one of our earlier labs to use the Semantic UI CSS framework. This will involve downloading and installing the latest version into our project, and then reconfiguring the elements, classes and IDs we have been using to instead use the Semantic UI design vocabulary.</p>
+  </div>
+
+    <div class="tab-pane fade" id="01">
+      <h1>Setup</h1>
+<p>Create new project called lab05-spacebook. Copy over all sources from last weeks lab, which is available here:</p>
+<ul>
+<li><a href="./archives/lab04-spacebook.zip">lab04-spacebook.zip</a></li>
+</ul>
+<p>Visit :</p>
+<ul>
+<li><a href="http://semantic-ui.com">http://semantic-ui.com</a></li>
+</ul>
+<p>and download the archive.</p>
+<p>Extract the archive. It contains a folder called 'packaged'. Rename this folder to 'semantic', and copy this folder into your WebContent folder in your new project.</p>
+<p>Include a new entry in head element which links to the new css file.</p>
+<h1>home.html</h1>
+<pre><code class="html">  &lt;head&gt;
+    &lt;title&gt;SpaceBook&lt;/title&gt;
+    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;semantic/css/semantic.min.css&quot; media=&quot;screen&quot; /&gt;
+    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;home.css&quot; media=&quot;screen&quot; /&gt;
+  &lt;/head&gt;
+</code></pre>
+
+<p><img alt="" src="./img/01.png"></p>
+<p>Remove all of contents of 'home.css' - but leave the file in place
+You should see the new semantic folder in your project explorer.</p>
+<p><img alt="" src="./img/02.png"></p>
+    </div>
+    <div class="tab-pane fade" id="02">
+      <h1>Menu</h1>
+<p>Move navigation section to top of body:</p>
+<pre><code class="html">  &lt;body id=&quot;home&quot;&gt;
+     &lt;div id=&quot;navigation&quot;&gt;
+      &lt;ul id=&quot;tabs&quot;&gt;
+        &lt;li id=&quot;home&quot;&gt;    &lt;a href=&quot;home.html&quot;&gt;Home&lt;/a&gt;     &lt;/li&gt;
+        &lt;li id=&quot;members&quot;&gt; &lt;a href=&quot;members.html&quot;&gt;Members&lt;/a&gt;  &lt;/li&gt;
+        &lt;li id=&quot;homreprofile&quot;&gt; &lt;a href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;  &lt;/li&gt;
+        &lt;li id=&quot;logout&quot;&gt;  &lt;a href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;   &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;header&quot;&gt;
+      &lt;h1&gt;SpaceBook: Homer's Home Page&lt;/h1&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p>Remove <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code> elements from within 'navigation' and change the id from navigation to the class ui menu:</p>
+<pre><code class="html">    &lt;div class=&quot;ui menu&quot;&gt;
+      &lt;a href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
+      &lt;a href=&quot;members.html&quot;&gt;Members&lt;/a&gt;  
+      &lt;a href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;  
+      &lt;a href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p><img alt="" src="./img/03.png"></p>
+<p>Introduce class for each menu item:</p>
+<pre><code class="html">    &lt;div class=&quot;ui menu&quot;&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;members.html&quot;&gt;Members&lt;/a&gt;  
+      &lt;a class=&quot;ui item&quot; href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;  
+      &lt;a class=&quot;ui item&quot; href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p><img alt="" src="./img/04.png"></p>
+<p>Change to <code>&lt;nav&gt;</code>:</p>
+<pre><code class="html">    &lt;nav class=&quot;ui menu&quot;&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;members.html&quot;&gt;Members&lt;/a&gt;  
+      &lt;a class=&quot;ui item&quot; href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;  
+      &lt;a class=&quot;ui item&quot; href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
+    &lt;/nav&gt;
+</code></pre>
+
+<p><img alt="" src="./img/04.png"></p>
+<p>Remove 'home' from body</p>
+<pre><code class="html">  &lt;body&gt;
+    &lt;nav class=&quot;ui menu&quot;&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;members.html&quot;&gt;Members&lt;/a&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
+    &lt;/nav&gt;
+</code></pre>
+
+<p>Replicate in:</p>
+<ul>
+<li>members.html</li>
+<li>homeprofile.html</li>
+</ul>
+<p>The above will not work, as also need :</p>
+<pre><code class="html">    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;semantic/css/semantic.min.css&quot; media=&quot;screen&quot; /&gt;
+</code></pre>
+
+<p>in members and profile.</p>
+<p><img alt="" src="./img/05.png">
+<img alt="" src="./img/06.png"></p>
+<h1>Exercise:</h1>
+<p>Explore alternative Menu styles here:</p>
+<ul>
+<li><a href="http://semantic-ui.com/collections/menu.html">http://semantic-ui.com/collections/menu.html</a></li>
+</ul>
+<p>Experiment and explore ....</p>
+    </div>
+    <div class="tab-pane fade" id="03">
+      <h1>Header</h1>
+<p>Explore:</p>
+<ul>
+<li><a href="http://semantic-ui.com/elements/header.html">http://semantic-ui.com/elements/header.html</a></li>
+</ul>
+<p>Replace :</p>
+<pre><code class="html">    &lt;div class=&quot;header&quot;&gt;
+      &lt;h1&gt;SpaceBook: Homer's Home Page&lt;/h1&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p>with</p>
+<pre><code>    &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook: Homer's Home Page&lt;/h2&gt;
+</code></pre>
+
+<p>Similar for members and homeprofile....</p>
+<h1>Exercise:</h1>
+<p>Explore alternative Header styles here:</p>
+<ul>
+<li><a href="http://semantic-ui.com/elements/header.html">http://semantic-ui.com/elements/header.html</a></li>
+</ul>
+<p>Experiment and explore ....</p>
+    </div>
+    <div class="tab-pane fade" id="04">
+      <h1>Sections and Segments</h1>
+<p>Rework the body of home.html as follows:</p>
+<pre><code class="html">  &lt;body&gt;
+    &lt;nav class=&quot;ui menu&quot;&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;home.html&quot;&gt;Home&lt;/a&gt; &lt;a class=&quot;ui item&quot;
+        href=&quot;members.html&quot;&gt;Members&lt;/a&gt; &lt;a class=&quot;ui item&quot;
+        href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt; &lt;a class=&quot;ui item&quot;
+        href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;section&gt;
+      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook: Homer's Home Page&lt;/h2&gt;
+      &lt;div id=&quot;maincontent&quot;&gt;
+        &lt;div id=&quot;primary&quot;&gt;
+          &lt;h2&gt;Friends&lt;/h2&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&quot;marge.html&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;lisa.html&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;secondary&quot;&gt;
+          &lt;h2&gt;Messages&lt;/h2&gt;
+          &lt;ul&gt;
+            &lt;li&gt;marge says...&quot;Hey there Homer, when are you going to
+              work?&quot;&lt;/li&gt;
+            &lt;li&gt;lisa says...&quot;Move off the couch dad!&quot;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/body&gt;
+</code></pre>
+
+<p>i.e. new <code>&lt;section&gt;</code> tag replacing <code>&lt;div&gt;</code> with id 'maincontent'. Removed footer..</p>
+<p><img alt="" src="./img/07.png"></p>
+<pre><code class="html">    &lt;section class=&quot;ui segment&quot;&gt;
+</code></pre>
+
+<p><img alt="" src="./img/08.png"></p>
+<p>Reproduce on members and homeprofile</p>
+<h1>Exercise</h1>
+<p>Explore alternative segment styles here:</p>
+<ul>
+<li><a href="http://semantic-ui.com/elements/segment.html">http://semantic-ui.com/elements/segment.html</a></li>
+</ul>
+<p>Experiment and explore ....</p>
+    </div>
+    <div class="tab-pane fade" id="05">
+      <h1>Grid</h1>
+<p>change Home as follows:</p>
+<pre><code class="html">    &lt;section class=&quot;ui segment&quot;&gt;
+      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook: Homer's Home Page&lt;/h2&gt;
+      &lt;div class=&quot;ui two column grid segment&quot;&gt;
+        &lt;div class=&quot;ui row&quot;&gt;
+          &lt;div class=&quot;ui column&quot;&gt;
+            &lt;h2&gt;Friends&lt;/h2&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;marge.html&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;lisa.html&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)&lt;/li&gt;
+            &lt;/ul&gt;
+           &lt;/div&gt;
+          &lt;div class=&quot;ui column&quot;&gt;
+            &lt;h2&gt;Messages&lt;/h2&gt;
+            &lt;ul&gt;
+              &lt;li&gt;marge says...&quot;Hey there Homer, when are you going to work?&quot;&lt;/li&gt;
+              &lt;li&gt;lisa says...&quot;Move off the couch dad!&quot;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+</code></pre>
+
+<p><img alt="" src="./img/09.png"></p>
+<p>Do same for homeprofile and members:</p>
+<pre><code class="html">    &lt;section class=&quot;ui segment&quot;&gt;
+      &lt;h2 class=&quot;ui header&quot;&gt;Homer's Profile&lt;/h2&gt;
+      &lt;div class=&quot;ui two column grid segment&quot;&gt;
+        &lt;div class=&quot;ui row&quot;&gt;
+          &lt;div class=&quot;ui column&quot;&gt;
+            &lt;p&gt;
+              &lt;img src=&quot;images/homer.gif&quot; /&gt;
+            &lt;/p&gt;
+            &lt;form action=&quot;homeprofile/upload&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+              &lt;input type=&quot;file&quot; name=&quot;userfile&quot; value=&quot;&quot; /&gt;
+              &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;upload&quot; /&gt;
+            &lt;/form&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;ui column&quot;&gt;
+            &lt;form action=&quot;homeprofile/changetext&quot; method=&quot;post&quot;&gt;
+              &lt;textarea name=&quot;profiletext&quot; cols=&quot;30&quot; rows=&quot;8&quot;&gt; &lt;/textarea&gt;
+              &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
+            &lt;/form&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+</code></pre>
+
+<p><img alt="" src="./img/10.png"></p>
+<pre><code>    &lt;section class=&quot;ui segment&quot;&gt;
+      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook's Members&lt;/h2&gt;  
+      &lt;ul&gt;
+        &lt;li&gt;marge [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;
+        &lt;li&gt;bart [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;
+        &lt;li&gt;lisa [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;
+        &lt;li&gt;maggie [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;  
+      &lt;/ul&gt;
+    &lt;/section&gt;
+</code></pre>
+
+<p><img alt="" src="./img/11.png"></p>
+<h1>Exercise</h1>
+<p>Explore alternative grid styles here:</p>
+<ul>
+<li><a href="http://semantic-ui.com/collections/grid.html">http://semantic-ui.com/collections/grid.html</a></li>
+</ul>
+<p>Experiment and explore ....</p>
+    </div>
+    <div class="tab-pane fade" id="06">
+      <h1>Lists</h1>
+<p>Open members - and adjust as follows:</p>
+<pre><code>    &lt;section class=&quot;ui segment&quot;&gt;
+      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook's Members&lt;/h2&gt;  
+      &lt;div class=&quot;ui list&quot;&gt;
+        &lt;div class=&quot;item&quot;&gt;
+          marge [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+        &lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;
+          bart  [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]  
+        &lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;
+          lisa  [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+        &lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;
+          maggie [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+</code></pre>
+
+<p><img alt="" src="./img/12.png"></p>
+<p>Add icon...:</p>
+<pre><code class="html">    &lt;section class=&quot;ui segment&quot;&gt;
+      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook's Members&lt;/h2&gt;  
+      &lt;div class=&quot;ui list&quot;&gt;
+        &lt;div class=&quot;item&quot;&gt;
+          &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+          marge [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+        &lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;
+          &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+          bart  [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]  
+        &lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;
+          &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+          lisa  [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+        &lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;
+          &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+          maggie [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+</code></pre>
+
+<p><img alt="" src="./img/13.png"></p>
+<p>Do same for lists on home</p>
+<pre><code class="html">    &lt;section class=&quot;ui segment&quot;&gt;
+      &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook: Homer's Home Page&lt;/h2&gt;
+      &lt;div class=&quot;ui two column grid segment&quot;&gt;
+        &lt;div class=&quot;ui row&quot;&gt;
+          &lt;div class=&quot;ui column&quot;&gt;
+            &lt;h2&gt;Friends&lt;/h2&gt;
+            &lt;div class=&quot;ui list&quot;&gt;
+              &lt;div class=&quot;item&quot;&gt;
+                &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+                &lt;a href=&quot;marge.html&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)
+              &lt;/div&gt;
+              &lt;div class=&quot;item&quot;&gt;
+                &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;  
+                &lt;a href=&quot;lisa.html&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)
+              &lt;/div&gt;
+             &lt;/div&gt;
+           &lt;/div&gt;
+          &lt;div class=&quot;ui column&quot;&gt;
+            &lt;h2&gt;Messages&lt;/h2&gt;
+            &lt;div class=&quot;ui list&quot;&gt;
+              &lt;div class=&quot;item&quot;&gt;
+                &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+                 marge says...&quot;Hey there Homer, when are you going to work?&quot;
+               &lt;/div&gt;  
+              &lt;div class=&quot;item&quot;&gt;
+                &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+                lisa says...&quot;Move off the couch dad!&quot;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+</code></pre>
+
+<p><img alt="" src="./img/14.png"></p>
+<h1>Exercise</h1>
+<p>Now try alternatives:</p>
+<ul>
+<li><a href="http://semantic-ui.com/views/list.html">http://semantic-ui.com/views/list.html</a></li>
+</ul>
+    </div>
+    <div class="tab-pane fade" id="07">
+      <h1>Forms</h1>
+<p>On homeprofile, change form as follows:</p>
+<pre><code class="html">          &lt;div class=&quot;ui column form segment&quot;&gt;
+            &lt;form action=&quot;homeprofile/changetext&quot; method=&quot;post&quot;&gt;
+              &lt;textarea name=&quot;profiletext&quot;&gt; &lt;/textarea&gt;
+              &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
+            &lt;/form&gt;
+          &lt;/div&gt;
+</code></pre>
+
+<p><img alt="" src="./img/15.png"></p>
+<p>change button:</p>
+<pre><code class="html">              &lt;input class=&quot;ui blue button&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
+</code></pre>
+
+<p><img alt="" src="./img/16.png"></p>
+<pre><code class="html">              &lt;textarea class=&quot;ui field&quot; name=&quot;profiletext&quot;&gt; &lt;/textarea&gt;
+</code></pre>
+
+<p><img alt="" src="./img/17.png"></p>
+<p>Put in a header:</p>
+<pre><code class="html">          &lt;div class=&quot;ui column form segment&quot;&gt;
+            &lt;h3 class=&quot;ui block header&quot;&gt; Enter Status&lt;/h3&gt;
+            &lt;form action=&quot;homeprofile/changetext&quot; method=&quot;post&quot;&gt;
+              &lt;textarea class=&quot;ui field&quot; name=&quot;profiletext&quot;&gt; &lt;/textarea&gt;
+              &lt;input class=&quot;ui blue button&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
+            &lt;/form&gt;
+          &lt;/div&gt;
+</code></pre>
+
+<p><img alt="" src="./img/18.png"></p>
+<p>change header color:</p>
+<pre><code class="html">            &lt;h3 class=&quot;ui teal block header&quot;&gt; Enter Status&lt;/h3&gt;
+</code></pre>
+
+<p>Invert it:</p>
+<pre><code class="html">            &lt;h3 class=&quot;ui inverted teal block header&quot;&gt; Enter Status&lt;/h3&gt;
+</code></pre>
+
+<p><img alt="" src="./img/19.png"></p>
+    </div>
+    <div class="tab-pane fade" id="Exercises">
+      <h1>Exercises</h1>
+<p>Lab so far</p>
+<ul>
+<li><a href="./archives/lab05-spacebook.zip">lab05-spacebook.zip</a></li>
+</ul>
+<p>Explore other components?</p>
+    </div>
+</div>
+<br>
+
+
+    </div>
+
+
+<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <small>
+    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+    </a>
+    </small>
+</div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("img-responsive");
+
+  $(".tab-content img").each(function()
+  {
+    var title = this.alt;
+    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  });
+})    </script>
+
+  </body>
+ </html>

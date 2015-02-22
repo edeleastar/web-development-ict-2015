@@ -1,0 +1,983 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <div class="navbar-brand">
+        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+        Introducing CSS
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#Lab-02" data-toggle="tab"> Lab-02 </a> </li>
+          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
+          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
+          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
+          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
+          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
+          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
+          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
+          <li><a href= "#08" data-toggle="tab"> 08 </a> </li>
+          <li><a href= "#09" data-toggle="tab"> 09 </a> </li>
+          <li><a href= "#10" data-toggle="tab"> 10 </a> </li>
+          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Lab-02">
+    <h1>Objectives</h1>
+<p>Begin a new project which will have CSS stylesheet from the beginning. Explore some of the basic features of CSS, including colours, font and techniques for setting styles across entire sections of a page.</p>
+  </div>
+
+    <div class="tab-pane fade" id="01">
+      <h1>Setup</h1>
+<h2>Projects from Lab01</h2>
+<p>You may have a projects in eclipse called 'fitstgo' and 'lab01' from last week:</p>
+<p><img alt="" src="./img/x01.png"></p>
+<p>However, if you did not save these projects, here are two project archives here of the completed labs:</p>
+<ul>
+<li><a href="./archives/firstgo.zip">firstgo.zip</a></li>
+<li><a href="./archives/lab01.zip">lab01.zip</a></li>
+</ul>
+<p>To open these in eclipse, first extract the archives somewhere on our hard disk. The, in Eclipse, select 'File-&gt;Import' menu option, and in the dialog select 'Existing Project into Eclipse'</p>
+<p><img alt="" src="./img/x02.png"></p>
+<p>When you browse to and select the folders to which the project have expanded, you should see this:</p>
+<p><img alt="" src="./img/x03.png"></p>
+<p>Note carefully the 'Copy Project into Workspace' option. If you select this, then the full project will be copied into your 'workspace' folder. If you leave in unchecked, then it will remain in the folder where you unzipped it, but it will be 'linked to' from your workspace.</p>
+<p>This can be a confusion distinction until you get used to it. For the moment, perhaps, the best option is to check the option and copy the project into your workspace folder.</p>
+<p>Another complication is that the projects cannot be imported into a workspace what already contains projects with the same name. So you did save the projects, you cannot import these version into the same workspace. If that is the case, you can create a new workspace (File-&gt;Switch Workspace) and import these projects there.</p>
+<h2>Project for Lab02</h2>
+<p>For some of the labs, we would like to build on a foundation established from the previous weeks work. However, we might find it useful to keep the project separate, so the earlier labs are preserved as we left them (in case we wish to revert to them). Normally this would be the task of a revision control system such as git or subversion. For the moment we will just duplicate the projects</p>
+<p>This can be easily accomplished in eclipse. Select the lab01 project, and select 'Edit-&gt;Copy'. Then select 'Edit-&gt;Paste' - which will suggest a default name/location:</p>
+<p><img alt="" src="./img/x04.png"></p>
+<p>Change the name to lab02 as shown and press ok. The end result might look like this in eclipse:</p>
+<p><img alt="" src="./img/x05.png"></p>
+<p>For the remainder of this lab, you can work in this new project.</p>
+<p>Before starting, see if you can locate the actual project files in Explorer/Finder. See if you can open the index.html file using Chrome or some other browser.</p>
+    </div>
+    <div class="tab-pane fade" id="02">
+      <h1>CSS Inheritance</h1>
+<p>Currently our CSS file looks like this:</p>
+<pre><code class="css">body
+{
+  font-family:sans-serif;
+}
+
+h1, h2
+{
+  color: gray
+}
+
+h1
+{
+  border-bottom: 1px solid black;
+}
+</code></pre>
+
+<p>Which produces the following style in the browser:</p>
+<p><img alt="" src="./img/x06.png"></p>
+<p>Note the following text in our page:</p>
+<pre><code class="html">      This week we recommend &lt;em&gt;the Crazies&lt;/em&gt;.  
+</code></pre>
+
+<p>This uses the <code>&lt;em&gt;</code> element, which introduces an emphasis style:</p>
+<ul>
+<li><a href="http://reference.sitepoint.com/html/em">http://reference.sitepoint.com/html/em</a></li>
+</ul>
+<p>You may be able to see that this text is in italics.</p>
+<p>We can introduce the following rule into our stylesheet (style.css) to target this specific element:</p>
+<pre><code class="css">em
+{
+  color:red;
+}
+</code></pre>
+
+<p>Save the stylesheet and refresh the page in the browser. The text 'The Crazies' should be in red.</p>
+<p>When experimenting with CSS, we often want to experiment with the effects we are introducing. Specifically, introducing some rules, and then perhaps removing them again to see the difference (if any).</p>
+<p>Take the first rule in your stylesheet and 'comment out' the font rule:</p>
+<pre><code class="css">body
+{
+  /*font-family:sans-serif;*/
+}
+</code></pre>
+
+<p>Save and reload. You should be able to notice the difference. This is called 'commenting' and is a common technique in both programming and web development. 'Uncomment' the rule again (remove the <code>/*</code> and <code>*/</code> symbols).</p>
+<p>Now introduce the following rule:</p>
+<pre><code class="css">p
+{
+  font-family:serif;
+}
+</code></pre>
+
+<p>Have a close look at the resultant page. What type of font is used by the headings? What type for the paragraphs? Can you explain the difference? Comment out the body font rule again (as we did above). What is the effect?</p>
+    </div>
+    <div class="tab-pane fade" id="03">
+      <h1>CSS Classes</h1>
+<p>Open the newreleases.html file in the editor and browser views.</p>
+<p>How would we style each paragraph separately so that each new release had a different colour text? Styling the <code>&lt;p&gt;</code> element means that all <code>&lt;p&gt;</code> elements are styled in the same way. We can define a class of elements, and then apply styles to any element that belongs to that class.</p>
+<p>Open up the newreleases.html file and go to the first paragraph. This text we want to display as red. Add an attribute called class, with an id "special" to the <code>&lt;p&gt;</code> element as below:</p>
+<pre><code class="html">    &lt;h2&gt;The Hobbit &lt;/h2&gt;
+    &lt;p class=&quot;special&quot;&gt;
+      &lt;img src=&quot;../images/hobbit.jpg&quot;&gt;
+      he first in a trilogy of films based on the enduring masterpiece The Hobbit by J.R.R. Tolkien,
+      The Hobbit: An Unexpected Journey follows title character Bilbo Baggins,
+      who along with the Wizard Gandalf and 13 Dwarves, led by Thorin Oakenshield is
+      swept into an epic quest to reclaim the lost Dwarf Kingdom of Erebor from the fearsome
+      Dragon Smaug.
+    &lt;/p&gt;
+</code></pre>
+
+<p>The paragraph above now belongs to the "special" class. We can now apply rules to that class of elements. To select a class in CSS, you write the selector like this:</p>
+<pre><code class="css">p.special
+{
+  color: red;
+}
+</code></pre>
+
+<p>This allows you to select all elements that belong to a particular class. Save your html file and your css file and reload the new releases web page.</p>
+<p>At this stage, there appears to be no change. This is because, when we introduced the style.css file, we only linked the index.html to that style sheet:  </p>
+<pre><code class="html">    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;style.css&quot; media=&quot;screen&quot; /&gt;
+</code></pre>
+
+<p>This linkage must be established in each html file. Introduce this into 'newreleases.html' now, and reload. You should see the class rule we just introduced come into play.</p>
+<p>However, if you use the rule as shown above, you will still have a problem - as the 'newreleases.html' file is in a subdirectory of the folder containing the stylesheet. We will need to reflect this in the link element:</p>
+<pre><code class="html">    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;../style.css&quot; media=&quot;screen&quot; /&gt;
+</code></pre>
+
+<p>If you also want the heading 2 to be associated with the same paragraph class to be red in colour then you add an extra selector to your css rule</p>
+<pre><code class="css">h2.special, p.special
+{
+  color: red;
+}
+</code></pre>
+
+<p>..and you add the class to the <code>&lt;h2&gt;</code> element in your html file.</p>
+<pre><code class="css">&lt;h2 class=&quot;special&quot;&gt;
+</code></pre>
+
+<p>If we were to continue adding elements to a class this will get to be a lengthy process so we can write a rule for all the elements in a class:</p>
+<pre><code class="css">.special
+{
+  color: red;
+}
+</code></pre>
+
+<p>This will ensure that all elements of the "special" class are coloured red.</p>
+<p>Your CSS might now be:</p>
+<pre><code class="CSS">body
+{
+  font-family:sans-serif;
+}
+
+h1, h2
+{
+  color: gray
+}
+
+h1
+{
+  border-bottom: 1px solid black;
+}
+
+em
+{
+  color:red;
+}
+
+p
+{
+  font-family:serif;
+}
+
+.special
+{
+  color: red;
+}
+</code></pre>
+    </div>
+    <div class="tab-pane fade" id="04">
+      <h1>Fonts</h1>
+<h3>Font families</h3>
+<p>Each font family contains a set of fonts that share common characteristics. There are five font familys: sans-serif, serif, monospace, cursive, and fantasy. Each family includes a large set of fonts. Fonts are not consistently available from one computer to another. The available fonts depends on the operating system as well as the fonts and applications that a user has installed. Here's a an example of how to use font-family:</p>
+<pre><code class="css">body
+{
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+</code></pre>
+
+<p>The font-family property provides you with a list of preferred fonts. The idea is that most browsers will have your first choice, in this case Verdana, but if none of the specific fonts can be found then the browser uses its default "sans-serif" font. Always put a generic font family name at the end, like "serif" or "sans-serif". Experiment with these in the style.css</p>
+<h2>Font sizes</h2>
+<p>Often the default sizes for headings are a bit large to change these defaults, we have four general techniques:</p>
+<h2>1. Specifying using pixels.</h2>
+<p>You can specify a font size in pixels, just like the pixel dimensions you used in lab05. When you specify font size in pixels, you are telling the browser how many pixels tall the letters should be.</p>
+<pre><code class="css">body
+{
+font-size: 14px;
+}
+</code></pre>
+
+<p>The px must come directly after the number, there cannot be a space between them.</p>
+<h2>2. Specifying using percentage.</h2>
+<p>Unlike pixels, which tell the font exactly how big it should be in pixels, a font size specified as a percentage tells the font how big it should be relative to another font size.</p>
+<pre><code class="css">h1
+{
+  font-size: 150%;
+}
+</code></pre>
+
+<p>This says that the font size should be 150% of another font size. Font-size is a property that is inherited from the parent element, when you specify a % font size it is relative to the parent element. <code>&lt;h1&gt;</code> inherits from body so <code>&lt;h1&gt;</code> headings will be 150% of 14px.</p>
+<h2>3. Specifying using "em".</h2>
+<p>This like percentage is another unit of measure. With em you don't specify a percentage, instead you specify a scaling factor.</p>
+<pre><code class="css">h2
+{
+  font-size: 1.2em;
+}
+</code></pre>
+
+<p>If you use this to specify a <code>&lt;h2&gt;</code> heading your <code>&lt;h2&gt;</code> headings will be 1.2 times the font size of the parent element, which in this case is 1.2 times 14px, which is about 17px.</p>
+<h2>4. Specifying using keywords.</h2>
+<p>You can specify a font size as xx-small, x-small,small,medium, large, x-large, or xx-large and the browser will translate these keywords into pixel values using defaults that are set in the browser.</p>
+<pre><code class="css">body
+{
+  font-size: small;
+}
+</code></pre>
+
+<p>It is important to note that earlier version of Internet Explorer does not support text scaling when the font size is specified using pixels.  Change the font sizes on mydvds web pages. Add in the following rules:</p>
+<pre><code class="css">body
+{
+  font-size: small;
+}
+h1
+{
+  font-size: 150%;
+}
+h2
+{
+  font-size: 130%;
+}
+</code></pre>
+
+<p>Save your css file and reload the home page. Take a look at the change in sizes.</p>
+<h2>Font Weight</h2>
+<p>The font weight property allows you to control how bold the text looks. Bold text looks darker than normal text and tends to be a bit fatter too. You can make any element use bold text by setting the font-weight property to bold.</p>
+<pre><code class="css">p
+{
+  font-weight: bold;
+}
+</code></pre>
+
+<p>You can also do it the other way, if you have an element that is set to bold by default, or is inheriting bold from a parent, then you can remove the bold.</p>
+<pre><code class="css">h1
+{
+  font-weight: normal;
+}
+</code></pre>
+
+<p>Experiment with changing the headings for your mydvds web site so that the default bold is changed to normal weight. Add the rule to your CSS file and reload the web site. Once you have seen the difference in the headings, change it back to bold.</p>
+    </div>
+    <div class="tab-pane fade" id="05">
+      <h1>Colours</h1>
+<p>Web colours are specified in terms of how much red, green, and blue make up the colour. You specify the amount of each colour from 0 to 100% and then add them all together to arrive at a final colour.</p>
+<p>You can use the names of colours, but CSS defines the names of only 17 colours. That number limits the expressiveness of your pages. By specifying colours in red, green and blue, you can have access to sixteen million colours.</p>
+<h2>Specifying Colour using colour names</h2>
+<p>The most straightforward way to describe a colour in CSS is just to use its name. For example to specify "silver" as the background colour of a body element:</p>
+<pre><code class="css">body
+{
+  background-color: silver;
+}
+</code></pre>
+
+<p>CSS colour names are case-insensitive, so you can type silver, Silver, or SILVER and all of them will work.</p>
+<h2>Specify in red, green and blue values.</h2>
+<p>If you want to specify an orange colour which consists of 80% red, 40% green and 0% blue:</p>
+<pre><code class="css">body
+{
+  background-color: rgb(80%, 40%, 0%);
+}
+</code></pre>
+
+<p>or you can specify it as numeric values between 0 and 255. So 80% of 255 is 204, 40% of 255 is 102, and 0% of 255 is 0.</p>
+<pre><code class="css">body
+{
+  background-color: rgb(204, 102, 0);
+}
+</code></pre>
+
+<h2>Specify colour using hex codes.</h2>
+<p>Each set of two digits of a hex code represents the red, green and blue of the colour. The first two represent red, the second two green and the last two blue.</p>
+<pre><code class="css">body
+{
+  background-color:  #cc6600;
+}
+</code></pre>
+    </div>
+    <div class="tab-pane fade" id="06">
+      <h1>Font &amp; Colour CSS</h1>
+<p>In your current style.css project, change your CSS file so it now contains the following:</p>
+<pre><code class="css">body
+{
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size:small;
+}
+
+h1, h2
+{
+  color: #007e7e;
+}
+
+h1
+{
+  font-size: 150%;
+}
+
+h2
+{
+  font-size: 130%;
+}
+
+p
+{
+ color: maroon;
+}
+</code></pre>
+
+<p>The default font family is sans-serif, this is last in the list, the others are alternatives. Save the file and load the home web page in your browser. The headings should now be in sans-serif and an aquamarine colour. The paragraph text is also sans-serif as all elements inherit the <code>&lt;body&gt;</code>s font-family property.</p>
+<p>Do these styles show up in the newreleases and directions html files? They require that the appropriate link element appear in the head element of each page. This was part the exercise from last weeks lab - complete this now if not already done, so that each page is linked to the same style sheet.</p>
+<p>We now want to adjust the line height of the text on the entire page so that there's more vertical space between each line. To do that we add a line-height property in the body rule.</p>
+<pre><code class="css">body
+{
+  /* as before */
+  line-height: 1.6em;
+}
+</code></pre>
+
+<p>This property allows us to specify the line height between each line. Like other font-related properties, you can specify the height in pixels, or using an em or percentage value that's relative to the font size. Save your CSS file and reload your index and newreleases web pages to see the change.</p>
+<p>Try a few different line heights like 200%, .5em, and 20px to see the effect. Change the height back to 1.6em when you are finished.</p>
+    </div>
+    <div class="tab-pane fade" id="07">
+      <h1>More Content</h1>
+<p>We will rework the index.html home page with some more content to illustrate some interesting CSS rules. Replace the first paragraph with the following content:</p>
+<pre><code class="html">    &lt;p&gt;
+      We have the biggest selection of DVDs and Games in Ireland.  
+      Check out our &lt;a href=&quot;catalogue/newreleases.html&quot;&gt;new releases&lt;/a&gt;,
+      This week we recommend &lt;em&gt;the Crazies&lt;/em&gt;.  
+      From our extensive catalog of DVDs and Games you choose and priortise the DVDs
+      you most want to see or Games you want to play. We have an advanced search facility
+      available for our users to search through our huge catalog of stock.
+      We stock a wide variety for movies from &lt;em&gt;Manga to Music and Comedy to Childrens,
+      Games from Puzzles to Beat'em Up and Party to Action/Adventure&lt;/em&gt; as well as all the
+      latest new releases.
+    &lt;/p&gt;
+    &lt;p&gt;
+      We endeavour to give you your most wanted DVD and/or Game from your rental
+      queue depending on our stock situation. All DVDs and Games are posted out at noon
+      FIRST CLASS, and should be at your doorstep by the next morning.
+      When we dispatch your DVD/Game we'll send you an e-mail to advise you on which
+      DVD/Game was dispatched to you. There are no late fees so you can watch or play at your leisure
+    &lt;/p&gt;
+    &lt;p&gt;
+      Once you finish watching your DVD or playing your Game you simply return it to us
+      using the Pre-Paid envelope provided.
+      Remember, As there are NO LATE FEEs, you can keep the DVD or Game for as long as you want,
+      only the sooner you return the disc, the sooner we can send you your next available choice.
+    &lt;/p&gt;
+    &lt;h2&gt;You May Have Missed ...&lt;/h2&gt;
+    &lt;p&gt;
+      &lt;img src=&quot;./images/argo.jpg&quot;&gt;
+    &lt;/p&gt;
+    &lt;h3&gt;Argo&lt;/h3&gt;  
+    &lt;p&gt;
+      &lt;img src=&quot;images/star45.gif&quot; alt=&quot;4.5 stars&quot;&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      Based on real events, the dramatic thriller &quot;Argo&quot; chronicles the life-or-death covert operation
+      to rescue six Americans, which unfolded behind the scenes of the Iran hostage crisis,
+      focusing on the little-known role that the CIA and Hollywood played-information that was not
+      declassified until many years after the event.
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;img src=&quot;./images/skyfall.jpg&quot;&gt;
+    &lt;/p&gt;
+    &lt;h3&gt;Skyfall&lt;/h3&gt;
+    &lt;p&gt;
+      &lt;img src=&quot;images/star45.gif&quot; alt=&quot;4.5 stars&quot;&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      Bond's loyalty to M is tested as her past comes back to haunt her. As MI6 comes under attack,
+      007 must track down and destroy the threat, no matter how personal the cost.
+    &lt;/p&gt;
+</code></pre>
+
+<p>The above content relies on a number of image files:</p>
+<hr>
+<p><img alt="" src="./img/star40.gif"></p>
+<hr>
+<p><img alt="" src="./img/star45.gif"></p>
+<hr>
+<p>Save these three files to your computer. To do this, right click on each one in turn and select save as. Then you can drag and drop them directly into the images folder in your eclipse project.</p>
+<p>If all this goes according to plan,  index page should now look something like this:</p>
+<p><img alt="" src="./img/x07.png"></p>
+    </div>
+    <div class="tab-pane fade" id="08">
+      <h1>Returns Paragraph</h1>
+<p>Locate the 'returns' paragraph in the home page (the third paragraph):</p>
+<pre><code class="html">  &lt;p&gt;
+    Once you finish watching your DVD or playing your Game you simply return it to us
+    using the Pre-Paid envelope provided.
+    Remember, As there are NO LATE FEEs, you can keep the DVD or Game for as long as you want,
+    only the sooner you return the disc, the sooner we can send you your next available choice.
+  &lt;/p&gt;
+</code></pre>
+
+<p>We would like to target this specific paragraph with some custom styles. To this end, we nominate it to a 'class' called 'returns':</p>
+<pre><code class="html">  &lt;p class=&quot;returns&quot;&gt;
+    Once you finish watching your DVD or playing your Game you simply return it to us
+    using the Pre-Paid envelope provided.
+    Remember, As there are NO LATE FEEs, you can keep the DVD or Game for as long as you want,
+    only the sooner you return the disc, the sooner we can send you your next available choice.
+  &lt;/p&gt;
+</code></pre>
+
+<p>In our stylesheet, we can devise a rule just for this paragraph:</p>
+<pre><code class="css">.returns
+{
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #a7cece;
+}
+</code></pre>
+
+<p>Reload and review the paragraph:</p>
+<p><img alt="" src="./img/02.png"></p>
+<p>We can see evidence of our targeted styles.</p>
+<p>We can add a little margin:</p>
+<pre><code class="css">.returns
+{
+  /* as before */
+  margin: 30px;
+}
+</code></pre>
+
+<p>Reload the page:</p>
+<p><img alt="" src="./img/03.png"></p>
+<p>Next, the background image. Save this image here to your images folder:</p>
+<p><img alt="" src="./img/background.gif"></p>
+<p>...and we can extend the returns rule with this property here:</p>
+<pre><code class="css">  background-image: url(images/background.gif) ;
+</code></pre>
+
+<p>This seems to yield a repeated pattern:</p>
+<p><img alt="" src="./img/04.png"></p>
+<p>Some further refinements can put a single image in the top right:</p>
+<pre><code class="css">  background-repeat: no-repeat;
+  background-position: top-left;
+</code></pre>
+
+<p>Reloading again:</p>
+<p><img alt="" src="./img/05.png"></p>
+<p>And we can also further refine the padding:</p>
+<pre><code class="css">  padding: 25px;
+  padding-left: 80px;
+  margin-right: 150px;
+</code></pre>
+
+<p>Looks like this:</p>
+<p><img alt="" src="./img/06.png"></p>
+<p>Our full rule for returns now looks like this:</p>
+<pre><code class="css">.returns
+{
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #a7cece;
+
+  margin: 30px;
+  padding: 25px;
+  padding-left: 80px;
+  margin-right: 150px;
+
+  background-image: url(./images/background.gif);
+
+  background-repeat: no-repeat;
+  background-position: top-left;
+}
+</code></pre>
+
+<p>Some further adjustments to the text itself:</p>
+<pre><code class="css">  line-height: 1.9em;
+  font-style: italic;
+  font-family: Georgia, &quot;Times New Roman&quot;, Times, serif;
+  color: black;
+</code></pre>
+
+<p>-</p>
+<p><img alt="" src="./img/07.png"></p>
+<p>Finally, we might adjust the border itself again:</p>
+<pre><code class="css">  border-color: white;
+  border-width: 1px;
+  border-style: dashed;
+</code></pre>
+
+<p>Which turns out as:</p>
+<p><img alt="" src="./img/08.png"></p>
+<p>Regrouping the properties, this is the complete rule:</p>
+<pre><code class="css">.returns
+{
+  border-color: white;
+  border-width: 1px;
+  border-style: dashed;
+
+  margin: 30px;
+  padding: 25px;
+  padding-left: 80px;
+  margin-right: 150px;
+
+  background-color: #a7cece;
+  background-image: url(./images/background.gif);
+  background-repeat: no-repeat;
+  background-position: top-left;
+
+  line-height: 1.9em;
+  font-style: italic;
+  font-family: Georgia, &quot;Times New Roman&quot;, Times, serif;
+  color: black;
+}
+</code></pre>
+    </div>
+    <div class="tab-pane fade" id="09">
+      <h1>Configuring Eclipse</h1>
+<p>Our challenge now is to make adjustments to move and entire set of content into its own 'panel', which we wish to move to the right hand side of our page. Achieving this effect here:</p>
+<p><img alt="" src="./img/x14.png"></p>
+<p>This will involve more significant surgery on the page itself in particular we will need to superimpose a structure on the page, grouping a whole set of elements into a new section.</p>
+<p>This section we call a 'Division' facilitated by the <code>&lt;div&gt;</code> tag.</p>
+<p>Before we introduce this, however, we should carefully inspect our html and verify that we are laying it out correctly, and in particular that we are obeying consistent indentation rules in the structure of the html itself.</p>
+<p>Indentation is simply a consistent placement of spaces before each element, such that it flows in an ordered manner reflecting the opening/closing of tags. We prefer to use 2 spaces for each 'level'.</p>
+<h3>Example Inconsistent indentation:</h3>
+<pre><code class="html">    &lt;p&gt;
+    We have the biggest selection of DVDs and Games in Ireland.
+    Check out our &lt;a href=&quot;catalogue/newreleases.html&quot;&gt;new releases&lt;/a&gt;,
+    This week we reccomend &lt;em&gt;the Crazies&lt;/em&gt;.  &lt;/p&gt;
+&lt;h2&gt;Directions&lt;/h2&gt;
+  &lt;p&gt;     You'll find us right in the center
+      of downtown Webville. If you need help finding
+      us, check out our
+      &lt;a href=&quot;about/directions.html&quot;&gt;detailed directions&lt;/a&gt;.
+      Come join us
+ &lt;/p&gt;
+</code></pre>
+
+<h3>Example Correct indentation</h3>
+<pre><code class="html">    &lt;p&gt;
+      We have the biggest selection of DVDs and Games in Ireland.
+      Check out our &lt;a href=&quot;catalogue/newreleases.html&quot;&gt;new releases&lt;/a&gt;,
+      This week we reccomend &lt;em&gt;the Crazies&lt;/em&gt;.  
+    &lt;/p&gt;
+    &lt;h2&gt;Directions&lt;/h2&gt;
+    &lt;p&gt;
+      You'll find us right in the center
+      of downtown Webville. If you need help finding
+      us, check out our
+      &lt;a href=&quot;about/directions.html&quot;&gt;detailed directions&lt;/a&gt;.
+      Come join us
+    &lt;/p&gt;
+</code></pre>
+
+<p>Review your index.html file not and ensure that it is correctly indented. One quick way to determine this is to 'fold' all the elements in the editor. To do this, right click in the left hand margin of the html editor and select 'Folding-&gt;Collapse All':</p>
+<p><img alt="" src="./img/10.png"></p>
+<p>This will reduce your editing view to this:</p>
+<p><img alt="" src="./img/11.png"></p>
+<p>and by selectively expanding elements, you should be able to generate a view like this:</p>
+<p><img alt="" src="./img/x08.png"></p>
+<p>It is likely that your indentation will not look like the above, so take the opportunity now to line up all elements consistently. This can be tedious, and there are tools to do this automatically, but do it manually for the moment.</p>
+<p>This mode of editing will allow us to clearly mark a 'division', indent it, and encapsulate it in the <code>&lt;div&gt;</code> tag. Once completed, we can give this division an ID, and target it with a rule to style just this panel appropriately.</p>
+<p>Before making this adjustment, however, we need to make one small change to the default Eclipse settings. By default, eclipse uses 'tabs' for indentation. We would like to change this to spaces 2 per indentation level.</p>
+<p>Select 'Window-&gt;Preferences' and change the setting under 'Web-&gt;HTML Files-&gt;Editor' as shown here:</p>
+<p><img alt="" src="./img/13.png"></p>
+<p>This adjustment make the task of introducing our <code>&lt;div&gt;</code> significantly easier, all the time maintaining our correct indentation level.</p>
+<p>Now, select the "You may have missed" section:</p>
+<p><img alt="" src="./img/x09.png"></p>
+<p>... and press 'tab' once. This should indent this region by 2 spaces:</p>
+<p><img alt="" src="./img/x10.png"></p>
+<p>Now insert the new <code>&lt;div&gt;</code> element to encapsulate this region:</p>
+<p><img alt="" src="./img/x12.png"></p>
+<p>No give the <code>&lt;div&gt;</code> you have just introduced an id:</p>
+<pre><code class="html">    &lt;div id=&quot;releases&quot;&gt;
+      &lt;h2&gt;You May Have Missed ...&lt;/h2&gt;
+      ...
+</code></pre>
+
+<p>the folding editor is a little temperamental, and can loose structural information easily. So, to restore reliably restore a correct view, close and reopen the editor (making sure to save the file), and you should be able to generate a consistent view.</p>
+    </div>
+    <div class="tab-pane fade" id="10">
+      <h1>Sidebar</h1>
+<p>We can now target this division directly with the following rule in the CSS:</p>
+<pre><code class="css">#releases
+{
+  border-width: thin;
+  border-style: solid;
+  border-color: #007e7e;
+}
+</code></pre>
+
+<p>This establishes a suitable border (reload to see the effect). Now lets set the width:</p>
+<pre><code class="css">  width: 15,0px;
+</code></pre>
+
+<p>And lets further set the general dimensions:</p>
+<pre><code class="css">  padding-right: 20px;  
+  padding-left: 20px;
+  padding-bottom 20px;
+</code></pre>
+
+<p>Set a margin:</p>
+<pre><code class="css">  margin-left: 20px;
+</code></pre>
+
+<p>and set the text more apropriately centered:</p>
+<pre><code class="css">  text-align: center;
+</code></pre>
+
+<p>Our full rule is now:</p>
+<pre><code class="css">#releases
+{
+  border-width: thin;
+  border-style: solid;
+  border-color: #007e7e;
+
+  width: 150px;
+  padding-right: 20px;  
+  padding-left: 20px;
+  padding-bottom 20px;
+  margin-left: 20px;
+
+  text-align: center;
+}
+</code></pre>
+
+<p>CSS enable us to shorten the structure somewhat, particularly when setting related properties. So we can replace:</p>
+<pre><code class="css">  padding-right: 20px;  
+  padding-left: 20px;
+  padding-bottom 20px;
+</code></pre>
+
+<p>with</p>
+<pre><code class="css">  padding: 0px 20px 30px 10px
+</code></pre>
+
+<p>Now add one more property to the same rule:</p>
+<pre><code class="css">  float: right;
+</code></pre>
+
+<p>Reload in browser view. This time something interesting happens the entire panel may 'float' to the right of the browser window:</p>
+<p><img alt="" src="./img/x20.png"></p>
+<p>The actual appearance may vary depending on the browser window size.</p>
+<p>Although this is promising, it is not quite what we were expecting. The 'releases' panel has floated left of the 'Directions' area, but is still below the main content of the home page. However, some small adjustments can realign the entire page.</p>
+<p>First, we introduce a new division to encapsulate the main content of the home page:</p>
+<p><img alt="" src="./img/x13.png"></p>
+<p>it is called 'maincontent'. Then we introduce a rule in the CSS to target this area:</p>
+<pre><code>#maincontent
+{
+  float:left;
+  width:800px;
+}
+</code></pre>
+
+<p>Although by no means complete yet with the 'directions' still liable to 'pop-out' unpredictably, it is possible that the page might look like this:</p>
+<p><img alt="" src="./img/x14.png"></p>
+<p>This is the complete stylesheet:</p>
+<pre><code class="css">body
+{
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size:small;
+  line-height: 1.6em;
+}
+
+h1, h2
+{
+  color: #007e7e;
+}
+
+h1
+{
+  font-size: 150%;
+}
+
+h2
+{
+  font-size: 130%;
+}
+
+p
+{
+ color: maroon;
+}
+
+.returns
+{
+  border-color: white;
+  border-width: 1px;
+  border-style: dashed;
+
+  margin: 30px;
+  padding: 25px;
+  padding-left: 80px;
+  margin-right: 150px;
+
+  background-color: #a7cece;
+  background-image: url(./images/background.gif);
+  background-repeat: no-repeat;
+  background-position: top-left;
+
+  line-height: 1.9em;
+  font-style: italic;
+  font-family: Georgia, &quot;Times New Roman&quot;, Times, serif;
+  color: black;
+}
+
+#releases
+{
+  border-width: thin;
+  border-style: solid;
+  border-color: #007e7e;
+
+  width: 150px;
+  padding: 0px 20px 30px 10px
+  margin-left: 20px;
+
+  text-align: center;
+
+  float:right;
+}
+
+#maincontent
+{
+  float:left;
+  width:800px;
+}
+</code></pre>
+
+<p>...and this is the complete index.html:</p>
+<pre><code class="html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My DVD Shop&lt;/title&gt;
+        &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;style.css&quot; media=&quot;screen&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;maincontent&quot;&gt;
+      &lt;h1&gt;Welcome to the New and Improved DVD Shop&lt;/h1&gt;
+      &lt;img src=&quot;images/moviebanner.png&quot;&gt;
+      &lt;p&gt;
+        We have the biggest selection of DVDs and Games in Ireland.  
+        Check out our &lt;a href=&quot;catalogue/newreleases.html&quot;&gt;new releases&lt;/a&gt;,
+        This week we recommend &lt;em&gt;the Crazies&lt;/em&gt;.  
+        From our extensive catalog of DVDs and Games you choose and priortise the DVDs
+        you most want to see or Games you want to play. We have an advanced search facility
+        available for our users to search through our huge catalog of stock.
+        We stock a wide variety for movies from &lt;em&gt;Manga to Music and Comedy to Childrens,
+        Games from Puzzles to Beat'em Up and Party to Action/Adventure&lt;/em&gt; as well as all the
+        latest new releases.
+      &lt;/p&gt;
+      &lt;p&gt;
+        We endeavour to give you your most wanted DVD and/or Game from your rental
+        queue depending on our stock situation. All DVDs and Games are posted out at noon
+        FIRST CLASS, and should be at your doorstep by the next morning.
+        When we dispatch your DVD/Game we'll send you an e-mail to advise you on which
+        DVD/Game was dispatched to you. There are no late fees so you can watch or play at your leisure
+      &lt;/p&gt;
+      &lt;p class=&quot;returns&quot;&gt;
+      Once you finish watching your DVD or playing your Game you simply return it to us
+      using the Pre-Paid envelope provided.
+      Remember, As there are NO LATE FEEs, you can keep the DVD or Game for as long as you want,
+      only the sooner you return the disc, the sooner we can send you your next available choice.
+    &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;releases&quot;&gt;
+      &lt;h2&gt;You May Have Missed ...&lt;/h2&gt;
+      &lt;p&gt;
+        &lt;img src=&quot;./images/argo.jpg&quot;&gt;
+      &lt;/p&gt;
+      &lt;h3&gt;Argo&lt;/h3&gt;  
+      &lt;p&gt;
+        &lt;img src=&quot;images/star45.gif&quot; alt=&quot;4.5 stars&quot;&gt;
+      &lt;/p&gt;
+      &lt;p&gt;
+        Based on real events, the dramatic thriller &quot;Argo&quot; chronicles the life-or-death covert operation
+        to rescue six Americans, which unfolded behind the scenes of the Iran hostage crisis,
+        focusing on the little-known role that the CIA and Hollywood played-information that was not
+        declassified until many years after the event.
+      &lt;/p&gt;
+      &lt;p&gt;
+        &lt;img src=&quot;./images/skyfall.jpg&quot;&gt;
+      &lt;/p&gt;
+      &lt;h3&gt;Skyfall&lt;/h3&gt;
+      &lt;p&gt;
+        &lt;img src=&quot;images/star45.gif&quot; alt=&quot;4.5 stars&quot;&gt;
+      &lt;/p&gt;
+      &lt;p&gt;
+      Bond's loyalty to M is tested as her past comes back to haunt her. As MI6 comes under attack,
+      007 must track down and destroy the threat, no matter how personal the cost.
+    &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;h2&gt;Directions&lt;/h2&gt;
+    &lt;p&gt;
+      You'll find us right in the center
+      of downtown Webville. If you need help finding
+      us, check out our
+      &lt;a href=&quot;about/directions.html&quot;&gt;detailed directions&lt;/a&gt;.
+      Come join us
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+    <div class="tab-pane fade" id="Exercises">
+      <h1>Exercises</h1>
+<h2>Solution</h2>
+<p>This is a solution to the lab:</p>
+<ul>
+<li><a href="./archives/lab02.zip">lab02.zip</a></li>
+</ul>
+<h2>Exercise 1</h2>
+<p>In this lab you have experimented with classes:</p>
+<ul>
+<li><a href="http://reference.sitepoint.com/css/classselector">http://reference.sitepoint.com/css/classselector</a></li>
+</ul>
+<p>Classes are one type of selector, with others listed here:</p>
+<ul>
+<li><a href="http://reference.sitepoint.com/css">http://reference.sitepoint.com/css</a> (middle column)</li>
+</ul>
+<p>Review the description of classes, and then have a look at Id selectors:</p>
+<ul>
+<li><a href="http://reference.sitepoint.com/css/idselector">http://reference.sitepoint.com/css/idselector</a></li>
+</ul>
+<p>Where you are using Classes in this lab, try switching to using IDs</p>
+<h2>Exercise 2</h2>
+<p>You might consider improving the look at feed of the directions page using the CSS features we have just covered. For instance:</p>
+<ul>
+<li>
+<p>Use and unordered list (<code>&lt;ol&gt;</code>) instead of a series of paragraphs for each of the directions.</p>
+</li>
+<li>
+<p>Wrap this entire list is a <code>&lt;div&gt;</code> and style it somewhat similarly to the returns paragraph we just styled</p>
+</li>
+<li>
+<p>Find an image to represent the shop, and see if you can mimic the CSS rules we just deployed to move the image into a right hand column as we have with the sidebar.</p>
+</li>
+</ul>
+    </div>
+</div>
+
+    </div>
+
+
+<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <small>
+    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+    </a>
+    </small>
+</div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("img-responsive");
+
+  $(".tab-content img").each(function()
+  {
+    var title = this.alt;
+    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  });
+})    </script>
+
+  </body>
+ </html>

@@ -1,0 +1,651 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <div class="navbar-brand">
+        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+        Navigation
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#Lab-04" data-toggle="tab"> Lab-04 </a> </li>
+          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
+          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
+          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
+          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
+          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
+          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
+          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
+          <li><a href= "#08" data-toggle="tab"> 08 </a> </li>
+          <li><a href= "#09" data-toggle="tab"> 09 </a> </li>
+          <li><a href= "#10" data-toggle="tab"> 10 </a> </li>
+          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Lab-04">
+    <h1>Objectives</h1>
+<p>Restructure the output of the last lab to participate in a tabbed navigation structure, and then produce a simple application mockup using these techniques. Do this by introduce a simple tabbed design into the site to provide the user with the visual metaphor for navigation. We then 'wire-up' these tabs to lead the user through the site. We will do this twice: once for the example content we laid out in last weeks lab. Then we will build a completely different site, using the same CSS rules.</p>
+  </div>
+
+    <div class="tab-pane fade" id="01">
+      <h1>Setup</h1>
+<p>Create a new Eclipse project - select project type to be "Static Web Project" again, and call this project "lab04". Copy over the content from the project 'lab03' from last week. In Eclipse project explorer, your workspace should look something like this:</p>
+<p><img alt="" src="./img/20.png"></p>
+<p>If you dont have lab03 completed (with the exercises), these are the four files we generated in that project:</p>
+<ul>
+<li>
+<p><a href="./archives/1.basicnav/home.html">home.html</a></p>
+</li>
+<li>
+<p><a href="./archives/1.basicnav/home.css">home.css</a></p>
+</li>
+<li>
+<p><a href="./archives/1.basicnav/page1.html">page1.html</a></p>
+</li>
+<li>
+<p><a href="./archives/1.basicnav/page2.html">page2.html</a></p>
+</li>
+</ul>
+<p>In your browser, you can select 'save link as' or equivalent and save these into your own workstation. To do this you will first have to locate the actual folder in which the lab04 project is stored, save the four files into that folder, and the select 'File-&gt;Refresh'  in eclipse (with the lab04 project selected) for the files to appear.</p>
+<p>Alternatively, just save to the desktop and drag/drop into the eclipse project.</p>
+<p>For the remainder of this lab, we will work away in lab04 project.</p>
+    </div>
+    <div class="tab-pane fade" id="02">
+      <h1>Navigation</h1>
+<p>With a shared navigation structure like this, we may wish to give the readers a visual clue as to weather the link is in fact meaningful or not. For instance, if we are on the home page, since it is dedicated to Mauris, the text "Mauris" in the bullet points, would not be a link as a link for this text would open the same page. The same applies to the others pages (i.e, page1.html and page2.html). In other words, links to the current page should be inactive.</p>
+<p>We can do this by just removing the relevant link from each page: i.e.</p>
+<p>delete the <code>&lt;a&gt;</code> tags for the text Mauris from home.html,</p>
+<ul>
+<li>
+<p>"Cras" from page1.html</p>
+</li>
+<li>
+<p>"prion" from page2.html</p>
+</li>
+</ul>
+<p>Leave the list elements in place however. The site should now look like this:</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/2.clearnav/home.html">home.html</a></li>
+</ul>
+    </div>
+    <div class="tab-pane fade" id="03">
+      <h1>Tabs</h1>
+<p>Make sure the 'navigation' division is located towards the top of the page structure between the header and the maincontent. (If you copied the output of last weeks lab, it will be near the end)If we were to take a view of any of the pages using the folding feature if eclipse, we would like to see this:</p>
+<p><img alt="" src="./img/22.png"></p>
+<p>Now adjust the style sheet as follows:</p>
+<pre><code>#maincontent
+{  
+  width: 100%;
+}
+
+#navigation
+{  
+  width: 100%;
+}
+</code></pre>
+
+<p>We have removed the float from maincontent, made it 100% width (of its parent), and also made navigation 100%. Save and view the results.</p>
+<p>We would like to target a style at the list element. First we give each of the ul's, in each of the pages, an ID of "tabs":</p>
+<pre><code class="html">    &lt;div id=&quot;navigation&quot;&gt;  
+      &lt;ul id=&quot;tabs&quot;&gt;  
+        &lt;li&gt;Mauris&lt;/li&gt;
+</code></pre>
+
+<p>Now introduce the following rule into the CSS:</p>
+<pre><code class="css">#tabs
+{  
+  border-bottom: .5em solid #0033CC;
+  margin: 30;
+  padding: 30;
+}
+</code></pre>
+
+<p>This sets up a border along the bottom, and a set of margin and padding settings. Your site should now look like this:</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/3.tabsstart/home.html">home.html</a></li>
+</ul>
+<p>We can bring in the following rule to have the list itself appear on a single row.</p>
+<pre><code class="css">#tabs li
+{
+  display:inline;
+}
+</code></pre>
+
+<p>Incorporate this change and observe the results. We can further enhance the list by giving each entry a border:</p>
+<pre><code class="css">#tabs li
+{
+  display:inline;
+  border-top: .1em solid #03c;
+  border-left: .1em solid #03c;
+  border-right: .1em solid #03c;
+}
+</code></pre>
+
+<p>Our navigation is now starting to look more professional:</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/4.tabsnext/home.html">home.html</a></li>
+</ul>
+    </div>
+    <div class="tab-pane fade" id="04">
+      <h1>Enhanced Tabs</h1>
+<p>In this series of adjustments, we will enhance the emphasis on the currently selected tab. Look at the final version we are about to prepare, and contrast it with your current work:</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/6.tabsfinal/home.html">home.html</a></li>
+</ul>
+<p>First we introduce a rule targeted at the hyperlinks within the tabs section:</p>
+<pre><code class="css">#tabs li a
+ {
+  text-decoration: none;
+  padding: 0.25em 1em;
+  color: #00202;
+}
+</code></pre>
+
+<p>View the results. Note that it seems to enhance the size of the list elements that contain a hyerperlink (the \&lt;a> elements). One last stage is needed to get the precise effect we are looking for, but before we introduce the required rule, we need to change the list elements themselves.Specifically, we need two things:</p>
+<ul>
+<li>
+<p>Give an unique ID to each page</p>
+</li>
+<li>
+<p>Give a unique ID to each list element</p>
+</li>
+</ul>
+<p>For the all of the pages, we need to introduce the ID as an attribute of the <body> tag. So for home.html:</p>
+<pre><code class="html">  &lt;body id=&quot;home&quot;&gt;
+</code></pre>
+
+<p>page1.html:</p>
+<pre><code class="html">  &lt;body id=&quot;page1&quot;&gt;
+</code></pre>
+
+<p>and page2.html:</p>
+<pre><code class="html">  &lt;body id=&quot;page2&quot;&gt;
+</code></pre>
+
+<p>These changes allow us to formulate rules targeted at specific pages, using the IDs we have just defined. For the list in each page then, replace the current first three elements with the following:</p>
+<pre><code class="html">        &lt;li id=&quot;tabhome&quot;&gt;&lt;a href=&quot;home.html&quot;&gt;Mauris &lt;/a&gt;&lt;/li&gt;  
+        &lt;li id=&quot;tab1&quot;&gt;&lt;a href=&quot;page1.html&quot;&gt;Cras &lt;/a&gt;&lt;/li&gt;  
+        &lt;li id=&quot;tab2&quot;&gt;&lt;a href=&quot;page2.html&quot;&gt;Proin&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+
+<p>Here we are giving each element a unique ID. Take it for a test drive, it should look like this</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/5.tabsdone/home.html">home.html</a></li>
+</ul>
+<p>All the IDs we have just introduced have not been deployed to good effect yet.  However, you will note from this last version that we are missing a visual clue as to which tab is currently active (i.e. which page are we on). This is the purpose of this rule here  where we define a rule for each tab that corresponds to the current page (i.e., the page being viewed):</p>
+<pre><code class="css">#home #tabs li#tabhome a, #page1 #tabs li#tab1 a, #page2 #tabs li#tab2 a
+{
+  padding: 0.25em 1em;
+  background-color: #03c;
+  color: #fff;
+}
+</code></pre>
+
+<p>The effects can be seen here:</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/6.tabsfinal/home.html">home.html</a></li>
+</ul>
+<p>Study this rule carefully, it is probably the most complex rule we have seen to date</p>
+    </div>
+    <div class="tab-pane fade" id="05">
+      <h1>Spacebook Preview</h1>
+<p>We move on now to build a 'mockup' of a web application we are about to study. Here is a preview (images only) of the site/application:</p>
+<p><img alt="" src="./img/02.png"></p>
+<p><img alt="" src="./img/03.png"></p>
+<p><img alt="" src="./img/04.png"></p>
+<p><img alt="" src="./img/05.png"></p>
+<p><img alt="" src="./img/06.png"></p>
+<p>As you can see, it is a simplified social network application, with users having very simple profiles, 'friends', and a rudimentary messaging system. Also notice that the tabs/navigation structure seem familiar. Before we create the projects, here are some images we will need:</p>
+<p><img alt="" src="./img/bart.gif"></p>
+<p><img alt="" src="./img/homer.gif"></p>
+<p><img alt="" src="./img/lisa.gif"></p>
+<p><img alt="" src="./img/maggie.gif"></p>
+<p><img alt="" src="./img/marge.gif"></p>
+<p>We will need these images when constructing the site, so right click to download to your workstation.You will be using these images in the site in the next few steps.</p>
+    </div>
+    <div class="tab-pane fade" id="06">
+      <h1>Spacebook Project</h1>
+<p>Create a new project called 'lab04-spacebook', and copy in the images from the last step into an images folder in your project:</p>
+<p><img alt="" src="./img/09.png"></p>
+<p>This can be achieved by just dragging/dropping the images from explorer/finder directly into a folder called images in the eclipse project.</p>
+<p>All of the pages we are about to create will be based on the following template:</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;SpaceBook&lt;/title&gt;
+    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;home.css&quot; media=&quot;screen&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body id=&quot;someid&quot;&gt;
+    &lt;div id=&quot;header&quot;&gt;
+      &lt;h1&gt;
+      &lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;navigation&quot;&gt;
+      &lt;ul id=&quot;tabs&quot;&gt;
+        &lt;li id=&quot;main&quot;&gt;    &lt;a href=&quot;home.html&quot;&gt;Home&lt;/a&gt;     &lt;/li&gt;
+        &lt;li id=&quot;members&quot;&gt; &lt;a href=&quot;membership.html&quot;&gt;Members&lt;/a&gt;  &lt;/li&gt;
+        &lt;li id=&quot;profile&quot;&gt; &lt;a href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;  &lt;/li&gt;
+        &lt;li id=&quot;logout&quot;&gt;  &lt;a href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;   &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;maincontent&quot;&gt;
+      &lt;div id=&quot;primary&quot;&gt;
+      &lt;/div&gt;  
+      &lt;div id=&quot;secondary&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;footer&quot;&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Inspect it carefully and note the major sections. We have already set up the appropriate navigation structure in the "navigation" division.</p>
+    </div>
+    <div class="tab-pane fade" id="07">
+      <h1>Spacebook Skeleton</h1>
+<p>Taking the template we have just inspected:</p>
+<ul>
+<li><a href="./archives/template.html">template.html</a></li>
+</ul>
+<p>Create 3 html files in view containing a copy of this template, to be called:</p>
+<ul>
+<li>
+<p>home.html</p>
+</li>
+<li>
+<p>membership.html</p>
+</li>
+<li>
+<p>homeprofile.html</p>
+</li>
+</ul>
+<p>Also copy the home.css from the lab04 project. The css file needs to be amended so that the id rule that begins with:</p>
+<pre><code>#home #tabs li#tabhome a, #page1 #tabs li#tab1 a, #page2 #tabs li#tab2 a
+</code></pre>
+
+<p>now reads as follows:</p>
+<pre><code>#home #tabs li#main a, #members #tabs li#members a, #homeprofile #tabs li#profile
+</code></pre>
+
+<p>Open home.html in a web browser. Verify that three of the four tabs work (logout should not work yet). The site should look like this:</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part1/home.html">home.html</a></li>
+</ul>
+<p>Although the tabs work the are not correctly highlighted. This is because each of the three pages does not have the correct id. This id is used in the stylesheet to make sure that the "current" tab is highlighted.</p>
+<p>Change each document as follows:</p>
+<p>home.html:</p>
+<pre><code class="html">  &lt;body id=&quot;home&quot;&gt;
+</code></pre>
+
+<p>members.html</p>
+<pre><code class="html">  &lt;body id=&quot;members&quot;&gt;
+</code></pre>
+
+<p>homeprofile</p>
+<pre><code class="html">  &lt;body id=&quot;homeprofile&quot;&gt;
+</code></pre>
+
+<p>Verify that the navigation/tabs now behave as expected. It should look like this:</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part2/home.html">home.html</a></li>
+</ul>
+    </div>
+    <div class="tab-pane fade" id="08">
+      <h1>Home</h1>
+<p>We will now create some static content to simulate our live "SpaceBook" site. In Home.html, insert the following content into the "primary" division of home.html:</p>
+<pre><code class="html">        &lt;h2&gt; Friends &lt;/h2&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;marge.html&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;lisa.html&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)&lt;/li&gt;
+        &lt;/ul&gt;
+</code></pre>
+
+<p>and into the "secondary" division:</p>
+<pre><code class="html">        &lt;h2&gt; Messages &lt;/h2&gt;
+        &lt;ul&gt;
+          &lt;li&gt;marge says...&quot;Hey there Homer, when are you going to work?&quot;&lt;/li&gt;
+          &lt;li&gt;lisa says...&quot;Move off the couch dad!&quot;&lt;/li&gt;
+        &lt;/ul&gt;
+</code></pre>
+
+<p>For the "footer" a simple horizontal bar will suffice:</p>
+<pre><code class="html">      &lt;hr /&gt;
+</code></pre>
+
+<p>Finally, set an appropriate header:</p>
+<pre><code class="html">    &lt;div id=&quot;header&quot;&gt;
+      &lt;h1&gt;
+        SpaceBook: Homer's Home Page
+      &lt;/h1&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p>Test the page - if should look like this:</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part3/home.html">home.html</a></li>
+</ul>
+    </div>
+    <div class="tab-pane fade" id="09">
+      <h1>Members, Profile</h1>
+<p>For members.html, the following "primary" content:</p>
+<pre><code class="html">      &lt;h2&gt; Members &lt;/h2&gt;
+        &lt;ul&gt;
+          &lt;li&gt;marge [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;
+          &lt;li&gt;bart [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;
+          &lt;li&gt;lisa [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;
+          &lt;li&gt;maggie [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]&lt;/li&gt;  
+        &lt;/ul&gt;
+</code></pre>
+
+<p>For the "footer" a the same horizontal bar:</p>
+<pre><code class="html">      &lt;hr /&gt;
+</code></pre>
+
+<p>Finally, set an appropriate header:</p>
+<pre><code class="html">    &lt;div id=&quot;header&quot;&gt;
+      &lt;h1&gt;
+        SpaceBook's Members
+      &lt;/h1&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p>The finished page should be like this:</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part3/members.html">members.html</a></li>
+</ul>
+<p>Now for homeprofile, "primary" is:</p>
+<pre><code class="html">        &lt;p&gt;
+          &lt;img src=&quot;images/homer.gif&quot;/&gt;
+        &lt;/p&gt;
+        &lt;form action=&quot;homeprofile/upload&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;  
+          &lt;input type=&quot;file&quot; name=&quot;userfile&quot; value=&quot;&quot;  /&gt;
+          &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;upload&quot;  /&gt;  
+        &lt;/form&gt;
+</code></pre>
+
+<p>you will need to bring in this image here:</p>
+<ul>
+<li><a href="./img/homer.gif">homer.gif</a></li>
+</ul>
+<p>The secondary is:</p>
+<pre><code class="html">      &lt;div id=&quot;secondary&quot;&gt;
+        &lt;form action=&quot;homeprofile/changetext&quot; method=&quot;post&quot;&gt;
+          &lt;textarea name=&quot;profiletext&quot; cols=&quot;30&quot; rows=&quot;8&quot; &gt;&lt;/textarea&gt;  
+          &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot;  /&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+</code></pre>
+
+<p>and the footer as before:</p>
+<pre><code class="html">      &lt;hr /&gt;
+</code></pre>
+
+<p>Finally, set an appropriate header:</p>
+<pre><code class="html">    &lt;div id=&quot;header&quot;&gt;
+      &lt;h1&gt;
+        SpaceBook: Homer's Profile
+      &lt;/h1&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p>Finished page should be like this:</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part3/homeprofile.html">homeprofile.html</a></li>
+</ul>
+    </div>
+    <div class="tab-pane fade" id="10">
+      <h1>Friend Profile</h1>
+<p>On the home page, the links to "lisa" and "marge" dont lead anywhere. Bring in these two pages into your project:</p>
+<ul>
+<li>lisa.html:</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;SpaceBook&lt;/title&gt;
+    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;home.css&quot; media=&quot;screen&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body id=&quot;profile&quot;&gt;
+    &lt;div id=&quot;header&quot;&gt;
+      &lt;h1&gt;
+        Your Friend Lisa's Home Page
+      &lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;maincontent&quot;&gt;
+      &lt;div id=&quot;primary&quot;&gt;
+         &lt;p&gt;
+           &lt;img src=&quot;images/lisa.gif&quot;/&gt;
+         &lt;/p&gt;
+         &lt;form action=&quot;leavemessage/marge&quot; method=&quot;post&quot;&gt;
+           &lt;textarea name=&quot;message&quot; cols=&quot;30&quot; rows=&quot;2&quot; &gt;&lt;/textarea&gt;
+           &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Leave Message&quot;  /&gt;
+         &lt;/form&gt;
+      &lt;/div&gt;  
+      &lt;div id=&quot;secondary&quot;&gt;
+        &lt;h2&gt; Messages &lt;/h2&gt;
+          &lt;ul&gt;
+            &lt;li&gt;homer says...&quot;Stop that noise##&quot;&lt;/li&gt;
+          &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;footer&quot;&gt;
+      &lt;hr/&gt;
+      &lt;a href=&quot;home.html&quot;&gt;Back to home page&lt;/a&gt;  
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<ul>
+<li>marge.html</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;SpaceBook&lt;/title&gt;
+    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;home.css&quot; media=&quot;screen&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body id=&quot;profile&quot;&gt;
+    &lt;div id=&quot;header&quot;&gt;
+      &lt;h1&gt;
+        Your Friend Marges's Home Page
+      &lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;maincontent&quot;&gt;
+      &lt;div id=&quot;primary&quot;&gt;
+         &lt;p&gt;
+           &lt;img src=&quot;images/marge.gif&quot;/&gt;
+         &lt;/p&gt;
+         &lt;form action=&quot;leavemessage/marge&quot; method=&quot;post&quot;&gt;
+           &lt;textarea name=&quot;message&quot; cols=&quot;30&quot; rows=&quot;2&quot; &gt;&lt;/textarea&gt;
+           &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Leave Message&quot;  /&gt;
+         &lt;/form&gt;
+      &lt;/div&gt;  
+      &lt;div id=&quot;secondary&quot;&gt;
+        &lt;h2&gt; Messages &lt;/h2&gt;
+          &lt;ul&gt;
+            &lt;li&gt;homer says...&quot;What time is dinner?&quot;&lt;/li&gt;
+            &lt;li&gt;lisa says...&quot;Where is my saxaphone?&quot;&lt;/li&gt;
+            &lt;li&gt;homer says...&quot;Where are you?&quot;&lt;/li&gt;
+          &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;footer&quot;&gt;
+       &lt;hr/&gt;
+       &lt;a href=&quot;home.html&quot;&gt;Back to home page&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>You will need these two images:</p>
+<ul>
+<li>
+<p><a href="./img/lisa.gif">lisa.gif</a></p>
+</li>
+<li>
+<p><a href="./img/marge.gif">marge.gif</a></p>
+</li>
+</ul>
+<p>Note that the template used in these two pages is slightly different - there is no navigation division.Also, note the change in the footer.</p>
+<p>Verify that your static version of SpaceBook looks like this:</p>
+<ul>
+<li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part3/home.html">home.html</a></li>
+</ul>
+    </div>
+    <div class="tab-pane fade" id="Exercises">
+      <h2>Exercises</h2>
+<h2>Completed Lab</h2>
+<p>Your project might now look like this in eclipse:</p>
+<p><img alt="" src="./img/10.png"></p>
+<p>This is a complete archive of the project if you are having difficulty:</p>
+<ul>
+<li><a href="./archives/lab04-spacebook.zip">lab04-spacebook.zip</a></li>
+</ul>
+<p>This can be downloaded, expanded and imported into eclipse. It will only import, however, if you do NOT already have a project named lab04-spacebook in your workspace already. If you do, then you will have to rename that project first to something else.</p>
+<h2>Logout</h2>
+<p>Logout is yet to be implemented. Implement a place holder page now - what might it contain? Also, the drop link (on the home page) does not lead anywhere. Where might this link go?</p>
+<h2>Forms</h2>
+<p>There are two elements in the site we have not encountered before</p>
+<ul>
+<li>
+<p><code>&lt;form&gt;</code></p>
+</li>
+<li>
+<p><code>&lt;input&gt;</code></p>
+</li>
+</ul>
+<p>These appear in the homeprofile and in marges and lisas pages. These elements are part of the "form" elements in html</p>
+<ul>
+<li><a href="http://reference.sitepoint.com/html/elements-form">http://reference.sitepoint.com/html/elements-form</a></li>
+</ul>
+<p>You should read this page here for a general introduction:</p>
+<ul>
+<li><a href="http://reference.sitepoint.com/html/form">http://reference.sitepoint.com/html/form</a></li>
+</ul>
+<p>And this outline of the "input" element:</p>
+<ul>
+<li><a href="http://reference.sitepoint.com/html/input">http://reference.sitepoint.com/html/input</a></li>
+</ul>
+<p>In particular, you should review the "types", and in particular the "submit" type:</p>
+<ul>
+<li><a href="http://reference.sitepoint.com/html/input/type">http://reference.sitepoint.com/html/input/type</a></li>
+</ul>
+    </div>
+</div>
+
+    </div>
+
+
+<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <small>
+    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+    </a>
+    </small>
+</div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("img-responsive");
+
+  $(".tab-content img").each(function()
+  {
+    var title = this.alt;
+    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  });
+})    </script>
+
+  </body>
+ </html>

@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+
+body
+{   
+  width: 90%;  
+  margin: 0 auto;
+}
+
+h1
+{ 
+	text-align:center;
+	border: .1em solid #0033CC;
+}
+#maincontent 
+{  
+  width: 100%;
+}
+
+#navigation 
+{  
+  width: 100%;   
+}
+
+#header 
+{   
+  width: 100%;   
+}
+
+#footer 
+{  
+  width: 100%;
+  clear: both;
+}
+
+#primary 
+{  
+  width: 20%;  
+  float: left;  
+}
+
+#secondary 
+{  
+  width: 60%;  
+  float: right;
+}
+
+#tabs
+{  
+  border-bottom: .5em solid #0033CC;
+  margin: 30;
+  padding: 30; 
+  	text-align:center;
+  
+}
+
+#tabs li 
+{ 
+  display:inline; 
+  border-top: .1em solid #03c;
+  border-left: .1em solid #03c;
+  border-right: .1em solid #03c;
+}
+#tabs li a 
+ {
+  text-decoration: none;
+  padding: 0.25em 1em;
+  color: #00202;
+}
+
+#home #tabs li#home a, #members #tabs li#members a, #homeprofile #tabs li#homeprofile a
+{
+  padding: 0.25em 1em;
+  background-color: #03c;
+  color: #fff;
+}

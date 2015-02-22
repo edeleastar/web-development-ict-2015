@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+
+body
+{   
+  width: 80%;  
+  margin: 0 auto;
+}
+
+#maincontent 
+{  
+  width: 100%;
+}
+
+#navigation 
+{  
+  width: 100%;   
+}
+
+#header 
+{   
+  width: 100%;   
+}
+
+#footer 
+{  
+  width: 100%;
+  clear: both;
+}
+
+#primary 
+{  
+  width: 68%;  
+  float: left;  
+}
+
+#secondary 
+{  
+  width: 30%;  
+  float: right;
+}
+
+#tabs
+{  
+  border-bottom: .5em solid #0033CC;
+  margin: 30;
+  padding: 30; 
+}
+

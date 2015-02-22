@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+
+body
+{   
+  width: 80%;  
+  margin: 0 auto;
+}
+
+#maincontent 
+{  
+  width: 80%;
+  float: right;  
+}
+
+#navigation 
+{  
+  width: 18%;   
+  float: left;  
+  min-width: 140px;
+}
+
+#header 
+{   
+  width: 100%;   
+}
+
+#footer 
+{  
+  width: 100%;
+  clear: both;
+}
+
+#primary 
+{  
+  width: 68%;  
+  float: left;  
+}
+
+#secondary 
+{  
+  width: 30%;  
+  float: right;
+}
+

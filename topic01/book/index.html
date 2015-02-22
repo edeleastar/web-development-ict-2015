@@ -1,0 +1,409 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <div class="navbar-brand">
+        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+        Introducing HTML
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#Lab-01" data-toggle="tab"> Lab-01 </a> </li>
+          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
+          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
+          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
+          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
+          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
+          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Lab-01">
+    <h1>Objectives</h1>
+<p>Install and configure a program we will use to create and edit web site - Eclipse. We will then use this tool to create a simple multi-page web site containing a small variety of text, images and links.</p>
+  </div>
+
+    <div class="tab-pane fade" id="01">
+      <h1>Setup</h1>
+<h2>Instructions for working in Walton Building PC Labs:</h2>
+<p>If you are working on the workstations in the IT Building, locate the C: Drive in the Explorer. Navigate to C:\dev\eclipse\javascript folder. Run (double click on) the "Eclipse" application.</p>
+<p>Proceed with the next step of the lab.</p>
+<h2>Instructions for working on your own laptop</h2>
+<p>Download and install the Eclipse IDE from</p>
+<ul>
+<li><a href="http://www.eclipse.org">http://www.eclipse.org</a></li>
+</ul>
+<p>Select the version "Eclipse IDE for Java EE Developers". The primary prerequisite for installing Eclipse is that you have a recent Java installation on your workstation. To see if you have Java, and to install it if you do not, visit:</p>
+<ul>
+<li><a href="http://www.java.com">http://www.java.com</a></li>
+</ul>
+<p>Installing Eclipse is usually just a matter of unarchiving the Eclipse download. This unarchiving tool here will generally be much faster than native windows archive support:</p>
+<ul>
+<li><a href="http://www.7zip.com">http://www.7zip.com</a></li>
+</ul>
+<p>Once installed, navigate to and explore the new "eclipse" folder</p>
+<p><img alt="" src="./img/01.png"></p>
+<p>You will notice the program "eclipse" in there - double click to launch it now. It should launch in about 30 second. At first you will see this splash screen:</p>
+<p><img alt="" src="./img/02.png"></p>
+<p>And then it will eventually display this dialog box:</p>
+<p><img alt="" src="./img/03.png"></p>
+<p>Before pressing "OK", read the suggested path carefully. This is the path where eclipse will create and manage any projects you create The suggested path may be ok for the moment - but ideally the best location is directly from your C: drive, perhaps in a subdirectory called 'modules' as shown, but this can be changed later.</p>
+<p>When naming files/folders a useful practice is to keep with the following rules:</p>
+<ul>
+<li>always use lower case</li>
+<li>never use spaces. To break up a name, use hyphens (-) instead</li>
+<li>on windows, manage directories from the root of C:</li>
+</ul>
+<p>Press OK. After a few seconds, Eclipse should launch looking like this:</p>
+<p><img alt="" src="./img/05.png"></p>
+<p>If you close the welcome screen - then you should see the default project layout:</p>
+<p><img alt="" src="./img/05a.png"></p>
+<p>Congratulations - you have launched the Eclipse Web Development Environment.</p>
+    </div>
+    <div class="tab-pane fade" id="02">
+      <h1>First Project</h1>
+<p>In Eclipse, select File-&gt;New-&gt;Other. Navigate to Web, and select "Static Web Project":</p>
+<p><img alt="" src="./img/38.png"></p>
+<p>Press "Next" and then give the project a name:</p>
+<p><img alt="" src="./img/08.png"></p>
+<p>Press "Finish". You will be asked if the project should have a "web perspective":</p>
+<p><img alt="" src="./img/09.png"></p>
+<p>Select Yes and you should now have an empty project:</p>
+<p><img alt="" src="./img/10.png"></p>
+<p>We will now create a new HTML file. Select "WebContent" and right click, select "New" and then "Html file" as shown.</p>
+<p><img alt="" src="./img/11.png"></p>
+<p>Give the file a name and press finish.</p>
+<p><img alt="" src="./img/12.png"></p>
+<p>This will create a new html file:</p>
+<p><img alt="" src="./img/13.png"></p>
+<p>Correct the indentation in the generated code: - by which we mean for every element go in 2 spaces, and as every element concludes, go out 2 spaces.</p>
+<p>Also, add some simple markup as a test:</p>
+<p><img alt="" src="./img/14.png"></p>
+<p>Note the  * in front of the file name in the tab view. This indicates that the file has not been saved yet. Save the file (File-&gt;Save) and observe the *  disappear.</p>
+<p>Also observe the tree view on the right which is providing a structural view of the document tree, as you type it:</p>
+<p><img alt="" src="./img/15.png"></p>
+<p>We will now attempt to view the file in a browser. We could locate the file on your disk, and open with a browser.However, Eclipse has a built in browser which can be more convenient. To trigger it, select the html file in the "Project Explorer" window ... Right click, select "Open with" and select "Web Browser"</p>
+<p>We should now be viewing the same file in a browser, within Eclipse:</p>
+<p><img alt="" src="./img/17.png"></p>
+    </div>
+    <div class="tab-pane fade" id="03">
+      <h1>Project Files</h1>
+<p>It is worth becoming familiar with the location of the html file you have just generated. Depending on which drive you selected, run "Windows Explorer" (Programs-&gt;Accessories-&gt;Windows Explorer), navigate to that drive, and open the "workspace" folder.</p>
+<p>You should see a folder for the project you just created, along with the html file itself:</p>
+<p><img alt="" src="./img/18.png"></p>
+<p>Lets do an experiment. Still using Windows Explorer, create a new folder called "images" in the "WebContent"  folder.Now copy an image in here from somewhere else. You could use this image here:</p>
+<p><img alt="" src="./img/moviebanner.png"></p>
+<p>(right click, and save the image).</p>
+<p><img alt="" src="./img/19.png"></p>
+<p>Now lets switch back to Eclipse looking in particular at the "Project Explorer" on the left:</p>
+<p><img alt="" src="./img/21.png"></p>
+<p>This is a view of the project however it does not seem to include the new images content we have just added in windows explorer. This is just because the change made has not percolated through to eclipse yet. To correct this, select the project and then select "File-&gt;refresh"</p>
+<p><img alt="" src="./img/22.png"></p>
+<p>Eclipse should now have revealed your image content. Insert a link to this image somewhere in your html file:</p>
+<p><img alt="" src="./img/23.png"></p>
+<p>You might notice that eclipse may show you errors in the html if your html is incorrect. Save the changes, and switch tabs to the browser view. It will currently display the content without the image. However, if you press the "reload" button (two arrows along the top), then it should display the new version with the image:</p>
+<p><img alt="" src="./img/24.png"></p>
+    </div>
+    <div class="tab-pane fade" id="04">
+      <h1>Lab01 Project</h1>
+<p>Create a new project called "lab01" using the same options as in the first step of this lab.</p>
+<p><img alt="" src="./img/26.png"></p>
+<p>Notice that we now have two separate projects open. We will populate lab01 with some simple content to illustrate the basic html vocabulary we have been exploring. First, create come folders inside the lab01 project as shown - to be called "about", "catalogue" and "images":</p>
+<p><img alt="" src="./img/30.png"></p>
+<p>Here are four image files:</p>
+<p><img alt="" src="./img/hobbit.jpg"></p>
+<p><img alt="" src="./img/skyfall.jpg"></p>
+<p><img alt="" src="./img/argo.jpg"></p>
+<p><img alt="" src="./img/moviebanner.png"></p>
+<p>Save these files (right-click in browser and select 'save as') onto your local file system. Then, using explorer, drag and drop them into the 'images' folder. In the dialog Eclipse pops up select the default ('copy') as opposed to 'link'.</p>
+<p>Here is some basic html content:</p>
+<h2>1: index.html</h2>
+<pre><code class="html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My DVD Shop&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome to the New and Improved DVD Shop&lt;/h1&gt;
+    &lt;img src=&quot;images/moviebanner.png&quot;&gt;
+    &lt;p&gt;
+      We have the biggest selection of DVDs and Games in Ireland.
+      Check out our &lt;a href=&quot;catalogue/newreleases.html&quot;&gt;new releases&lt;/a&gt;,
+      This week we recommend &lt;em&gt;the Crazies&lt;/em&gt;.  
+    &lt;/p&gt;
+    &lt;h2&gt;Directions&lt;/h2&gt;
+    &lt;p&gt;
+      You'll find us right in the center
+      of downtown Webville. If you need help finding
+      us, check out our
+      &lt;a href=&quot;about/directions.html&quot;&gt;detailed directions&lt;/a&gt;.
+      Come join us
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2>2: newreleases.html</h2>
+<pre><code class="html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt; My DVD Shop: New Releases &lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h2&gt;The Hobbit &lt;/h2&gt;
+    &lt;p&gt;
+      &lt;img src=&quot;../images/hobbit.jpg&quot;&gt;
+      he first in a trilogy of films based on the enduring masterpiece The Hobbit by J.R.R. Tolkien,
+      The Hobbit: An Unexpected Journey follows title character Bilbo Baggins,
+      who along with the Wizard Gandalf and 13 Dwarves, led by Thorin Oakenshield is
+      swept into an epic quest to reclaim the lost Dwarf Kingdom of Erebor from the fearsome
+      Dragon Smaug.
+    &lt;/p&gt;
+    &lt;h2&gt;Argo&lt;/h2&gt;  
+    &lt;p&gt;
+      &lt;img src=&quot;../images/argo.jpg&quot;&gt;
+      Based on real events, the dramatic thriller &quot;Argo&quot; chronicles the life-or-death covert operation
+      to rescue six Americans, which unfolded behind the scenes of the Iran hostage crisis,
+      focusing on the little-known role that the CIA and Hollywood played-information that was not
+      declassified until many years after the event.
+    &lt;/p&gt;
+    &lt;h2&gt;Skyfall&lt;/h2&gt;
+    &lt;p&gt;
+      &lt;img src=&quot;../images/skyfall.jpg&quot;&gt;
+      Bond's loyalty to M is tested as her past comes back to haunt her. As MI6 comes under attack,
+      007 must track down and destroy the threat, no matter how personal the cost.
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;../index.html&quot;&gt;Back to the Shop&lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2>3:directions.html</h2>
+<pre><code class="html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My DVD Shop Directions&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Directions&lt;/h1&gt;
+    &lt;p&gt;Take the 305 S exit to Webville go 0.4 mi&lt;/p&gt;
+    &lt;p&gt;Continue on 305 go 12 mi&lt;/p&gt;
+    &lt;p&gt;Turn right at Structure Ave N go 0.6 mi&lt;/p&gt;
+    &lt;p&gt;Turn right and head toward Structure Ave N go 0.0 mi&lt;/p&gt;
+    &lt;p&gt;Turn right at Structure Ave N go 0.7 mi&lt;/p&gt;
+    &lt;p&gt;Continue on Structure Ave S go 0.2 mi&lt;/p&gt;
+    &lt;p&gt;Turn right at SW Presentation Way go 0.0 mi&lt;/p&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;../index.html&quot;&gt;Back to the Shop&lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Create new html files in your project using the above content, structured as shown here:</p>
+<p><img alt="" src="./img/32.png"></p>
+<p>In eclipse, you should be able to browse to the simple web site:</p>
+<p><img alt="" src="./img/33.png"></p>
+<p>Verify that the links work as expected.</p>
+    </div>
+    <div class="tab-pane fade" id="05">
+      <h1>CSS</h1>
+<p>We will now introduce a stylesheet into our project. Stylesheets are usually maintained in separate files with the .css extension. Create one now in the lab01 project:</p>
+<p><img alt="" src="./img/34.png"></p>
+<p>Call it 'style.css'. The workspace should look like this:</p>
+<p><img alt="" src="./img/35.png"></p>
+<p>We bind this file into the project by 'linking' it to our home page. This must be incorporated into the \&lt;head> element of each page. Currently index.html head section looks like this:</p>
+<pre><code class="html">  &lt;head&gt;
+    &lt;title&gt;My DVD Shop&lt;/title&gt;
+  &lt;/head&gt;
+</code></pre>
+
+<p>We can extend it with a new element to link to the stylesheet:</p>
+<pre><code class="html">  &lt;head&gt;
+    &lt;title&gt;My DVD Shop&lt;/title&gt;
+    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;style.css&quot; media=&quot;screen&quot; /&gt;
+  &lt;/head&gt;
+</code></pre>
+
+<p>There is no visible effect on our page yet until we introduce a rule into the stylesheet.</p>
+<p>Try this one:</p>
+<pre><code class="css">p
+{
+  color: maroon;
+}
+</code></pre>
+
+<p>Staying in Eclipse, you should be able to reload the page in the internal browser, and observe the change in the colour of the text:</p>
+<p><img alt="" src="./img/36.png"></p>
+<p>Experiment with the following rules, introducing them one at a time:</p>
+<pre><code class="css">body
+{
+  font-family:sans-serif;
+}
+</code></pre>
+
+<pre><code class="css">h1, h2
+{
+  color: gray
+}
+</code></pre>
+
+<pre><code class="css">h1
+{
+  border-bottom: 1px solid black;
+}
+</code></pre>
+    </div>
+    <div class="tab-pane fade" id="Exercises">
+      <h1>Exercises</h1>
+<h1>Solution So Far..</h1>
+<p>This is an archive (zip file) of a solution to the lab so far:</p>
+<ul>
+<li><a href="./archives/lab01-solution.zip">lab01-solution.zip</a></li>
+</ul>
+<p>Even if you have completed the lab so far, see if you can find a way of bringing this project into your eclipse workspace. To do this you will need to do three things:</p>
+<ul>
+<li>Download the archive</li>
+<li>Unzip (expand) the archive</li>
+<li>Import the project (in the expanded archive) into eclipse. To do this in eclipse, try <code>File-&gt;Import-&gt;General-&gt;Existing Project Into Eclipse</code></li>
+</ul>
+<h2>More New Releases</h2>
+<p>Just to get used to the editor, create a few more entries in the 'newreleases.html', prerhaps you can locate content from some web source (including images). Try to identify and replicate the indentation styled of the existing content.</p>
+<h2>Lists</h2>
+<ul>
+<li>
+<p>For a given entry, provide a list of actors in the movie.</p>
+</li>
+<li>
+<p>In your first attempt list include the list of actors in a \&lt;p> tag on separate lines.</p>
+</li>
+<li>
+<p>Then try using the \&lt;br> tag and observe the different.</p>
+</li>
+<li>
+<p>Finally, experiment with this element here:</p>
+<ul>
+<li><a href="http://www.w3.org/TR/html401/struct/lists.html">http://www.w3.org/TR/html401/struct/lists.html</a></li>
+</ul>
+<p>i.e. <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code>, coupled with <code>&lt;li&gt;</code></p>
+</li>
+</ul>
+<h2>Link the CSS file to all pages</h2>
+<p>Currently you may not have the CSS file 'linked' to all pages. i.e. only index.html is styled with the css rules you have defined. See if you can link the other pages now.</p>
+<h2>A new page</h2>
+<p>Incorporate a brand new page into the project. It can contain any content you think would be useful. Look at some online dvd / movie rental sites for idea.</p>
+    </div>
+</div>
+
+    </div>
+
+
+<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <small>
+    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+    </a>
+    </small>
+</div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("img-responsive");
+
+  $(".tab-content img").each(function()
+  {
+    var title = this.alt;
+    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  });
+})    </script>
+
+  </body>
+ </html>

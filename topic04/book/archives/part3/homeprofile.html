@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SpaceBook</title>
+    <link type="text/css" rel="stylesheet" href="home.css" media="screen" />
+  </head>
+  <body id="homeprofile">
+    <div id="header">
+      <h1> 
+        SpaceBook: Homer's Profile
+      </h1>
+    </div>
+    <div id="navigation">
+      <ul id="tabs"> 
+        <li id="home">    <a href="home.html">Home</a>     </li> 
+        <li id="members"> <a href="members.html">Members</a>  </li> 
+        <li id="homeprofile"> <a href="homeprofile.html">Profile</a>  </li> 
+        <li id="logout">  <a href="login.html">Logout</a>   </li> 
+      </ul> 
+    </div> 
+    <div id="maincontent">
+      <div id="primary">    
+        <p> 
+          <img src="images/homer.gif"/> 
+        </p> 
+        <form action="homeprofile/upload" method="post" enctype="multipart/form-data">  
+          <input type="file" name="userfile" value=""  />     
+          <input type="submit" name="submit" value="upload"  />  
+        </form>  
+      </div>  
+      <div id="secondary">
+        <form action="homeprofile/changetext" method="post">         
+          <textarea name="profiletext" cols="30" rows="8" ></textarea>  
+          <input type="submit" name="submit" value="Change"  /> 
+        </form>
+      </div>
+    </div>
+    <div id="footer">   
+    </div>
+  </body>
+</html>
+      

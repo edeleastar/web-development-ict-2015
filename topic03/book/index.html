@@ -1,0 +1,632 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <div class="navbar-brand">
+        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+        Box Model
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#Lab-03" data-toggle="tab"> Lab-03 </a> </li>
+          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
+          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
+          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
+          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
+          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
+          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
+          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
+          <li><a href= "#08" data-toggle="tab"> 08 </a> </li>
+          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Lab-03">
+    <h1>Objectives</h1>
+<p>This weeks lab will give you more practical experience od the box model and specifically how to build a simple multi-column layout using the techniques we have explored in class. You should complete this lab before starting to consider your project in detail.</p>
+  </div>
+
+    <div class="tab-pane fade" id="01">
+      <h1>Setup</h1>
+<p>In eclipse, create a new 'Static Web Project' called "lab03". This time we will not be using any content from the previous labs.</p>
+<p>In this project create two files in the default 'WebContent' folder:</p>
+<ul>
+<li>
+<p>home.html</p>
+</li>
+<li>
+<p>home.css</p>
+</li>
+</ul>
+<p>Title the home page "Home Page"</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+    &lt;title&gt;Home Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;
+      Lorem ipsum dolor sit
+    &lt;/h1&gt;
+    &lt;p&gt;
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed feugiat nisi  
+      at sapien. Phasellus varius tincidunt ligula. Praesent nisi. Duis  
+      sollicitudin. Donec dignissim, est vel auctor blandit, ante est laoreet  
+      neque, non pellentesque mauris turpis eu purus.
+    &lt;/p&gt;  
+    &lt;p&gt;
+      Suspendisse mollis leo nec diam. Vestibulum pulvinar tellus sit amet nulla  
+      fringilla semper. Aenean aliquam, urna et accumsan sollicitudin, tellus  
+      pede lobortis velit, nec placerat dolor pede nec nibh. Donec fringilla. Duis  
+      adipiscing diam at enim. Vestibulum nibh.
+    &lt;/p&gt;  
+    &lt;p&gt;
+      Nulla facilisi. Aliquam dapibus leo eget leo. Etiam vitae turpis sit amet  
+      massa posuere cursus. Sed vitae justo quis tortor facilisis ultrices.  
+      Integer id erat. Donec at felis ut erat interdum vestibulum. Quisque et eros.  
+      Donec fringilla, est in condimentum venenatis, tortor velit vehicula sem, in  
+      elementum quam sapien eu lectus. In dolor urna, ullamcorper vel, tempor sit  
+      amet, semper ut, felis. Praesent nisi.
+    &lt;/p&gt;  
+    &lt;p&gt;
+      Fusce scelerisque viverra quam. Nam urna. Nullam urna libero, euismod at,  
+      euismod sit amet, porttitor ac, mauris.
+    &lt;/p&gt;  
+    &lt;p&gt;
+      Vestibulum interdum aliquet lacus. Vestibulum egestas. Fusce adipiscing  
+      quam sed metus.
+    &lt;/p&gt;  
+    &lt;p&gt;
+      Nullam dignissim aliquam dui. Proin laoreet, elit sed pulvinar  
+      sollicitudin, urna arcu fermentum felis, in rhoncus nunc neque vitae  
+      libero.
+    &lt;/p&gt;  
+    &lt;ul&gt;  
+      &lt;li&gt;Mauris&lt;/li&gt;  
+      &lt;li&gt;Cras&lt;/li&gt;  
+      &lt;li&gt;Proin&lt;/li&gt;  
+      &lt;li&gt;Integer&lt;/li&gt;  
+      &lt;li&gt;Curabitur&lt;/li&gt;  
+      &lt;li&gt;Integer&lt;/li&gt;  
+      &lt;li&gt;Suspendisse&lt;/li&gt;  
+      &lt;li&gt;Quisque&lt;/li&gt;  
+    &lt;/ul&gt;  
+    &lt;p&gt;
+      Proin quis orci eu erat molestie varius. Praesent condimentum  
+      orci in lectus. Ut ipsum. In hac habitasse platea dictumst.
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Reloading in the browser, it should look like this:</p>
+<p><img alt="" src="./img/01.png"></p>
+    </div>
+    <div class="tab-pane fade" id="02">
+      <h1>Div</h1>
+<p>We are now going to divide our content into a series of sections:</p>
+<ul>
+<li>
+<p>header</p>
+</li>
+<li>
+<p>maincontent</p>
+</li>
+<li>
+<p>navigation</p>
+</li>
+<li>
+<p>footer</p>
+</li>
+</ul>
+<p>..using divs.</p>
+<p>First the "header":</p>
+<pre><code class="html">    &lt;div id=&quot;header&quot;&gt;  
+      &lt;h1&gt;
+        Lorem ipsum dolor sit
+      &lt;/h1&gt;  
+    &lt;/div&gt;
+</code></pre>
+
+<p>Be sure to preserve the indentation as shown</p>
+<p>Next "maincontent"</p>
+<pre><code class="html">    &lt;div id=&quot;maincontent&quot;&gt;
+      &lt;p&gt;
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed feugiat nisi  
+        at sapien. Phasellus varius tincidunt ligula. Praesent nisi. Duis  
+        sollicitudin. Donec dignissim, est vel auctor blandit, ante est laoreet  
+        neque, non pellentesque mauris turpis eu purus.
+      &lt;/p&gt;  
+      &lt;p&gt;
+        Suspendisse mollis leo nec diam. Vestibulum pulvinar tellus sit amet nulla  
+        fringilla semper. Aenean aliquam, urna et accumsan sollicitudin, tellus  
+        pede lobortis velit, nec placerat dolor pede nec nibh. Donec fringilla. Duis  
+        adipiscing diam at enim. Vestibulum nibh.
+      &lt;/p&gt;  
+      &lt;p&gt;
+        Nulla facilisi. Aliquam dapibus leo eget leo. Etiam vitae turpis sit amet  
+        massa posuere cursus. Sed vitae justo quis tortor facilisis ultrices.  
+        Integer id erat. Donec at felis ut erat interdum vestibulum. Quisque et eros.  
+        Donec fringilla, est in condimentum venenatis, tortor velit vehicula sem, in  
+        elementum quam sapien eu lectus. In dolor urna, ullamcorper vel, tempor sit  
+        amet, semper ut, felis. Praesent nisi.
+      &lt;/p&gt;  
+      &lt;p&gt;
+        Fusce scelerisque viverra quam. Nam urna. Nullam urna libero, euismod at,  
+        euismod sit amet, porttitor ac, mauris.
+      &lt;/p&gt;  
+      &lt;p&gt;
+        Vestibulum interdum aliquet lacus. Vestibulum egestas. Fusce adipiscing  
+        quam sed metus.
+      &lt;/p&gt;  
+      &lt;p&gt;
+        Nullam dignissim aliquam dui. Proin laoreet, elit sed pulvinar  
+        sollicitudin, urna arcu fermentum felis, in rhoncus nunc neque vitae  
+        libero.
+      &lt;/p&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p>Then "navigation":</p>
+<pre><code class="html">    &lt;div id=&quot;navigation&quot;&gt;  
+      &lt;ul&gt;  
+        &lt;li&gt;Mauris&lt;/li&gt;  
+        &lt;li&gt;Cras&lt;/li&gt;  
+        &lt;li&gt;Proin&lt;/li&gt;  
+        &lt;li&gt;Integer&lt;/li&gt;  
+        &lt;li&gt;Curabitur&lt;/li&gt;  
+        &lt;li&gt;Integer&lt;/li&gt;  
+        &lt;li&gt;Suspendisse&lt;/li&gt;  
+        &lt;li&gt;Quisque&lt;/li&gt;  
+      &lt;/ul&gt;  
+    &lt;/div&gt;
+</code></pre>
+
+<p>and finally "footer":</p>
+<pre><code class="html">    &lt;div id=&quot;footer&quot;&gt;
+      &lt;p&gt;
+        Proin quis orci eu erat molestie varius. Praesent condimentum  
+        orci in lectus. Ut ipsum. In hac habitasse platea dictumst.
+      &lt;/p&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p>Again, be careful to preserve the indentation. Verify that the home pages appearance has not changed. Finally, experiment with the folding nature of the eclipse editor.</p>
+<p>For instance, try collapsing everything in the page. This can be done by pressing all of the "-" signs in the left hand margin. Alternatively, if you bring the mouse into that margin and right click, the folding menu should be available (as we have seen).</p>
+<p>You may be able to generate a view something like this:</p>
+<p><img alt="" src="./img/02.png"></p>
+    </div>
+    <div class="tab-pane fade" id="03">
+      <h1>Body syle</h1>
+<p>We already have an empty style sheet in place. However, it is not yet linked to our home page.</p>
+<p>Insert the following into the \&lt;head> element to tie in the sylesheet:</p>
+<pre><code class="html">    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;home.css&quot; media=&quot;screen&quot; /&gt;
+</code></pre>
+
+<p>Now lets try the following simple rule:</p>
+<pre><code class="css">body
+{
+  width: 80%;  
+  margin: 0 auto;
+}
+</code></pre>
+
+<p>Save, and refresh. The home page should now look like this:</p>
+<p><img alt="" src="./img/07.png"></p>
+<p>Remember the shortcut rules for CSS. The rule we have introduced is in fact a shorthand for :</p>
+<pre><code class="css">{
+  width: 80%;  
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+</code></pre>
+
+<p>Rules can be 'commented out' if you want them to be temporarily removed. Figure out the notation for commenting in CSS, and verify this by commenting out your existing rule, and replacing with this one.</p>
+<p>Additionally, discover the equivalent notations for html (quite different).</p>
+<p>This rule is stating that we want no top/bottom for the page, however auto for left and right is resizing the margins to be proportional to the container width (the browser window), and equal in size.</p>
+<p>The overall effect is a pleasing border on either size of the page, of equal size.</p>
+    </div>
+    <div class="tab-pane fade" id="04">
+      <h1>Maincontent</h1>
+<p>We will now attempt to "float" the "maincontent" section to the right, with the "navigation" section hopefully moving in to the left.</p>
+<p>Try the following rule:</p>
+<pre><code class="css">#maincontent
+{  
+  float: right;  
+}
+</code></pre>
+
+<p>and inspect the results. There should be no change yet. This is because the maincontent section is wide enough to include the full space available. We can adjust this so that is consumes say 80% of the space:</p>
+<pre><code class="css">#maincontent
+{  
+  width: 80%;
+  float: right;  
+}
+</code></pre>
+
+<p>We are now starting to see the beginnings of a multicolumn layout:</p>
+<p><img alt="" src="./img/09.png"></p>
+<p>To get our bearings a bit better, lets introduce a border around the maincontent:</p>
+<pre><code class="css">#maincontent
+{  
+  width: 80%;
+  float: right;  
+  border: dashed thin;
+}
+</code></pre>
+
+<p>-</p>
+<p><img alt="" src="./img/10.png"></p>
+<p>As you can see, the "navigation" and "footer" sections have moved up to the left, slipping inside the maincontent. This is because these sections are current obeying the default layout rules. In effect, they will be automatically resizing the fit the available space liberated by the 20% space of the \&lt;body&gt; that maincontent has liberated.</p>
+    </div>
+    <div class="tab-pane fade" id="05">
+      <h1>Navigation</h1>
+<p>We can introduce a rule to definitively tie the navigation to 20% of the parent size. and float it left (also turning on a border so we can visualize it easier)</p>
+<pre><code class="css">#navigation
+{  
+  width: 20%;
+  float: left;  
+  border: dashed thin;
+}
+</code></pre>
+
+<p>This produces some alarming results:</p>
+<p><img alt="" src="./img/11.png"></p>
+<p>The width refers to the content, not padding and margins, so our true width exceeds the available space, so our navigation has been push below where we intended.</p>
+<p>We can easily fix this with a little adjustment:</p>
+<pre><code class="css">#navigation
+{  
+  width: 18%;
+  float: left;  
+  border: dashed thin;
+}
+</code></pre>
+
+<p><img alt="" src="./img/12.png"></p>
+<p>Experiment with other percentages to get a feel for the layout behaviour</p>
+    </div>
+    <div class="tab-pane fade" id="06">
+      <h1>Header, footer</h1>
+<p>We can now target the headder and footer, and move them into place.</p>
+<p>First the header:</p>
+<pre><code class="css">#header
+{  
+  width: 100%;
+  border: dashed thin;
+}
+</code></pre>
+
+<p>This should not have any effect, as the header, being positioned first, is already in place.</p>
+<p>Now try the footer:</p>
+<pre><code class="css">#footer
+{  
+  width: 100%;
+  border: dashed thin;
+}
+</code></pre>
+
+<p>Save and refresh:</p>
+<p><img alt="" src="./img/13.png"></p>
+<p>Still not quite right.</p>
+<p>We would like to push the footer "clear" of any existing floated elements, and then for it to occupy the denoted size in that zone. This is accomplished with the "clear" property:</p>
+<pre><code class="css">#footer
+{  
+  width: 100%;
+  clear: both;
+  border: dashed thin;
+}
+</code></pre>
+
+<p>Setting clear to "both", means clear (move below) and blocks floated left or right.</p>
+<p>Refresh produces a pleasing result:</p>
+<p><img alt="" src="./img/14.png"></p>
+    </div>
+    <div class="tab-pane fade" id="07">
+      <h1>Simplify</h1>
+<p>Our full CSS is now as follows:</p>
+<pre><code class="css">body
+{
+  width: 80%;  
+  margin: 0 auto;
+}
+
+#maincontent
+{  
+  width: 80%;
+  float: right;  
+  border: dashed thin;
+}
+
+#navigation
+{  
+  width: 18%;
+  float: left;  
+  border: dashed thin;
+}
+
+#header
+{
+  width: 100%;
+  border: dashed thin;
+}
+
+#footer
+{  
+  width: 100%;
+  clear: both;
+  border: dashed thin;
+}
+</code></pre>
+
+<p>Note the repeated border property. We introduced this property so that we could get a clearer view of our sections. Presumable we would like to remove it prior to production. However, this will mean deleting/commenting it out from every rule.</p>
+<p>This single property appears in every rule. We can create a new "wildcard" rule as follows:</p>
+<pre><code class="css">*
+{
+  border: dashed thin;
+}
+</code></pre>
+
+<p>Now, we can delete this from all of the other rules:</p>
+<pre><code class="css">body
+{
+  width: 80%;  
+  margin: 0 auto;
+}
+
+#maincontent
+{  
+  width: 80%;
+  float: right;  
+}
+
+#navigation
+{  
+  width: 18%;
+  float: left;  
+}
+
+#header
+{
+  width: 100%;
+}
+
+#footer
+{  
+  width: 100%;
+  clear: both;
+}
+</code></pre>
+
+<p>And when we want to remove the border, we can just delete that rule.</p>
+    </div>
+    <div class="tab-pane fade" id="08">
+      <h1>Primary, secondary</h1>
+<p>We can also further subdivide sections within existing sections. The "maincontent" section currently contains 6 paragraphs:</p>
+<p><img alt="" src="./img/15.png"></p>
+<p>Using nesting, we can divide these into two sections:</p>
+<p><img alt="" src="./img/16.png"></p>
+<p>If we fold this carefully, we can see the following structure:</p>
+<p><img alt="" src="./img/17.png"></p>
+<p>As yet, this has no bearing on the display. However, two simple rules targeting these sections will layout these sections in two columns:</p>
+<pre><code class="css">#primary
+{  
+  width: 68%;  
+  float: left;  
+}
+
+#secondary
+{  
+  width: 30%;  
+  float: right;
+}
+</code></pre>
+
+<p>It should render as follows:</p>
+<p><img alt="" src="./img/18.png"></p>
+<p>If we comment out our wildcard rule:</p>
+<pre><code class="css">*
+{
+  //border: dashed thin;
+}
+</code></pre>
+
+<p>This is the final result:</p>
+<p><img alt="" src="./img/19.png"></p>
+    </div>
+    <div class="tab-pane fade" id="Exercises">
+      <h1>Exercises</h1>
+<h3>Archive of Completed Lab:</h3>
+<ul>
+<li><a href="./archives/lab03.zip">lab03.zip</a></li>
+</ul>
+<h3>Navigation</h3>
+<p>Create a copy of home.html - and call it "page1.html". Keeping the other sections in tact, delete the content of the "primary" and "secondary" sections.</p>
+<p>Insert the following into "primary":</p>
+<pre><code class="html">       &lt;p&gt;
+          Phasellus non nibh ut lacus elementum pharetra. Vivamus sed orci ipsum.
+          Nulla sapien eros, euismod ac ornare sed, consectetur sed dui. Integer gravida
+          sem et turpis interdum in convallis eros placerat. Quisque auctor, velit sed
+          blandit pharetra, felis diam ultricies erat, vel aliquet neque risus non lacus.
+          Etiam non magna tortor, in rutrum augue. Donec nec enim ante, in tincidunt eros.
+          Aenean ultrices, ante non scelerisque eleifend, libero dolor rutrum justo,
+          vitae iaculis mi est id nisl. Nunc velit odio, luctus in imperdiet eget,
+          pulvinar ac quam. Nullam ipsum arcu, euismod vel congue quis, ullamcorper
+          sit amet massa. Vivamus et mauris ut ante sagittis sagittis quis eu velit.  
+        &lt;/p&gt;  
+</code></pre>
+
+<ul>
+<li>and into secondary, the following:</li>
+</ul>
+<pre><code class="html">        &lt;p&gt;
+          In faucibus turpis lacus, eget congue magna. Aenean vitae lacus sed mi pretium
+          porttitor suscipit sit amet ipsum. Suspendisse potenti. Nunc pharetra consectetur
+          est eget tempus. Aenean ac iaculis dui. Morbi volutpat rutrum urna vitae suscipit.
+          Vestibulum quam libero, lacinia id varius at, pharetra vitae metus. Proin sit amet
+          euismod dolor. Donec varius tempus libero, ut interdum libero accumsan nec. Duis
+          id lectus eu sapien dapibus rutrum sed id tellus. Praesent purus purus, adipiscing
+          non vehicula in, vehicula eget ligula. Suspendisse massa nibh, condimentum ut ornare
+          at, vulputate eu augue. Donec cursus ullamcorper facilisis.
+          In iaculis convallis elementum.
+        &lt;/p&gt;
+</code></pre>
+
+<p>Our navigation section is currently just a list (without links):</p>
+<pre><code class="html">   &lt;div id=&quot;navigation&quot;&gt;  
+    &lt;ul&gt;  
+        &lt;li&gt;Mauris&lt;/li&gt;  
+        &lt;li&gt;Cras &lt;/li&gt;  
+        &lt;li&gt;Proin&lt;/li&gt;  
+        &lt;li&gt;Integer&lt;/li&gt;  
+        &lt;li&gt;Curabitur&lt;/li&gt;  
+        &lt;li&gt;Integer&lt;/li&gt;  
+        &lt;li&gt;Suspendisse&lt;/li&gt;  
+        &lt;li&gt;Quisque&lt;/li&gt;  
+      &lt;/ul&gt;  
+    &lt;/div&gt;
+</code></pre>
+
+<p>This section is duplicated in both sections. Introduce hyper links into each, to provide rudimentary navigation:</p>
+<pre><code class="html">   &lt;div id=&quot;navigation&quot;&gt;  
+    &lt;ul&gt;  
+        &lt;li&gt;&lt;a href=&quot;home.html&quot;&gt; Mauris &lt;/a&gt;&lt;/li&gt;  
+        &lt;li&gt;&lt;a href=&quot;page1.html&quot;&gt; Cras &lt;/a&gt;&lt;/li&gt;  
+        &lt;li&gt;Proin&lt;/li&gt;  
+        &lt;li&gt;Integer&lt;/li&gt;  
+        &lt;li&gt;Curabitur&lt;/li&gt;  
+        &lt;li&gt;Integer&lt;/li&gt;  
+        &lt;li&gt;Suspendisse&lt;/li&gt;  
+        &lt;li&gt;Quisque&lt;/li&gt;  
+      &lt;/ul&gt;  
+    &lt;/div&gt;
+</code></pre>
+
+<p>Save and reload - and you should see basic navigation between the two pages.</p>
+<h3>Multiple Pages</h3>
+<p>Create 2 more pages, with different primary/secondary content, and stitch them into the navigation across all page. You can generate some more content here:</p>
+<ul>
+<li><a href="http://www.lipsum.com">http://www.lipsum.com</a></li>
+</ul>
+<p>You might be interested in the background to this text here:</p>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Lorem_ipsum">http://en.wikipedia.org/wiki/Lorem_ipsum</a></li>
+</ul>
+    </div>
+</div>
+
+    </div>
+
+
+<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <small>
+    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+    </a>
+    </small>
+</div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("img-responsive");
+
+  $(".tab-content img").each(function()
+  {
+    var title = this.alt;
+    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  });
+})    </script>
+
+  </body>
+ </html>

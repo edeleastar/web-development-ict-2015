@@ -1,0 +1,815 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <div class="navbar-brand">
+        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+        Introduction to Play
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#Lab-06" data-toggle="tab"> Lab-06 </a> </li>
+          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
+          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
+          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
+          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
+          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
+          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
+          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
+          <li><a href= "#08" data-toggle="tab"> 08 </a> </li>
+          <li><a href= "#09" data-toggle="tab"> 09 </a> </li>
+          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Lab-06">
+    <h1>Objectives</h1>
+<p>Move the Spacebook application from the static site into the structure provide by the Play framework. This will require installation of the framework, creation of a starter project and incorporation of the work we have already completed in the last lab.</p>
+  </div>
+
+    <div class="tab-pane fade" id="01">
+      <h1>DOS Commands</h1>
+<p>Open a command prompt on Windows. The easiest way to do this is in Windows 7 to type 'cmd' in the Search Box on the Windows start menu:</p>
+<p><img alt="" src="img/14.png"></p>
+<p>When you type it, the start menu might change to the following:</p>
+<p><img alt="" src="img/15.png"></p>
+<p>...and if you press return, then the command window itself will appear:</p>
+<p><img alt="" src="img/16.png"></p>
+<p>On Windows 8, access the desktop from the home screen, and run File Explorer (may be in the toolbar). Then select File-&gt;Open Command Prompt:</p>
+<p><img alt="" src="img/01a.png"></p>
+<p>This is an alternative interface to Windows which it is important to become familiar with. In this window you can type what are sometimes called 'DOS' commands. These commands let you have a finer level of control of your PC, and are particularly important for programmers to master.</p>
+<p>Here are some simple commands:</p>
+<ul>
+<li>dir<ul>
+<li>list all files in a directory</li>
+</ul>
+</li>
+<li>cd ..<ul>
+<li>change to a parent directory</li>
+</ul>
+</li>
+<li>cd \&lt;directory name&gt;<ul>
+<li>change to a specific directory</li>
+</ul>
+</li>
+</ul>
+<p>It is essential that you become adept at these commands, and a few others.</p>
+<p>Bear in mind that these commands always have a 'current directory' in mind (a directory is another name for a folder). Try them now and see if you can 'navigate' to your web development workspace. For instance, if the folder is located as shown here:</p>
+<p><img alt="" src="img/17.png"></p>
+<p>Then the commands to get there will look like this:</p>
+<p><img alt="" src="img/18.png"></p>
+<p>If your workspace is located on another drive, the enter that drive letter first - say "G:", press return, and then try the cd and dir commands.</p>
+<p><img alt="" src="img/19.png"></p>
+<p>Note in all of the above that the 'prompt' in the command window is always showing the 'current' drive/directory.</p>
+<p>Also, if you have a 'space' in your directory (a bad idea generally), then you will have to use quotation marks in the commands. Here is an example:</p>
+<p><img alt="" src="img/20.png"></p>
+<p>See in the above transcript that the directory name is "Web Development Workspace" - and it has been enclosed in double quotes.</p>
+<p>In general, however, it is best to adopt the following conventions.</p>
+<ul>
+<li>
+<p>Never use spaces in directory or file names</p>
+</li>
+<li>
+<p>Never use upper case in directory or file names</p>
+</li>
+<li>
+<p>If you wish to use readable multiple words for a directory or file name, separate the words with '-'. e.g.</p>
+<ul>
+<li>web-development</li>
+<li>java-projects</li>
+</ul>
+</li>
+</ul>
+<p>Perhaps you might take this opportunity to adjust your workspace and projects to adopt the above conventions. If you do, then you will find that using DOS commands to navigate your folders will be considerably easier.</p>
+<p>Before going on to the next step, make sure you are comfortable navigating in DOS around the file system, and in particular make sure you can navigate to your web development workspace.</p>
+    </div>
+    <div class="tab-pane fade" id="02">
+      <h1>Installing and Running Play</h1>
+<h2>Windows</h2>
+<p>Visit the following site:</p>
+<ul>
+<li><a href="http://www.playframework.org">http://www.playframework.org</a></li>
+</ul>
+<p>In particulular, vist the download page:</p>
+<ul>
+<li><a href="https://www.playframework.com/download#older-versions">https://www.playframework.com/download#older-versions</a></li>
+</ul>
+<p>On the this page, select and download play-1.3.0.zip (the version number is very important)</p>
+<p>Unzip to somewhere on your PC - a good location might be:</p>
+<pre><code>C:\dev
+</code></pre>
+
+<p>Once you have unzipped it, the folder might look like this:</p>
+<p><img alt="" src="img/21.png"></p>
+<p>In the above, the play archive has been downloaded and expanded in <code>c:\dev</code></p>
+<p>See if you can put the folder is on your path. Detailed setup instructions are here for platforms other than Windows:</p>
+<ul>
+<li><a href="http://www.playframework.org/documentation/1.2.7/install">http://www.playframework.org/documentation/1.2.7/install</a></li>
+</ul>
+<p>Here is a shortened guide which may suffice:</p>
+<h2>Mac/linux Users</h2>
+<p>Create or edit a file called .bash_profile in your home directory and set the path to include the extracted archive on the path. It might look like this:</p>
+<pre><code>PATH=$PATH:\
+$HOME/dev/play-1-1.3.0
+export PATH
+</code></pre>
+
+<p>This assumes you extracted the play archive into the dev folder.</p>
+<h2>Windows</h2>
+<p>For Windows machine, you need to do the following:</p>
+<hr>
+<p>Locate the "Computer" icon in explorer</p>
+<p><img alt="" src="img/01b.png"></p>
+<p>Right click on this and select 'Properties':</p>
+<p><img alt="" src="img/01c.png"></p>
+<p>Select 'Advanced System Settings':</p>
+<p><img alt="" src="img/01d.png"></p>
+<p>Select 'Environment Variables':</p>
+<p><img alt="" src="img/01e.png"></p>
+<p>Under "System Variables", locate and select the 'Path' entry:</p>
+<p><img alt="" src="img/01f.png"></p>
+<p>Edit this entry, and append the path in which play is installed. This should be <code>C:\dev\play-1-1.3.0</code>:</p>
+<p><img alt="" src="img/01g.png"></p>
+<p>NB: DO NOT DELETE THE CURRENT VALUE OF THE PATH! You are trying to append on to the end of the string in there already.Note that a <code>;</code> separates this new entry from the last one.</p>
+<p>Press "Ok" all the way back and rerun the command prompt (close the one already open)</p>
+<p>To test, just type "play" from a command prompt you should see something like this:</p>
+<pre><code>~        _            _
+~  _ __ | | __ _ _  _| |
+~ | '_ \| |/ _' | || |_|
+~ |  __/|_|\____|\__ (_)
+~ |_|            |__/
+~
+~ play! 1.3.0, http://www.playframework.org
+~
+~ Usage: play cmd [app_path] [--options]
+~
+~ with,  new      Create a new application
+~        run      Run the application in the current shell
+~        help     Show play help
+</code></pre>
+
+<p>Or, if you did not manage to get the play folder on the path, then this command here should work (if you used the recommended folder structure)</p>
+<pre><code>C:\dev\play1-1.3.0\play
+</code></pre>
+
+<p>However, it is best to ensure that the play command is on the system path.</p>
+    </div>
+    <div class="tab-pane fade" id="03">
+      <h1>Create a Play/Eclipse Project</h1>
+<h2>Static version of Spacebook</h2>
+<p>Before we get in to creating a play project, we need to bring in a sample web project we will use for some raw material. </p>
+<p>You may already have a project called 'lab05-spacebook' in your workspace from an earlier lab:</p>
+<p><img alt="" src="img/02a.png"></p>
+<p>If you dont, download this archive here:</p>
+<ul>
+<li><a href="archives/lab05-spacebook-semantic.zip">lab05-spacebook-semantic.zip</a></li>
+</ul>
+<p>Unzip this into your workspace, and then 'Import' the project into eclipse. (In eclipse, select File-&gt;Import-&gt;General-&gt;Existing Projects into Workspace... browse to and locate the above project).</p>
+<h2>Dynamic version of Spacebook</h2>
+<p>Back in the command line, you will need to navigate to your web development workpace. This might lead you somewhere like this:</p>
+<p><img alt="" src="img/22.png"></p>
+<p>Now create a new project by typing the following:</p>
+<pre><code>play new spacebook
+</code></pre>
+
+<p>You should get:</p>
+<pre><code>~        _            _ 
+~  _ __ | | __ _ _  _| |
+~ | '_ \| |/ _' | || |_|
+~ |  __/|_|\____|\__ (_)
+~ |_|            |__/   
+~
+~ play! 1.3.0, http://www.playframework.org
+~
+~ The new application will be created in /Users/edeleastar/Dropbox/webdev/2012/dev/projects/spacebook
+~ What is the application name? [spacebook] 
+</code></pre>
+
+<p>Press return when prompted for the name to accept the default (spacebook)</p>
+<pre><code>~
+~ OK, the application is created.
+~ Start it with : play run spacebook
+~ Have fun!
+~
+</code></pre>
+
+<p>In DOS it might look like this:</p>
+<p><img alt="" src="img/23.png"></p>
+<p>Explore the generated folder - called 'spacebook'. It should contain six folders
+<em> app
+</em> conf
+<em> lib
+</em> public
+* test
+We can import this project into eclipse. First, change into the spacebook folder</p>
+<pre><code>cd spacebook
+</code></pre>
+
+<p>Then run this command:</p>
+<pre><code>play eclipsify
+</code></pre>
+
+<p>The system will respond with:</p>
+<pre><code>~        _            _ 
+~  _ __ | | __ _ _  _| |
+~ | '_ \| |/ _' | || |_|
+~ |  __/|_|\____|\__ (_)
+~ |_|            |__/   
+~
+~ play! 1.3.0, http://www.playframework.org
+~
+~ OK, the application is ready for eclipse
+~ Use File/Import/General/Existing project to import /Users/edeleastar/Dropbox/webdev/2012/dev/projects/spacebook into eclipse
+~
+~ Use eclipsify again when you want to update eclipse configuration files.
+~ However, it's often better to delete and re-import the project into your workspace since eclipse keeps dirty caches...
+~
+</code></pre>
+
+<p>The above sequence might look like this in DOS:</p>
+<p><img alt="" src="img/24.png"></p>
+<p>Now, launch eclipse - in the usual way. In eclipse, select "File-&gt;Import-&gt;General-&gt;Existing Projects into Workspace" and navigate to the folder containing the spacebook application just generated.</p>
+<p><img alt="" src="img/44.png"></p>
+<p>Once imported into eclipse, the project should look like this:</p>
+<p><img alt="" src="img/01.png"></p>
+<p>The project may not look like this initially. If it doesnt, then switch to the "Java Perspective" in Eclipse, and it should resemble the above. To switch perspectives - in eclipse select "Window-&gt;Open Perspective-&gt;Java"</p>
+    </div>
+    <div class="tab-pane fade" id="04">
+      <h1>Running an Play Application</h1>
+<p>Back in DOS, from inside the spacebook folder, type the following command:</p>
+<pre><code>play run
+</code></pre>
+
+<p>Play will respond with something like this:</p>
+<pre><code>~        _            _ 
+~  _ __ | | __ _ _  _| |
+~ | '_ \| |/ _' | || |_|
+~ |  __/|_|\____|\__ (_)
+~ |_|            |__/   
+~
+~ play! 1.3.0, http://www.playframework.org
+~
+~ Ctrl+C to stop
+~ 
+Listening for transport dt_socket at address: 8000
+16:30:33,586 INFO  ~ Starting /Users/edeleastar/Dropbox/webdev/2012/dev/projects/spacebook
+16:30:34,646 WARN  ~ You're running Play! in DEV mode
+16:30:34,894 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+16:30:58,912 INFO  ~ Application 'Spacebook' is now started !
+</code></pre>
+
+<p>You may get a dialog from the firewall, asking for permission to run, which you should agree to.</p>
+<p>Now run the browser, and navigate to:</p>
+<ul>
+<li><a href="http://localhost:9000/">http://localhost:9000/</a></li>
+</ul>
+<p>you should see something like this:</p>
+<p><img alt="" src="img/02.png"></p>
+<p>Also notice that a log message will appear in the command window indicating that the app has started:</p>
+<pre><code>16:30:58,912 INFO  ~ Application 'Spacebook' is now started !
+</code></pre>
+
+<p>To stop the application, press "Control+C" in the command prompt.  If you refresh the browser window, then you should now get an error</p>
+<p>Start the app again by typing 'play run' as above. Verify that the app has started by browsing/refreshing to:</p>
+<ul>
+<li><a href="http://localhost:9000/">http://localhost:9000/</a></li>
+</ul>
+<p>Try this a few times to get used to starting/stopping the application</p>
+    </div>
+    <div class="tab-pane fade" id="05">
+      <h1>Introducing some Content</h1>
+<p>In Eclipse, open the java class "Application.java" - which is in the 'controllers' package located within the folder app:</p>
+<pre><code class="java">package controllers;
+
+import play.*;
+import play.mvc.*;
+import java.util.*;
+import models.*;
+
+public class Application extends Controller
+{
+  public static void index()   
+  {     
+    render();   
+  }
+}
+</code></pre>
+
+<p>Now open the file 'index.html' in the 'views/Application' folder:</p>
+<pre><code class="html">#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{welcome /}
+</code></pre>
+
+<p>When you open this file, you may get am "Unsupported Character Encoding" message. If this happens, select 'UTF-8'.</p>
+<p>Let us change the title to be "Spacebook", and replace the 'welcome' line with our own greeting:</p>
+<pre><code>#{extends 'main.html' /}
+#{set title:'Spacebook' /}
+
+&lt;p&gt;
+  Welcome to Spacebook!
+&lt;/p&gt;
+</code></pre>
+
+<p>Save the file in Eclipse, and reload this page:</p>
+<ul>
+<li><a href="http://localhost:9000/">http://localhost:9000/</a></li>
+</ul>
+<p>which you may already be browsing.</p>
+<p><img alt="" src="img/03.png"></p>
+<p>In the browser, right click and 'view source'. Look carefully at the page source - which should be something like this:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Spacebook&lt;/title&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;/public/stylesheets/main.css&quot;&gt;
+    &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;/public/images/favicon.png&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;     
+    &lt;p&gt;
+      Welcome to Spacebook!
+    &lt;/p&gt;        
+    &lt;script src=&quot;/public/javascripts/jquery-1.6.4.min.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>This single page displayed in the browser is generated from two pages in the project</p>
+<h2>views/main.html</h2>
+<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+  &lt;head&gt;
+     &lt;title&gt;#{get 'title' /}&lt;/title&gt;
+     &lt;meta charset=&quot;${_response_encoding}&quot;&gt;
+     &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;@{'/public/stylesheets/main.css'}&quot;&gt;
+     #{get 'moreStyles' /}
+     &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;@{'/public/images/favicon.png'}&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    #{doLayout /}
+
+    &lt;script src=&quot;@{'/public/javascripts/jquery-1.6.4.min.js'}&quot; type=&quot;text/javascript&quot; charset=&quot;${_response_encoding}&quot;&gt;&lt;/script&gt;
+    #{get 'moreScripts' /}
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+<p>and</p>
+<h2>views/Application/index.html</h2>
+<pre><code>#{extends 'main.html' /}
+#{set title:'Spacebook' /}
+
+&lt;p&gt;
+  Welcome to Spacebook!
+&lt;/p&gt;
+</code></pre>
+
+<p>See if you can figure out how they are related. This will be a challenge for the moment, but there are certain clues - particularly the this line:</p>
+<pre><code>    #{doLayout /}
+</code></pre>
+
+<p>in main.html.</p>
+    </div>
+    <div class="tab-pane fade" id="06">
+      <h1>Play Project Layout</h1>
+<p>We can start the process of making our site 'dynamic'. This means that the pages will be composed of multiple fragments, as opposed to the single 'static' pages we have been constructing to date.</p>
+<p>Look again at our static site, as we may have left it in an earlier lab:</p>
+<ul>
+<li><a href="archives/final/home.html">lab05-spacebook</a></li>
+</ul>
+<p>Before we do that, however, parts of our site are already available, namely the 'semantic ui' framework files (css, js and image files). These can be directly copied over into our new project. They will reside in the 'public' folder.</p>
+<p>You should already have these files in the lab05-spacebook project, so copy and paste the 'semantic' folder directly into the public folder of the spacebook project (not drag and drop, as they will be deleted from the lab05-spacebook project).</p>
+<p>This is the lab05-spacebook project here if you need it:</p>
+<ul>
+<li><a href="archives/lab05-spacebook-semantic.zip">lab05-spacebook-semantic.zip</a></li>
+</ul>
+<p>Aim to have the spacebook project looking like this:</p>
+<p><img alt="" src="img/26.png"></p>
+<p>The above change will require one further adjustment. Open the file 'app/views/main.html'. The first time you open this file, eclipse may have difficulty reading it, presenting this screen:</p>
+<p><img alt="" src="img/28.png"></p>
+<p>Select 'other' and then 'UTF-8' from the drop down:</p>
+<p><img alt="" src="img/29.png"></p>
+<p>main.html should now be visible:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;#{get 'title' /}&lt;/title&gt;
+        &lt;meta charset=&quot;${_response_encoding}&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;@{'/public/stylesheets/main.css'}&quot;&gt;
+        #{get 'moreStyles' /}
+        &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;@{'/public/images/favicon.png'}&quot;&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        #{doLayout /}
+
+        &lt;script src=&quot;@{'/public/javascripts/jquery-1.6.4.min.js'}&quot; type=&quot;text/javascript&quot; charset=&quot;${_response_encoding}&quot;&gt;&lt;/script&gt;
+        #{get 'moreScripts' /}
+    &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+<p>Replace this complete contents with the following:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;#{get 'title' /}&lt;/title&gt;
+        &lt;meta charset=&quot;${_response_encoding}&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;@{'/public/stylesheets/main.css'}&quot;&gt;
+        #{get 'moreStyles' /}
+        &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;@{'/public/images/favicon.png'}&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;@{'/public/semantic/semantic.min.css'}&quot;&gt;        
+
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;div class=&quot;ui segment&quot;&gt;
+        #{doLayout /}
+      &lt;/div&gt;  
+
+        &lt;script src=&quot;@{'/public/javascripts/jquery-1.6.4.min.js'}&quot; type=&quot;text/javascript&quot; charset=&quot;${_response_encoding}&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;@{'/public/semantic/semantic.js'}&quot; type=&quot;text/javascript&quot; charset=&quot;${_response_encoding}&quot;&gt;&lt;/script&gt;
+        #{get 'moreScripts' /}
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Run the app now with this revised styling. To run a play app, we must have a command prompt running, and be 'in' the folder containing the project. Then we just type:</p>
+<pre><code>play run
+</code></pre>
+
+<p>and browse to:</p>
+<ul>
+<li><a href="http://localhost:9000">http://localhost:9000</a></li>
+</ul>
+<p>To see the app in action.</p>
+<p>While in the browser (Chrome preferably), we can switch between browsing the site - which looks like this:</p>
+<p><img alt="" src="img/30.png"></p>
+<p>and browsing the 'source. To do this, placing the mouse on the canvas, right click and select 'View Page Source'</p>
+<p><img alt="" src="img/31.png"></p>
+<p>You will be doing this occasionally during when building web apps. Compare the <code>&lt;head&gt;</code> of this page with the html we pasted into main.html. See if you can analyse precisely the differences. They are small and will seem very obscure (for the moment).</p>
+    </div>
+    <div class="tab-pane fade" id="07">
+      <h1>Navbar</h1>
+<p>Reflect again on the site we have already built:</p>
+<ul>
+<li><a href="archives/final/home.html">lab05-spacebook</a></li>
+</ul>
+<p>Instead of thinking of the site as a set of files on disk, currently structured thus in the 'static' project:</p>
+<p><img alt="" src="img/02a.png"></p>
+<p>We take a logical view, and think of the site as something constructed out of 'parts'. These may be</p>
+<ul>
+<li>Header</li>
+<li>Navigation bar</li>
+<li>Body</li>
+</ul>
+<p>Furthermore, we consider that we have several versions of the 'body', one each for:</p>
+<ul>
+<li>Home</li>
+<li>Members</li>
+<li>HomeProfile</li>
+<li>User Profiles for marge and lisa, and any other user</li>
+</ul>
+<p>Lets start with the navbar - this is the one we used in the static version:</p>
+<pre><code>    &lt;nav class=&quot;ui menu&quot;&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;members.html&quot;&gt;Members&lt;/a&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;
+      &lt;a class=&quot;ui item&quot; href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
+    &lt;/nav&gt;
+</code></pre>
+
+<p>Now, in 'app/views/Application/index.html', include this navbar directly after the title:</p>
+<pre><code>#{extends 'main.html' /}
+#{set title:'Home' /}
+
+&lt;nav class=&quot;ui menu&quot;&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;members.html&quot;&gt;Members&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;p&gt;
+  Welcome to Spacebook!
+&lt;/p&gt;
+</code></pre>
+
+<p>Save these files and, if your app is still running, refresh the page:</p>
+<ul>
+<li><a href="http://localhost:9000">http://localhost:9000</a></li>
+</ul>
+<p>Our nav bar should have appeared:</p>
+<p><img alt="" src="img/33.png"></p>
+<p>Look carefully at the 'source' (in chrome) of this page:</p>
+<p><img alt="" src="img/34.png"></p>
+<p>Try the navbar links - you will note that get an error for each of them, something like:</p>
+<p><img alt="" src="img/35.png"></p>
+<p>Will will fix these in the next step.</p>
+    </div>
+    <div class="tab-pane fade" id="08">
+      <h1>Controller &amp; Views</h1>
+<h2>Controllers</h2>
+<p>Review again the class 'controllers/application.java'</p>
+<pre><code>package controllers;
+
+import play.*;
+import play.mvc.*;
+
+import java.util.*;
+
+import models.*;
+
+public class Application extends Controller
+{
+  public static void index()
+  {
+    render();
+  }
+}
+</code></pre>
+
+<p>We would like to create 4 copies of this file - each one identical, but named as follows:</p>
+<ul>
+<li>Home</li>
+<li>Members</li>
+<li>Profile</li>
+<li>PublicProfile</li>
+</ul>
+<p>There are a number of ways of doing this. The simplest might be to select 'Application.java' in eclipse and select 'Edit-&gt;Copy', then select 'Edit-Paste'. In the ensuing dialog, enter one of the names above (including the capitalisation). If this goes according to plan, you might have a project looking like this:</p>
+<p><img alt="" src="img/36.png"></p>
+<h2>Views</h2>
+<p>Now we look at the view : <code>views/Applications/index.html</code>:</p>
+<pre><code class="html">#{extends 'main.html' /}
+#{set title:'Spacebook' /}
+
+&lt;nav class=&quot;ui menu&quot;&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;home.html&quot;&gt;Home&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;members.html&quot;&gt;Members&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;homeprofile.html&quot;&gt;Profile&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;p&gt;
+  Welcome to Spacebook!
+&lt;/p&gt;
+</code></pre>
+
+<p>We need to make an important adjustment to this view - change the <code>&lt;nav&gt;</code> element to look like this:</p>
+<pre><code class="html">&lt;nav class=&quot;ui menu&quot;&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;/home&quot;&gt;Home&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;/members&quot;&gt;Members&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;/profile&quot;&gt;Profile&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;/login&quot;&gt;Logout&lt;/a&gt;
+&lt;/nav&gt;
+</code></pre>
+
+<p>(Note the changes to the href attribute)</p>
+<p>We would now like to do the same for the 'views/Application/index.html' file. i.e. create 4 folders named</p>
+<ul>
+<li>Home</li>
+<li>Members</li>
+<li>Profile</li>
+<li>PublicProfile</li>
+</ul>
+<p>.. again, each folder containing a file called 'index.html'. You could use the same technique as above (Edit/Copy - Edit/Paste). Your project should be looking like this:</p>
+<p><img alt="" src="img/37.png"></p>
+<p>Finally, delete the Application controller + Application view folder - leaving you application like this:</p>
+<p><img alt="" src="img/45.png"></p>
+    </div>
+    <div class="tab-pane fade" id="09">
+      <h1>Routes</h1>
+<p>In order for the app to function correctly - we need one more change. Locate and open the file 'conf/routes':</p>
+<pre><code># Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+</code></pre>
+
+<p>Edit the file to look like this:</p>
+<pre><code># Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Landing page
+GET     /                                       Home.index
+
+# Home page
+GET     /home                                   Home.index
+
+# Members page
+GET     /members                                Members.index
+
+# Profile page
+GET     /profile                                Profile.index
+
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+
+</code></pre>
+
+<p>Each of your view files contains a :</p>
+<pre><code>..
+&lt;p&gt;
+  Welcome to Spacebook!
+&lt;/p&gt;
+</code></pre>
+
+<p>Change the message for each page - so that a different welcome message appears:</p>
+<ul>
+<li>'Welcome to the Spacebook Home Page'</li>
+<li>'Welcome to the Spacebook Members Page'</li>
+<li>'Welcome to the Spacebook Profile Page'</li>
+</ul>
+<p>Do this by editing each of the index.html pages as appropriate</p>
+<p>Now, restart the app. To restart it bring up the command prompt that launched the application, and type Ctrl-C. Then type 'play run' again.</p>
+<p>Browse to:</p>
+<ul>
+<li><a href="http://localhost:9000">http://localhost:9000</a></li>
+</ul>
+<p>to see the updated app in action. The navigation bar should now function without errors (except for logout item).</p>
+<p>Finally, note that each index.html page contains the following near the top:</p>
+<pre><code>#{set title:'Home' /}
+</code></pre>
+
+<p>Change this such that each page has its own title:</p>
+<ul>
+<li>Home</li>
+<li>Members</li>
+<li>Profile</li>
+</ul>
+<p>Note that this text will appear in the browsers window title - not on the canvas. Run the app and verify that this behaves as expected.</p>
+    </div>
+    <div class="tab-pane fade" id="Exercises">
+      <h1>Exercises</h1>
+<h2>Exercise 1: Active Tab</h2>
+<p>If you look at the nav bar you will notice that there is no concept of an 'active' tab as such. i.e. user cannot clearly see which tab they have just selected.</p>
+<p>The reason of this is that none of the <code>&lt;li&gt;</code> elements are have <code>class="ui active item"</code> (check the lab05-project to see what this looks like).</p>
+<pre><code>&lt;nav class=&quot;ui menu&quot;&gt;
+  &lt;a class=&quot;ui active item&quot; href=&quot;/home&quot;&gt;Home&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;/members&quot;&gt;Members&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;/profile&quot;&gt;Profile&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;/login&quot;&gt;Logout&lt;/a&gt;
+&lt;/nav&gt;
+</code></pre>
+
+<p>See if you can make the necessary changes so that each menu item is activated appropriately.</p>
+<h2>Exercise 2: Alternative Menu Styles</h2>
+<p>The Semantic UI framework has many easy to use and interesting menu variations:</p>
+<ul>
+<li><a href="http://semantic-ui.com/collections/menu.html">http://semantic-ui.com/collections/menu.html</a></li>
+</ul>
+<p>See if you can trigger some of these styles. Try to get 'inverted' menus working for instance.</p>
+<h2>2: Import Lab Solution into Eclipse</h2>
+<p>This is a solution to the lab:</p>
+<ul>
+<li><a href="archives/spacebook-baseline.zip">spacebok-baseline</a></li>
+</ul>
+<p>Download and extract this archive somewhere suitable on your PC. Make sure you know where! Once extracted, navigate to that folder in a Command Prompt. Then, type:</p>
+<pre><code>play eclipsify
+</code></pre>
+
+<p>You should get a suitable message. Back in eclipse, select 'File-Import-&gt;General-&gt;Existing project into workspace' and select the <code>folder</code> containing the project you have just extracted. Select the project and it will become another project in your workspace called 'spacebook-baseline'</p>
+<p>Explore and run the project. It should be more or less the same as the one you have been building in this lab. Keep this project - and the solutions to each lab from now on - in your workspace alongside the version you will be evolving each week.</p>
+    </div>
+</div>
+<br> <br>
+
+
+    </div>
+
+
+<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <small>
+    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+    </a>
+    </small>
+</div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("img-responsive");
+
+  $(".tab-content img").each(function()
+  {
+    var title = this.alt;
+    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  });
+})    </script>
+
+  </body>
+ </html>

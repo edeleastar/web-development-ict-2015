@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SpaceBook</title>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.7.3/semantic.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.10.0/semantic.min.js"></script>   
+  </head>
+  <body>
+    <section class="ui segment">
+      <nav class="ui menu">
+        <a class="ui item" href="home.html">Home</a>
+        <a class="ui item" href="members.html">Members</a>  
+        <a class="ui active item" href="homeprofile.html">Profile</a>  
+        <a class="ui item" href="login.html">Logout</a>
+      </nav>
+      <header>
+        <h2 class="ui header">SpaceBook: Homer's Profile</h2>
+      </header>     
+      <section class="ui two column grid segment">
+        <article class="ui column">    
+          <p> 
+            <img src="images/homer.gif"/> 
+          </p> 
+          <form action="homeprofile/upload" method="post" enctype="multipart/form-data">  
+            <input type="file" name="userfile" value=""  />     
+            <input type="submit" name="submit" value="upload"  />  
+          </form>  
+        </article>  
+        <article class="ui form column">
+          <form action="homeprofile/changetext" method="post">
+            <div class="field">
+              <label>Status</label> 
+              <textarea name="profiletext"> </textarea>
+            </div>
+            <div class="field">
+              <input class="ui blue button" type="submit" name="submit" value="Change" />
+            </div>  
+          </form>
+        </article>
+      </section>
+      <footer>   
+      </footer>
+    </section>
+  </body>
+</html>
+      

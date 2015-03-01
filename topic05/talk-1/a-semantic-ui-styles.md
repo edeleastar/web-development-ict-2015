@@ -1,3 +1,3 @@
-Semantic UI
+Semantic UI - Styles
 
 CSS is a large, complex and sophisticated technology. It requires considerable investment to ensure a page can have a consistent and pleasing appearance across a range of browsers and devices. Here we look at a CSS Framework that proposes to take some of this burden from the programmer - Semantic UI. The framework defines a clear and consistent style, available just by including its style sheets into our projects.

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SpaceBook</title>
+    <link type="text/css" rel="stylesheet" href="home.css" media="screen" />
+    <link type="text/css" rel="stylesheet" href="semantic/css/semantic.min.css" media="screen" />
+  </head>
+  <body>
+    <nav class="ui menu"> 
+      <a class="ui item" href="home.html">Home</a>      
+      <a class="ui item" href="members.html">Members</a>   
+      <a class="ui active item" href="homeprofile.html">Profile</a>   
+      <a class="ui item" href="login.html">Logout</a>      
+    </nav> 
+   <section class="ui segment">
+      <h2 class="ui header">Homer's Profile</h2>
+      <div class="ui two column grid segment">
+        <div class="ui row">
+          <div class="ui column">
+            <p>
+              <img src="images/homer.gif" />
+            </p>
+            <form action="homeprofile/upload" method="post" enctype="multipart/form-data">
+              <input type="file" name="userfile" value="" /> 
+              <input type="submit" name="submit" value="upload" />
+            </form>
+          </div>
+          <div class="ui column form segment">
+            <form action="homeprofile/changetext" method="post">
+              <h3 class="ui inverted teal block header"> Enter Status</h3>
+              <textarea class= "ui field" name="profiletext"> </textarea>
+              <input class="ui blue button" type="submit" name="submit" value="Change" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+    <div id="footer">   
+    </div>
+  </body>
+</html>
+      

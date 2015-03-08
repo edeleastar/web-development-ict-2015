@@ -1,0 +1,675 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <div class="navbar-brand">
+        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+        Routes & Actions
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#Lab-07" data-toggle="tab"> Lab-07 </a> </li>
+          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
+          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
+          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
+          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
+          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
+          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
+          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
+          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Lab-07">
+    <h1>Objectives</h1>
+<p>Enhance the app to implement a simple UX based in static contentExtend the application to include a range of static content. Continue to explore the routes file, and implement a new route/controller combination to deliver a complete view.</p>
+  </div>
+
+    <div class="tab-pane fade" id="01">
+      <h1>Lab06 Exercises</h1>
+<p>This lab assumes you have competed Lab06. This is the project you may have imported last week (the final version):</p>
+<ul>
+<li><a href="archives/spacebook-baseline.zip">spacebook-baseline.zip</a></li>
+</ul>
+<p>This is the solution to Exercise 1 from last weeks lab. You may have already implemented it. If so, compare your solution with this one:</p>
+<h2>Lab 06: Exercise 1: Active Tab</h2>
+<p>If you look at the nav bar you will notice that there is no concept of an 'active' tab as such. i.e. user cannot clearly see which tab they have just selected.</p>
+<p>The reason of this is that none of the <code>&lt;li&gt;</code> elements are have <code>class="ui active item"</code> (check the lab05-project to see what this looks like).</p>
+<pre><code>&lt;nav class=&quot;ui menu&quot;&gt;
+  &lt;a class=&quot;ui active item&quot; href=&quot;/home&quot;&gt;Home&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;/members&quot;&gt;Members&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;/profile&quot;&gt;Profile&lt;/a&gt;
+  &lt;a class=&quot;ui item&quot; href=&quot;/login&quot;&gt;Logout&lt;/a&gt;
+&lt;/nav&gt;
+</code></pre>
+
+<h2>Lab 06: Exercise 1 Solution</h2>
+<p>Currently, each page has an identical navigation bar - with none of the nav items marked active. We would to rework the navigation to fix this - i.e. have each navigation bar customised to each view.</p>
+<h2>views/Home/index.html</h2>
+<pre><code>&lt;nav class=&quot;ui menu&quot;&gt; 
+  &lt;a class=&quot;ui active item&quot; href=&quot;/home&quot;&gt;Home&lt;/a&gt;      
+  &lt;a class=&quot;ui item&quot; href=&quot;/members&quot;&gt;Members&lt;/a&gt;   
+  &lt;a class=&quot;ui item&quot; href=&quot;/profile&quot;&gt;Profile&lt;/a&gt;   
+  &lt;a class=&quot;ui item&quot; href=&quot;/login&quot;&gt;Logout&lt;/a&gt;      
+&lt;/nav&gt;
+</code></pre>
+
+<h2>views/Members/index.html</h2>
+<pre><code>&lt;nav class=&quot;ui menu&quot;&gt; 
+  &lt;a class=&quot;ui item&quot; href=&quot;/home&quot;&gt;Home&lt;/a&gt;      
+  &lt;a class=&quot;ui active item&quot; href=&quot;/members&quot;&gt;Members&lt;/a&gt;   
+  &lt;a class=&quot;ui item&quot; href=&quot;/profile&quot;&gt;Profile&lt;/a&gt;   
+  &lt;a class=&quot;ui item&quot; href=&quot;/login&quot;&gt;Logout&lt;/a&gt;      
+&lt;/nav&gt;
+</code></pre>
+
+<h2>views/Profile/index.html</h2>
+<pre><code>&lt;nav class=&quot;ui menu&quot;&gt; 
+  &lt;a class=&quot;ui item&quot; href=&quot;/home&quot;&gt;Home&lt;/a&gt;      
+  &lt;a class=&quot;ui item&quot; href=&quot;/members&quot;&gt;Members&lt;/a&gt;   
+  &lt;a class=&quot;ui active item&quot; href=&quot;/profile&quot;&gt;Profile&lt;/a&gt;   
+  &lt;a class=&quot;ui item&quot; href=&quot;/login&quot;&gt;Logout&lt;/a&gt;      
+&lt;/nav&gt;
+</code></pre>
+    </div>
+    <div class="tab-pane fade" id="02">
+      <h1>Running the App</h1>
+<p>Your project should still look like this:</p>
+<p><img alt="" src="img/00.png"></p>
+<p>Run the app from the command line as before. I.e. in the Command Prompt, navigate to the folder containing the project and enter:</p>
+<pre><code>play run
+~        _            _ 
+~  _ __ | | __ _ _  _| |
+~ | '_ \| |/ _' | || |_|
+~ |  __/|_|\____|\__ (_)
+~ |_|            |__/   
+~
+~ play! 1.3.0, http://www.playframework.org
+~
+~ Ctrl+C to stop
+~ 
+Listening for transport dt_socket at address: 8000
+08:02:40,017 INFO  ~ Starting /Users/edeleastar/dev/webdevws/spacebook
+08:02:40,847 WARN  ~ You're running Play! in DEV mode
+08:02:40,959 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+</code></pre>
+
+<p>Browse to: </p>
+<ul>
+<li><a href="http://localhost:9000/">http://localhost:9000/</a> </li>
+</ul>
+<p>and the application should appear:</p>
+<p><img alt="" src="img/04.png"></p>
+<p>Verify that by selecting any of the tabs, a different message appears on each page. </p>
+    </div>
+    <div class="tab-pane fade" id="03">
+      <h1>Home Page Content</h1>
+<p>Examine again the 'static' version of spacebook:</p>
+<ul>
+<li><a href="img/staticsite/home.html">static-site</a></li>
+</ul>
+<p>This is not in any sense 'live', but it does contains useful hints as to how we might structure our application. In this step we will bring over some of the content so that our web app closely resembles the content of that site.</p>
+<h2>Home Page - views/Home/index.html</h2>
+<p>Open the view in eclipse:</p>
+<pre><code>#{extends 'main.html' /}
+#{set title:'Home' /}
+
+&lt;nav class=&quot;ui menu&quot;&gt; 
+  &lt;a class=&quot;ui active item&quot; href=&quot;/home&quot;&gt;Home&lt;/a&gt;      
+  &lt;a class=&quot;ui item&quot; href=&quot;/members&quot;&gt;Members&lt;/a&gt;   
+  &lt;a class=&quot;ui item&quot; href=&quot;/profile&quot;&gt;Profile&lt;/a&gt;   
+  &lt;a class=&quot;ui item&quot; href=&quot;/login&quot;&gt;Logout&lt;/a&gt;      
+&lt;/nav&gt;
+
+&lt;p&gt;
+  Welcome to the Spacebook Home!
+&lt;/p&gt;
+</code></pre>
+
+<p>Delete the final paragraph (leave everything up to the <code>&lt;p&gt;</code> intact), and replace with the static content we have already prototyped in lab05-spacebook project:</p>
+<pre><code class="html">&lt;section class=&quot;ui segment&quot;&gt;
+  &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook: Homer's Home Page&lt;/h2&gt;
+  &lt;div class=&quot;ui two column grid segment&quot;&gt;
+    &lt;div class=&quot;ui row&quot;&gt;
+      &lt;div class=&quot;ui column&quot;&gt;
+        &lt;h2&gt;Friends&lt;/h2&gt;
+        &lt;div class=&quot;ui list&quot;&gt;
+          &lt;div class=&quot;item&quot;&gt;
+            &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+            &lt;div class=&quot;content&quot;&gt;
+              &lt;a href=&quot;marge.html&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)
+            &lt;/div&gt;  
+          &lt;/div&gt;
+          &lt;div class=&quot;item&quot;&gt;
+            &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+            &lt;div class=&quot;content&quot;&gt;
+              &lt;a href=&quot;lisa.html&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)
+            &lt;/div&gt;  
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ui column&quot;&gt;
+        &lt;h2&gt;Messages&lt;/h2&gt;
+        &lt;div class=&quot;ui list&quot;&gt;
+          &lt;div class=&quot;item&quot;&gt;
+            &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; 
+            &lt;div class=&quot;ui content&quot;&gt;
+              marge says...&quot;Hey there Homer, when are you going to work?&quot;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;item&quot;&gt;
+            &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; 
+            &lt;div class=&quot;content&quot;&gt;            
+              lisa says...&quot;Move off the couch dad!&quot;
+            &lt;/div&gt;  
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>Check </p>
+<ul>
+<li><a href="http://localhost:9000/">http://localhost:9000/</a> </li>
+</ul>
+<p>and the new content should appear on the home page</p>
+<p>Do the same with these two pages, replacing the paragraph with the content as shown below:</p>
+<h3>Members Page - views/Members/index.html</h3>
+<pre><code class="html">&lt;section class=&quot;ui segment&quot;&gt;
+  &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook's Members&lt;/h2&gt;
+  &lt;div class=&quot;ui list&quot;&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; 
+      &lt;div class=&quot;content&quot;&gt;
+        marge [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; 
+      &lt;div class=&quot;content&quot;&gt;
+        bart [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; 
+      &lt;div class=&quot;content&quot;&gt;
+        lisa [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; 
+      &lt;div class=&quot;content&quot;&gt;
+        maggie [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+<h3>Profile Page - views/Profile/index.html</h3>
+<pre><code class="html">&lt;section class=&quot;ui segment&quot;&gt;
+  &lt;h2 class=&quot;ui header&quot;&gt;Homer's Profile&lt;/h2&gt;
+  &lt;div class=&quot;ui two column grid segment&quot;&gt;
+    &lt;div class=&quot;ui row&quot;&gt;
+      &lt;div class=&quot;ui column&quot;&gt;
+        &lt;p&gt;
+          &lt;img src=&quot;images/homer.gif&quot; /&gt;
+        &lt;/p&gt;
+        &lt;form action=&quot;homeprofile/upload&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+          &lt;input type=&quot;file&quot; name=&quot;userfile&quot; value=&quot;&quot; /&gt; &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;upload&quot; /&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ui column form segment&quot;&gt;
+        &lt;form action=&quot;homeprofile/changetext&quot; method=&quot;post&quot;&gt;
+          &lt;h3 class=&quot;ui inverted teal block header&quot;&gt;Enter Status&lt;/h3&gt;
+          &lt;textarea class=&quot;ui field&quot; name=&quot;profiletext&quot;&gt; &lt;/textarea&gt;
+          &lt;input class=&quot;ui blue button&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>Save all files in eclipse, and reload the browser (making sure play is running):</p>
+<ul>
+<li><a href="http://localhost:9000/">http://localhost:9000/</a> </li>
+</ul>
+<p>The 'live' app should match the static version:</p>
+<ul>
+<li><a href="img/staticsite/home.html">static-site</a></li>
+</ul>
+    </div>
+    <div class="tab-pane fade" id="04">
+      <h1>Links to User Profiles</h1>
+<p>Returning to the home page, notice that homer has 2 friends, Marge and Lisa. Selecting either of these generates an error:</p>
+<p><img alt="" src="img/10.png"></p>
+<p>These links are generated by these html elements in 'views/Home/index.html':</p>
+<pre><code class="html">...
+  &lt;a href=&quot;marge.html&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)
+...
+  &lt;a href=&quot;lisa.html&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)
+...
+</code></pre>
+
+<p>We would like to changes these links such that they load a page. We do this by having them call a method in one of the controllers, and have that controller then 'render' the page.</p>
+<p>Change above elements to the following:</p>
+<pre><code class="html">...
+  &lt;a href=&quot;/publicprofile&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)
+...
+  &lt;a href=&quot;/publicprofile&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)
+...
+</code></pre>
+
+<p>For this to work, we need to make sure the file 'conf/routes' is properly configured. Edit this now and make sure it contains the following entry:</p>
+<pre><code># Public Profiles
+GET     /publicprofile                          PublicProfile.index
+</code></pre>
+
+<p>Place this after the "Profile page" entry.</p>
+<p>Make sure the the view/PublicProfile/index.html contains the following:</p>
+<pre><code class="html">#{extends 'main.html' /}
+#{set title:'Spacebook' /}
+
+&lt;nav class=&quot;ui menu&quot;&gt;   
+  &lt;a class=&quot;ui active item&quot; href=&quot;/home&quot;&gt;Back to Home&lt;/a&gt; 
+&lt;/nav&gt;
+
+&lt;p&gt;
+  Welcome to the Public Profile!
+&lt;/p&gt;
+</code></pre>
+
+<p>Make sure to save all files in Eclipse, browse to the site and select 'marge' or 'lisa' from the home page. What do you see? The error should be gone, and you should have something like this:</p>
+<p><img alt="" src="img/11.png"></p>
+<p>Note carefully the url in the address bar.</p>
+<p>The same page is being displayed for both users, we would like to change this, such that we at least get a message indicating which user we are visiting. First lets change the urls in the views/Home/index.html page, this time we extend the url to indicate that we want to 'visit' a specific users page:</p>
+<pre><code class="html">...
+   &lt;a href=&quot;/publicprofile/marge&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)
+...
+   &lt;a href=&quot;/publicprofile/lisa&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)
+...
+</code></pre>
+
+<p>Save this page in eclipse, and refresh the browser. Try to click on one of the links - 'marge' or 'lisa'. You will get the same error you may have seen previously.</p>
+<p>This is a 'routing error' - that is a url has arrived at your app that it cannot recognize. These errors are usually a result of a mismatch in the 'conf/routes' file. Make the following changes to it:</p>
+<p>First, delete this line (the one we have just entered):</p>
+<pre><code>GET     /publicprofile                           PublicProfile.index
+</code></pre>
+
+<p>... and replace it with this entry:</p>
+<pre><code>GET     /publicprofile/{name}                   PublicProfile.visit
+</code></pre>
+
+<p>Save everything and restart the Play application. To restart the application, enter <code>Control-C</code> in the console running the play application, and enter <code>play run</code> again start it.</p>
+<p>Try to visit marge's page again. We should still have the routing error. Specifically, note that it says:</p>
+<pre><code>UserProfile.visit action not found
+</code></pre>
+
+<p>Now, put an empty visit method into the controllers/UserProfile class:</p>
+<pre><code class="java">public class PublicProfile extends Controller
+{
+  public static void index()
+  {
+    render();
+  }
+
+  public static void visit(String name)
+  {
+  }  
+}
+</code></pre>
+
+<p>Save everything and reload - this time you should get a blank page:</p>
+<p><img alt="" src="img/12.png"></p>
+<p>Reflect again on these three fragments:</p>
+<pre><code class="html"> &lt;a href=&quot;/publicprofile/marge&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)
+</code></pre>
+
+<pre><code>GET     /publicprofile/{name}                   PublicProfile.visit
+</code></pre>
+
+<pre><code class="java">  public static void visit(String name)
+  {
+  }  
+</code></pre>
+
+<p>Can you see how they are related? In the next step we will try to have some content displayed on these blank pages</p>
+    </div>
+    <div class="tab-pane fade" id="05">
+      <h1>Public Profile I</h1>
+<p>We have just made the following changes:</p>
+<pre><code class="html">...
+   &lt;a href=&quot;/publicprofile/marge&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)
+...
+   &lt;a href=&quot;/publicprofile/lisa&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)
+...
+</code></pre>
+
+<pre><code># Public Profiles
+GET     /publicprofile/{name}                   PublicProfile.visit
+</code></pre>
+
+<pre><code class="java">  public static void visit(String name)
+  {
+  }  
+</code></pre>
+
+<p>and browsing to </p>
+<ul>
+<li><a href="http://localhost:9000/publicprofile/lisa">http://localhost:9000/publicprofile/lisa</a> </li>
+</ul>
+<p>takes us to a blank page. How do we know if the name of the user got through? We can 'log' the call via a simple statement in the visit method:</p>
+<pre><code class="java">  public static void visit(String name)
+  {
+    Logger.info(&quot;Just visiting the page for &quot; + name);
+  }
+</code></pre>
+
+<p>Save and refresh. The page will still be blank - but have a look at our 'console' - i.e. the command prompt from which you initially ran the app:</p>
+<pre><code>11:00:49,877 INFO  ~ Just visiting the page for lisa
+</code></pre>
+
+<p>This is where the output of any log messages go - useful for debugging your app.</p>
+<p>Our page is still blank however. We can fix this with the following change:</p>
+<pre><code class="java">  public static void visit(String name)
+  {
+    Logger.info(&quot;Just visiting the page for &quot; + name);
+    render();
+  }
+</code></pre>
+
+<p>We are calling 'render()'</p>
+<p>Try this now. You will get an error something like this:</p>
+<p><img alt="" src="img/16.png"></p>
+<p>Read the error message carefully - it is attempting to display a file called 'visit.html' from the PublicProfile folder. Back in eclipse, rename the index.html file in PublicProfile to 'visit.html'. (Rename option is available via the <code>Refactor</code> menu in Eclipse).</p>
+<p>Save everything, and try to visit marge or lisa's page again. You should get this:</p>
+<p><img alt="" src="img/17.png"></p>
+<p>To recap, we introduced a call to a render() method in the UserProfile.visit() function:</p>
+<pre><code class="java">  public static void visit(String name)
+  {
+    Logger.info(&quot;Just visiting the page for &quot; + name);
+    render();
+  }
+</code></pre>
+
+<p>And then we made sure there was a file called 'visit.html' in the views/PublicProfile folder.</p>
+    </div>
+    <div class="tab-pane fade" id="06">
+      <h1>Public Profile II</h1>
+<p>How do we communicate from our java method:</p>
+<pre><code class="java">  public static void visit(String name)
+  {
+    Logger.info(&quot;Just visiting the page for &quot; + name);
+    render();
+  }
+</code></pre>
+
+<p>To our 'views/PublicProfile/visit.html' view?</p>
+<pre><code class="html">#{extends 'main.html' /}
+#{set title:'Spacebook' /}
+
+&lt;nav class=&quot;ui menu&quot;&gt;   
+  &lt;a class=&quot;ui active item&quot; href=&quot;/home&quot;&gt;Back to Home&lt;/a&gt; 
+&lt;/nav&gt;
+
+&lt;p&gt;
+  Welcome to the Public Profile!
+&lt;/p&gt;
+</code></pre>
+
+<p>Specifically, the name of the member we are visiting? </p>
+<p>Try this. We can pass this as a parameter to render:</p>
+<pre><code class="java">  public static void visit(String name)
+  {
+    Logger.info(&quot;Just visiting the page for &quot; + name);
+    render(name);
+  }
+</code></pre>
+
+<p>The above fragment is a new version of the visit method in the UserProfile controller class. Look carefully at how we have changed the call to render() - and make this change in your own version.</p>
+<p>In 'views/UserProfile/visit.html', we can pick it up in the header, or work it into the body:</p>
+<pre><code class="html">#{extends 'main.html' /}
+#{set title:'Spacebook' /}
+
+&lt;nav class=&quot;ui menu&quot;&gt;   
+  &lt;a class=&quot;ui active item&quot; href=&quot;/home&quot;&gt;Back to Home&lt;/a&gt; 
+&lt;/nav&gt;
+
+&lt;p&gt;
+  This is the profile page for ${name}
+&lt;/p&gt;
+</code></pre>
+
+<p>Make the above change to visit.html and visit Lisa and Marges pages and verify that the correct names are being displayed. </p>
+<p>Note carefully the use of <code>${name}</code> - this is substituted, when the page is assembled, by whatever value is passed to render.</p>
+    </div>
+    <div class="tab-pane fade" id="07">
+      <h1>User Profile III</h1>
+<p>How about displaying some content for marges and lisa's profile pages. </p>
+<p>Open 'visit.html' - incorporate this content replacing the <code>&lt;p&gt;</code> element </p>
+<pre><code class="html">&lt;section class=&quot;ui raised segment&quot;&gt;
+  &lt;div class=&quot;ui small header&quot;&gt; ${name}'s Profile&lt;/div&gt;
+  &lt;section class=&quot;ui  two column grid segment&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;column&quot;&gt;
+        &lt;div class=&quot;ui medium image&quot;&gt;
+          &lt;img src=&quot;&quot;&gt; 
+        &lt;/div&gt;  
+      &lt;/div&gt;
+      &lt;div class=&quot;column&quot;&gt;
+        &lt;h2&gt; Messages &lt;/h2&gt; 
+        &lt;ul&gt; 
+          &lt;li&gt;homer says...&quot;What time is dinner?&quot;&lt;/li&gt;      
+          &lt;li&gt;lisa says...&quot;Where is my saxaphone?&quot;&lt;/li&gt;      
+          &lt;li&gt;homer says...&quot;Where are you?&quot;&lt;/li&gt;      
+        &lt;/ul&gt; 
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;    
+&lt;/section&gt;
+</code></pre>
+
+<p>Save and refresh the profile page for lisa and marge. Verify that the user name and list of messages appears. However, no images appear yet. Download and save these two images:</p>
+<ul>
+<li><a href="img/lisa.gif">lisa.gif</a></li>
+<li><a href="img/marge.gif">marge.gif</a></li>
+</ul>
+<p>and save them in the <code>public/images</code> folder of your project. Now replace the <code>&lt;img&gt;</code> element in the page with the following:</p>
+<pre><code class="html">    &lt;img src=&quot;/public/images/${name}.gif&quot;/&gt; 
+</code></pre>
+
+<p>Verify now that we are getting the correct image when we visit these pages. The messages, however, don't change.</p>
+<p>One last piece of tidying up to do. Our Routes file currently begins with this line:</p>
+<pre><code># Landing page
+GET     /                                       Application.index
+</code></pre>
+
+<p>Change this to the following:</p>
+<pre><code># Landing page
+GET     /                                       Home.index
+</code></pre>
+
+<p>Do you see the significance of this? Try some experiments with/without this change to see if you can understand the effect.</p>
+<p>You can now delete Application.java and the Application view from the project</p>
+    </div>
+    <div class="tab-pane fade" id="Exercises">
+      <h1>Exercises:</h1>
+<p>Archive of lab so far:</p>
+<ul>
+<li><a href="archives/spacebook-part-1.zip">spacebook-part-1.zip</a></li>
+</ul>
+<h2>Exercise 1</h2>
+<p>Currently marge and lisa appear on the home page as 'friends'. Add bart and maggie. Make sure that, when visiting the pages, the correct images appear.</p>
+<h2>Exercise 2</h2>
+<p>Visit the members page - which shows a list of members + a 'follow' link. This is the source of members/index.html here:</p>
+<pre><code class="html">...
+&lt;section class=&quot;ui segment&quot;&gt;
+  &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook's Members&lt;/h2&gt;
+  &lt;div class=&quot;ui list&quot;&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; 
+      &lt;div class=&quot;content&quot;&gt;
+        marge [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; 
+      &lt;div class=&quot;content&quot;&gt;
+        bart [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; 
+      &lt;div class=&quot;content&quot;&gt;
+        lisa [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; 
+      &lt;div class=&quot;content&quot;&gt;
+        maggie [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>Note that each of the follow links is incorrect, and should give you a routing error (try them).  Using Step 5 as a guide, implement links in the above such that whenever the 'follow' link is selected, we log to the console the name of the member we want to follow. </p>
+<p>Eg - the Terminal/Command prompt might show:</p>
+<p><img alt="" src="img/14.png"></p>
+<p>This will require that you create a new method in Java, and implement a call to the logger (as in step 5)
+. 
+NB: This exercise will also require a changes to the 'conf/routes' file. Specifically, you will need to introduce a new route to support the follow method, very similar to the 'visit' route we have implemented earlier</p>
+<h2>Exercise 3</h2>
+<p>If you get Exercise 3 working, then turn your attention back to the list of friends on the home page.</p>
+<p>What should the 'drop' link do? Implement something similar to the last exercise: i.e. have pressing 'drop' log a message to the console. </p>
+<p>Do this as follows:</p>
+<ul>
+<li>Create a method in Home class called "drop"</li>
+<li>have this method take a single string as a parameter, which it should log to the console</li>
+<li>a route should be set up in conf/routes to 'map' this route</li>
+<li>home/index.html will need to be changed to generate the correct link.</li>
+</ul>
+<p>If all goes according to plan, clicking on the links should cause log message to appear. However, the user interface may take you to a blank page each time. Can you change this? Try calling "index();" in the drop method. </p>
+<p>Can you explain what is happening?</p>
+    </div>
+</div>
+<br> <br>
+
+
+    </div>
+
+
+<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <small>
+    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+    </a>
+    </small>
+</div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("img-responsive");
+
+  $(".tab-content img").each(function()
+  {
+    var title = this.alt;
+    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  });
+})    </script>
+
+  </body>
+ </html>

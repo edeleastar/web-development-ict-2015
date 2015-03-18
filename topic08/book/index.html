@@ -1,0 +1,689 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <div class="navbar-brand">
+        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+        Forms & Models
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#Lab-08" data-toggle="tab"> Lab-08 </a> </li>
+          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
+          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
+          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
+          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
+          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
+          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
+          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
+          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Lab-08">
+    <h1>Objectives</h1>
+<p>Implement three new views, each associated with the same controller. These view provide an 'account management' feature, allowing users to sign up and log in to the spacebook service. Introduce a model class to store information in a database and browse this database locally</p>
+  </div>
+
+    <div class="tab-pane fade" id="01">
+      <h1>Review the project structure</h1>
+<h2>Lab07 Project</h2>
+<p>You should have a project from last weeks lab. If you dont have the project then this is a version (before the exercises) here</p>
+<ul>
+<li><a href="archives/spacebook-part-1.zip">spacebook-part-1.zip</a></li>
+</ul>
+<p>Download and unzip this project - it is called 'spacebook-part-1' - to distinguish it from your project which should be called 'spacebook'. If you wish to just view the source, and run the application - import it into your workspace in eclipse.</p>
+<p>It is important to become extremely familiar with the structure of the project. It can be a little confusing at first, but it is in fact laid out in a very logical manner. At the highest level, the project looks like this:</p>
+<p><img alt="" src="img/00.png"></p>
+<p>There are three folder in the project we are most interested in.</p>
+<h2>app</h2>
+<p><img alt="" src="img/01.png"></p>
+<h2>conf</h2>
+<p><img alt="" src="img/02.png"></p>
+<h2>public</h2>
+<p><img alt="" src="img/03.png"></p>
+<p>Examine these files in your project, and verify that everything is as shown above. We can ignore the others folders for the moment</p>
+    </div>
+    <div class="tab-pane fade" id="02">
+      <h1>Signup, Login &amp; Logout Templates</h1>
+<p>Our application does not currently support certain critical features:</p>
+<ul>
+<li>Signing up to the service</li>
+<li>Logging in with username/password</li>
+<li>Logging out</li>
+</ul>
+<p>We might call this feature 'Account Management'. This would support a number of screens:</p>
+<ul>
+<li>A screen to ask the user if they want to sign up or log in</li>
+<li>A sign up screen</li>
+<li>A log in screen</li>
+</ul>
+<p>We will provide all of the above via a new class we will call 'Accounts'. In the 'App/controllers' folder, create an empty java class called 'Accounts' - and incorporate the following skeleton:</p>
+<pre><code class="java">package controllers;
+
+import play.*;
+import play.mvc.*;
+import java.util.*;
+import models.*;
+
+public class Accounts extends Controller
+{
+
+}
+</code></pre>
+
+<p>We would like to 'render' different views depending on the context. Introduce the following methods inside the class to realise this:</p>
+<pre><code class="java">  public static void signup()
+  {
+    render();
+  }
+
+  public static void login()
+  {
+    render();
+  }
+
+  public static void logout()
+  {
+    index();
+  }
+
+  public static void index()
+  {
+    render();
+  }
+</code></pre>
+
+<p>Look carefully at this simple class. For every call to 'render()', we need a corresponding html file in views named as follows</p>
+<ul>
+<li>views<ul>
+<li>class name<ul>
+<li>method name.html</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>For this example, we thus need </p>
+<ul>
+<li>views<ul>
+<li>Accounts<ul>
+<li>signup.html</li>
+<li>login.html</li>
+<li>index.html</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>(we dont need logout.html - as it does not call render(), it calls index() instead). Create these files now, inside a new folder called Accounts in the views folder. Provide some initial content:</p>
+<h2>index.html</h2>
+<pre><code class="html">#{extends 'main.html' /}
+#{set title:'Welcome to Spacebook' /}
+
+&lt;nav class=&quot;ui menu&quot;&gt;
+  &lt;a class=&quot;item&quot; href=&quot;/signup&quot;&gt; Signup  &lt;/a&gt;
+  &lt;a class=&quot;item&quot; href=&quot;/login&quot;&gt;  Login   &lt;/a&gt;
+&lt;/nav&gt; 
+
+&lt;section class=&quot;ui segment&quot;&gt;
+  &lt;p&gt; Signup or Log in to the Spacebook Service &lt;/p&gt;
+&lt;/section&gt;
+
+</code></pre>
+
+<h2>signup.html</h2>
+<pre><code class="html">#{extends 'main.html' /}
+#{set title:'Signup for Spacebook' /}
+
+&lt;nav class=&quot;ui menu&quot;&gt;
+  &lt;a class=&quot;active item&quot; href=&quot;/signup&quot;&gt; Signup  &lt;/a&gt;
+  &lt;a class=&quot;item&quot; href=&quot;/login&quot;&gt;  Login   &lt;/a&gt;
+&lt;/nav&gt; 
+
+&lt;section class=&quot;ui segment&quot;&gt;
+  &lt;p&gt; Sign up here ... &lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+
+<h2>login.html</h2>
+<pre><code class="html">#{extends 'main.html' /}
+#{set title:'Login to Spacebook' /}
+
+&lt;nav class=&quot;ui menu&quot;&gt;
+  &lt;a class=&quot;item&quot; href=&quot;/signup&quot;&gt; Signup  &lt;/a&gt;
+  &lt;a class=&quot;active item&quot; href=&quot;/login&quot;&gt; Login  &lt;/a&gt;
+&lt;/nav&gt; 
+
+&lt;section class=&quot;ui segment&quot;&gt;
+  &lt;p&gt; Log in here ... &lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>Your workspace will start to look like this:</p>
+<p><img alt="" src="img/13.png"></p>
+<p>Before we can test it out, we need to set up the appropriate routes. Edit 'conf/routes', and introduce the
+following entries:</p>
+<pre><code># Landing page
+GET    /                                        Accounts.index
+
+# Accounts
+
+GET    /signup                                  Accounts.signup
+GET    /login                                   Accounts.login
+GET    /logout                                  Accounts.logout
+
+# Home page
+GET    /home                                    Home.index
+</code></pre>
+
+<p>Note that we have also changed '/' (Home.index) entry - such that '/home' will now load the home page.</p>
+<p>Run play locally now, and browse to the home page</p>
+<ul>
+<li><a href="http://localhost:9000/">http://localhost:9000/</a></li>
+</ul>
+<p>Try the nav bar links, and also each of the following urls directly:</p>
+<ul>
+<li><a href="http://localhost:9000/signup">http://localhost:9000/signup</a></li>
+<li><a href="http://localhost:9000/login">http://localhost:9000/login</a></li>
+<li><a href="http://localhost:9000/logout">http://localhost:9000/logout</a></li>
+</ul>
+<p>Can you explain what is happening? Essentially, our routes file is intercepting these urls and directing them to the Accounts class - and calling each of the methods above. These methods are in turn rendering different pages, each with a different title.</p>
+<p>Also try these links:</p>
+<ul>
+<li><a href="http://localhost:9000/home">http://localhost:9000/home</a></li>
+<li><a href="http://localhost:9000/members">http://localhost:9000/members</a></li>
+<li><a href="http://localhost:9000/profile">http://localhost:9000/profile</a></li>
+</ul>
+    </div>
+    <div class="tab-pane fade" id="03">
+      <h1>Signup, Login &amp; Logout Screens</h1>
+<p>The accounts pages now need some <code>forms</code> to enable the user to sign up / log in.</p>
+<p>The forms can be designed using the Semantic UI styles - as demonstrated here:</p>
+<ul>
+<li><a href="http://semantic-ui.com/collections/form.html">http://semantic-ui.com/collections/form.html</a></li>
+</ul>
+<p>Using this as an example, the following forms can be defined:</p>
+<h2>views/Accounts/login.html</h2>
+<pre><code class="html">... as before...
+
+&lt;section class=&quot;ui form segment&quot;&gt;
+  &lt;form action=&quot;/authenticate&quot; method=&quot;POST&quot;&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt; Username: &lt;/label&gt;
+      &lt;input type=&quot;text&quot; name=&quot;email&quot;&gt;
+    &lt;/div&gt;  
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;  Password: &lt;/label&gt;
+      &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;ui blue submit button&quot;&gt;Login&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/section&gt;
+</code></pre>
+
+<h2>Views/Accounts/signup.html</h2>
+<pre><code class="html">... as before...
+
+&lt;section class=&quot;ui form segment&quot;&gt;
+  &lt;form action=&quot;/register&quot; method=&quot;POST&quot;&gt;
+    &lt;div class=&quot;two fields&quot;&gt;
+      &lt;div class=&quot;field&quot;&gt;
+        &lt;label&gt;First Name&lt;/label&gt;
+        &lt;input placeholder=&quot;First Name&quot; type=&quot;text&quot; name=&quot;firstName&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;field&quot;&gt;
+        &lt;label&gt;Last Name&lt;/label&gt;
+        &lt;input placeholder=&quot;Last Name&quot; type=&quot;text&quot; name=&quot;lastName&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt; 
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Email&lt;/label&gt;
+      &lt;input placeholder=&quot;Email&quot; type=&quot;text&quot; name=&quot;email&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Password&lt;/label&gt;
+      &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;ui blue submit button&quot;&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/section&gt; 
+</code></pre>
+
+<p>Incorporate these into the view and see how they look in the running application. (Note that the buttons will give <code>not found</code> errors)</p>
+    </div>
+    <div class="tab-pane fade" id="04">
+      <h1>Responding to forms</h1>
+<p>When you press signup or login either of these pages:</p>
+<ul>
+<li><a href="http://localhost:9000/signup">http://localhost:9000/signup</a></li>
+<li><a href="http://localhost:9000/login">http://localhost:9000/login</a></li>
+</ul>
+<p>we get a 'Not Found' error. What should happen should be something like:</p>
+<ul>
+<li>Register: storing the new details somewhere, so when the user logs in subsequently
+we can see if they are valid users</li>
+<li>Authenticate: check to see if this is a valid user, and let them in to the rest of the app if
+the are.</li>
+</ul>
+<p>A natural place for us to do this processing is to implement suitable methods in the 'Accounts' class:</p>
+<pre><code class="java">  public static void register()
+  {
+  }
+
+  public static void authenticate()
+  {
+  }
+</code></pre>
+
+<p>Introduce these functions into Accounts now. What should we do in them? For the moment we do the following:</p>
+<ul>
+<li>Register: Redirect to the start page (where the user can proceed to log in)</li>
+<li>Authenticate: Just redirect to the home controller</li>
+</ul>
+<p>These are accomplished by the following:</p>
+<pre><code class="java">  public static void register()
+  {
+    index();
+  }
+
+  public static void authenticate()
+  {
+    Home.index();
+  }
+</code></pre>
+
+<p>However, if you try these links now (login or signup), we still get the not found error.</p>
+<p>Introduce these additional into the routes file:</p>
+<pre><code>POST   /authenticate                            Accounts.authenticate
+POST   /register                                Accounts.register
+</code></pre>
+
+<p>Note the difference here - the two new routes are 'POST' (not 'GET') routes.</p>
+<p>Test the app now, and verify that you are able to navigate as expected. You should be able to visit each page, from the start. Note that any value you enter will be ignored - you will always be able to log in. However, we have the basic nav structure in place which we can build on later.</p>
+    </div>
+    <div class="tab-pane fade" id="05">
+      <h1>Form Input</h1>
+<p>Recall that we have a 'signup' form in 'views/accounts/signup.html':</p>
+<pre><code class="html">&lt;section class=&quot;ui form segment&quot;&gt;
+  &lt;form action=&quot;/register&quot; method=&quot;POST&quot;&gt;
+    &lt;div class=&quot;two fields&quot;&gt;
+      &lt;div class=&quot;field&quot;&gt;
+        &lt;label&gt;First Name&lt;/label&gt;
+        &lt;input placeholder=&quot;First Name&quot; type=&quot;text&quot; name=&quot;firstName&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;field&quot;&gt;
+        &lt;label&gt;Last Name&lt;/label&gt;
+        &lt;input placeholder=&quot;Last Name&quot; type=&quot;text&quot; name=&quot;lastName&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt; 
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Email&lt;/label&gt;
+      &lt;input placeholder=&quot;Email&quot; type=&quot;text&quot; name=&quot;email&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Password&lt;/label&gt;
+      &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;ui blue submit button&quot;&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/section&gt; 
+</code></pre>
+
+<p>We would like values entered in this form to me transmitted to the Accounts controller:</p>
+<pre><code class="java">public class Accounts extends Controller
+{
+  public static void signup()
+  {
+    render();
+  }
+
+  public static void login()
+  {
+    render();
+  }
+
+  public static void logout()
+  {
+    index();
+  }
+
+  public static void index()
+  {
+    render();
+  }
+
+  public static void register()
+  {
+    index();
+  }
+
+  public static void authenticate()
+  { 
+    Home.index();
+  }
+}
+</code></pre>
+
+<p>Recall that the action <code>/register</code> in the form triggers a call to the register() method in the class (Locate both of these references now). In particular, this code here:</p>
+<pre><code>  &lt;form action=&quot;/register&quot; method=&quot;POST&quot;&gt;
+</code></pre>
+
+<p>will trigger a lookup of the routes file, locating this entry:</p>
+<pre><code>POST   /register                               Accounts.register
+</code></pre>
+
+<p>Note the "POST" reference in this fragment. We will return to the significance of this later. </p>
+<p>This is the current version of the Accounts.register() method:</p>
+<pre><code class="java">...
+  public static void register()
+  {
+    index();
+  }
+...
+</code></pre>
+
+<p>Modify the register method to accept email and password fields, and log them to the console:</p>
+<pre><code class="java">  public static void register(String email, String password)
+  {
+    Logger.info(email + &quot; &quot; + password);
+    index();
+  }
+</code></pre>
+
+<p>Save everything, fill in the email/password fields on the sign up form, and monitor the console. Every time you press "Signup" you should see those values echoed on the console:</p>
+<pre><code>09:36:01,793 INFO  ~ homer@simpson.com, secret
+</code></pre>
+
+<p>This is a direct result of the names used below as the 'name' attribute of the <code>&lt;input&gt;</code> tag matches the name of the parameter passed to the java controller:</p>
+<pre><code>    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Email&lt;/label&gt;
+      &lt;input placeholder=&quot;Email&quot; type=&quot;text&quot; name=&quot;email&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Password&lt;/label&gt;
+      &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p>We can extend the method to accept the other fields:</p>
+<pre><code class="java">  public static void register(String firstName, String lastName, String email, String password)
+  {
+    Logger.info(firstName + &quot; &quot; + lastName + &quot; &quot; + email + &quot; &quot; + password);
+    index();
+  }
+</code></pre>
+
+<p>which are also have matching names:</p>
+<pre><code class="html">    &lt;div class=&quot;two fields&quot;&gt;
+      &lt;div class=&quot;field&quot;&gt;
+        &lt;label&gt;First Name&lt;/label&gt;
+        &lt;input placeholder=&quot;First Name&quot; type=&quot;text&quot; name=&quot;firstName&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;field&quot;&gt;
+        &lt;label&gt;Last Name&lt;/label&gt;
+        &lt;input placeholder=&quot;Last Name&quot; type=&quot;text&quot; name=&quot;lastName&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt; 
+</code></pre>
+
+<p>...and should see all of theme echoed to the console.</p>
+    </div>
+    <div class="tab-pane fade" id="06">
+      <h1>User Model</h1>
+<p>In Eclipse, select the 'models' package (in 'app'), right click, and select 'new-&gt;class' as shown here: </p>
+<p><img alt="" src="img/00a.png"></p>
+<p>Call the class 'User', and accept the defaults:</p>
+<p><img alt="" src="img/01a.png"></p>
+<p>Replace the generated stubb class with the following (completely replace all contents):</p>
+<pre><code class="java">package models;
+
+import javax.persistence.Entity;
+
+import play.db.jpa.Model;
+
+@Entity
+public class User extends Model
+{
+  public String firstName;
+  public String lastName;
+  public String email;
+  public String password;
+
+  public User(String firstName, String lastName, String email, String password)
+  {
+    this.firstName = firstName;
+    this.lastName  = lastName;
+    this.email     = email;
+    this.password  = password;
+  }
+}
+</code></pre>
+
+<p>This is a 'model' class, which will be used to store information in a database. In order to start using a database, we need to tell our framework what database to use. In eclipse, open the file 'conf/application.conf, and locate the following entries:</p>
+<pre><code># Enable a database engine if needed.
+#
+# To quickly set up a development database, use either:
+#   - mem : for a transient in memory database (H2 in memory)
+#   - fs  : for a simple file written database (H2 file stored)
+# db.default=mem
+#
+# T
+</code></pre>
+
+<p>Uncomment (i.e. remove the leading '#' character) the 'db=mem' line:</p>
+<pre><code>db.default=mem
+</code></pre>
+
+<p>Now in our Accounts.register() method, do two important things:</p>
+<ul>
+<li>Create a new User object to represent a new user</li>
+<li>Save this object in the database.</li>
+</ul>
+<p>This is accomplished as follows:</p>
+<pre><code class="java">  public static void register(String firstName, String lastName, String email, String password)
+  {
+    Logger.info(firstName + &quot; &quot; + lastName + &quot; &quot; + email + &quot; &quot; + password);
+
+    User user = new User (firstName, lastName, email, password);
+    user.save();
+
+    index();
+  }
+</code></pre>
+
+<p>Restart the application - this is necessary because we have changed an important database configuration parameter. Browse to the form again and fill in the form. Verify that there are no errors when you press signup.</p>
+    </div>
+    <div class="tab-pane fade" id="07">
+      <h1>Database Browsing</h1>
+<p>From the last step we note that when a someone fills out the form and presses 'sign up' then ultimately this method here is called:</p>
+<pre><code class="java">  public static void register(String firstName, String lastName, String email, String password)
+  {
+    Logger.info(firstName + &quot; &quot; + lastName + &quot; &quot; + email + &quot; &quot; + password);
+
+    User user = new User (firstName, lastName, email, password);
+    user.save();
+
+    index();
+  }
+</code></pre>
+
+<p>Where does 'user.save()' put the user details? It goes to a database - and in this step we will take a peak inside the database to have have a look at the entries. This will be useful for debugging, as we would like to be able to verify what is happening with any data we save.</p>
+<p>With your application running, browse to this url:</p>
+<ul>
+<li><a href="http://localhost:9000/@db">http://localhost:9000/@db</a></li>
+</ul>
+<p>You should see this screen here:</p>
+<p><img alt="" src="img/14a.png"></p>
+<p>Before pressing 'connect', make sure the 'JDBC URL' field contains the following:</p>
+<pre><code>jdbc:h2:mem:play
+</code></pre>
+
+<p>Press 'connect' and you should see this:</p>
+<p><img alt="" src="img/15a.png"></p>
+<p>This is a peek into the database your application is using. We will look at this occasionally to see what is going on, but it is not part of our applications user interface as such.</p>
+<p>You can see our 'user' is already in there. Select it and its structure should be visible:</p>
+<p><img alt="" src="img/16a.png"></p>
+<p>Press the green 'Run' button:</p>
+<p><img alt="" src="img/17a.png"></p>
+<p>This has executed a query - and the table is shown below. If you have registered someone, it will appear in the report after you have pressed the 'run' button. Register some users now and see if they appear:</p>
+<p><img alt="" src="img/18a.png"></p>
+<p>Note that by pressing the 'edit' button, we can delete entries:</p>
+<p><img alt="" src="img/19a.png"></p>
+<p>Or add new ones:</p>
+<p><img alt="" src="img/20a.png"></p>
+<p>Experiment with adding/removing some entries, using both or application and this console.</p>
+    </div>
+    <div class="tab-pane fade" id="Exercises">
+      <h1>Exercises</h1>
+<h1>Archive of lab so far:</h1>
+<ul>
+<li><a href="archives/spacebook-part-2.zip">spacebook-part-2.zip</a></li>
+</ul>
+<h2>Exercise 1:</h2>
+<p>We need to go back to our login form, which currently looks like this (excluding the header for clarity):</p>
+<pre><code class="html">&lt;section class=&quot;ui form segment&quot;&gt;
+  &lt;form action=&quot;/authenticate&quot; method=&quot;POST&quot;&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt; Username: &lt;/label&gt;
+      &lt;input type=&quot;text&quot; name=&quot;email&quot;&gt;
+    &lt;/div&gt;  
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;  Password: &lt;/label&gt;
+      &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;ui blue submit button&quot;&gt;Login&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>Using step 5 as a guide, introduce the necessary changes to have the email/password transferred from this form to the controller, and logged to the console.</p>
+<h2>Exercise 2:</h2>
+<p>What happens when you enter text and press 'Change' on the profile page? (Not found presumably). This is the html for that part of the page:</p>
+<pre><code class="html">        &lt;form action=&quot;homeprofile/changetext&quot; method=&quot;post&quot;&gt;
+          &lt;h3 class=&quot;ui inverted teal block header&quot;&gt;Enter Status&lt;/h3&gt;
+          &lt;textarea class=&quot;ui field&quot; name=&quot;profiletext&quot;&gt; &lt;/textarea&gt;
+          &lt;input class=&quot;ui blue button&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
+        &lt;/form&gt;
+</code></pre>
+
+<p>Again using step 5 of this lab as a guide, can you make the necessary changes such that when the Change button is pressed, a log message is printed on the console?</p>
+<p>Remember, to implement complete this exercises you will need to write both a java method and a matching route - as demonstrated in step 5. Also. the 'action' attribute of the form above will need to be completed. Also, note the name on the <code>&lt;textarea&gt;</code> field.</p>
+    </div>
+</div>
+<br> <br>
+
+
+    </div>
+
+
+<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <small>
+    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+    </a>
+    </small>
+</div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("img-responsive");
+
+  $(".tab-content img").each(function()
+  {
+    var title = this.alt;
+    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  });
+})    </script>
+
+  </body>
+ </html>

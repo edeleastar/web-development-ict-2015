@@ -1,0 +1,845 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <div class="navbar-brand">
+        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+        Templates
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#Lab-10" data-toggle="tab"> Lab-10 </a> </li>
+          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
+          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
+          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
+          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
+          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
+          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
+          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
+          <li><a href= "#08" data-toggle="tab"> 08 </a> </li>
+          <li><a href= "#09" data-toggle="tab"> 09 </a> </li>
+          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Lab-10">
+    <h1>Objectives</h1>
+<p>Show a list of live list of members on the service. Extend the User model to include a list of members being followed. Allow a user to 'friend' and and 'drop' other members </p>
+  </div>
+
+    <div class="tab-pane fade" id="01">
+      <h1>Lab09 Project</h1>
+<p>You should have a project from last weeks lab. If you dont have the project then this is a version (before the exercises) here</p>
+<ul>
+<li><a href="archives/spacebook-part-3.zip">spacebook-part-3.zip</a></li>
+</ul>
+<h1>Lab09 Exercise Solutions</h1>
+<h2>Exercise 1</h2>
+<p>Change the Profile controller/view to display the currently logged in users full name (not just the first name).</p>
+<h2>Exercise 1 Solution</h2>
+<p>Change the profile controller as follows:</p>
+<pre><code class="java">  public static void index()
+  {
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User user = User.findById(Long.parseLong(userId));
+    render(user);
+  }
+</code></pre>
+
+<p>Note we are passing the full user object to the view instead of just the name.</p>
+<p>In views/Profile/index.html we can take advantage of this:</p>
+<pre><code class="html">  &lt;h2 class=&quot;ui header&quot;&gt;${user.firstName} ${user.lastName}'s Profile&lt;/h2&gt;
+</code></pre>
+
+<h2>Exercise 2</h2>
+<p>In the user Profile view, see if you can figure out how to let the user see his/her  email. </p>
+<h2>Exercise 2 Solution</h2>
+<p>No need to change anything in the controllers/models - just append the email (in brackets) to the existing <code>&lt;h2&gt;</code>:</p>
+<pre><code class="html">  &lt;h2 class=&quot;ui header&quot;&gt;${user.firstName} ${user.lastName}'s Profile (${user.email})&lt;/h2&gt;
+</code></pre>
+
+<h2>Exercise 4</h2>
+<p>Currently, every time we stop the application our database is cleared - and when we run again we have to register new users again. This can get tiresome and repetitive. Our framework comes with a simple mechanism for pre-loading our database if we want to hit the ground running with initial test data.</p>
+<p>Create a file called 'data.yml' in the conf directory in the project, and incorporate the following contents into it:</p>
+<pre><code>User(homer):
+    firstName: Homer
+    lastName: Simpson
+    email: homer@simpson.com
+    password: secret
+
+User(marge):
+    firstName: Marge
+    lastName: Simpson
+    email: marge@simpson.com
+    password: secret
+</code></pre>
+
+<p>Now create a new java class called 'Bootstrap' - directly in the the 'app' folder in your eclipse project. The class is to contain the following:</p>
+<pre><code class="java">import java.util.List;
+
+import play.*;
+import play.jobs.*;
+import play.test.*;
+
+import models.*;
+
+@OnApplicationStart
+public class Bootstrap extends Job 
+{ 
+  public void doJob()
+  {
+    Fixtures.deleteDatabase();
+    Fixtures.loadModels(&quot;data.yml&quot;);
+  }
+}
+</code></pre>
+
+<p>Proceed with this now if you have not already done so.</p>
+<p>When you restart the app, these two users should be already registered, so you should be able to log in immediately.</p>
+    </div>
+    <div class="tab-pane fade" id="02">
+      <h1>Saving to the Database</h1>
+<p>If you log in to this user here:</p>
+<ul>
+<li>username 'homer@simpson.com'</li>
+<li>password 'secret'</li>
+</ul>
+<p>and visit the 'profile' page, you should see a screen something like this:</p>
+<p><img alt="" src="img/07.png"></p>
+<p>Reflect again an the code behind this. </p>
+<p>The <code>model</code> class User:</p>
+<pre><code class="java">@Entity
+public class User extends Model
+{
+  public String firstName;
+  public String lastName;
+  public String email;
+  public String password;
+
+  public User(String firstName, String lastName, String email, String password)
+  {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = password;
+  }
+
+  public static User findByEmail(String email)
+  {
+    return find(&quot;email&quot;, email).first();
+  }
+
+  public boolean checkPassword(String password)
+  {
+    return this.password.equals(password);
+  }
+}
+</code></pre>
+
+<p>The <code>controller</code> class Profile</p>
+<pre><code class="java">public class Profile extends Controller
+{
+  public static void index()
+  {
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User user = User.findById(Long.parseLong(userId));
+    render(user);
+  }
+
+  public static void changeStatus()
+  {
+    Logger.info(&quot;Status changed&quot;);
+    index();
+  }
+}
+</code></pre>
+
+<p>and the corresponding view:</p>
+<pre><code class="html">#{extends 'main.html' /}
+#{set title:'Profile' /}
+
+&lt;nav class=&quot;ui menu&quot;&gt; 
+  &lt;a class=&quot;ui item&quot; href=&quot;/home&quot;&gt;Home&lt;/a&gt;      
+  &lt;a class=&quot;ui item&quot; href=&quot;/members&quot;&gt;Members&lt;/a&gt;   
+  &lt;a class=&quot;ui active item&quot; href=&quot;/profile&quot;&gt;Profile&lt;/a&gt;   
+  &lt;a class=&quot;ui item&quot; href=&quot;/login&quot;&gt;Logout&lt;/a&gt;      
+&lt;/nav&gt;
+
+&lt;section class=&quot;ui segment&quot;&gt;
+  &lt;h2 class=&quot;ui header&quot;&gt;${user.firstName} ${user.lastName}'s Profile (${user.email})&lt;/h2&gt;
+  &lt;div class=&quot;ui two column grid segment&quot;&gt;
+    &lt;div class=&quot;ui row&quot;&gt;
+      &lt;div class=&quot;ui column&quot;&gt;
+        &lt;p&gt;
+          &lt;img src=&quot;images/homer.gif&quot; /&gt;
+        &lt;/p&gt;
+        &lt;form action=&quot;homeprofile/upload&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+          &lt;input type=&quot;file&quot; name=&quot;userfile&quot; value=&quot;&quot; /&gt; &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;upload&quot; /&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ui column form segment&quot;&gt;
+        &lt;form action=&quot;/profile/changestatus&quot; method=&quot;post&quot;&gt;
+          &lt;h3 class=&quot;ui inverted teal block header&quot;&gt;Enter Status&lt;/h3&gt;
+          &lt;textarea class=&quot;ui field&quot; name=&quot;profiletext&quot;&gt; &lt;/textarea&gt;
+          &lt;input class=&quot;ui blue button&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>Locate these in eclipse now. We would like to extend this such that, if the user types something into the edit field, and presses 'change' - then the text entered will appear, just under the 'Status Text' header.</p>
+<p>This will require four changes to our app. </p>
+<h2>Change 1</h2>
+<p>First, we create a new member in the 'User' class to store the text - we will call it 'statusText'</p>
+<pre><code class="java">public class User extends Model
+{ 
+  //...
+  public String statusText;
+  //...
+}
+</code></pre>
+
+<h3>Change 2</h3>
+<p>Make sure that there is a 'route' that maps the pressing of the change button to a method we will call 'changeText' in the HomeProfile class. This is via this new entry in the 'conf/routes' file:</p>
+<pre><code>POST    /profile/changestatus                   Profile.changeStatus
+</code></pre>
+
+<p>(We already did this in an earlier lab)</p>
+<h3>Change 3</h3>
+<p>Replace the changeStatus method in the Profile controller class with the following version:</p>
+<pre><code>  public static void changeStatus(String profiletext)
+  {
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User user = User.findById(Long.parseLong(userId));
+    user.statusText = profiletext;
+    user.save();
+    Logger.info(&quot;Status changed to &quot; + profiletext);
+    index();
+  } 
+</code></pre>
+
+<p>Looking at the above method, we are doing the following:</p>
+<ul>
+<li>determining who is currently logged in</li>
+<li>reading the details about that user from the database into the user object</li>
+<li>replacing the current status with the new status the user has just entered</li>
+<li>saving this to the database</li>
+<li>printing a log message</li>
+<li>redrawing the screen</li>
+</ul>
+<h2>Change 4</h2>
+<p>In the  Profile/index.html file, we will display the updated status text. Locate the second column here:</p>
+<pre><code class="html">      &lt;div class=&quot;ui column form segment&quot;&gt;
+        &lt;form action=&quot;/profile/changestatus&quot; method=&quot;post&quot;&gt;
+          &lt;h3 class=&quot;ui inverted teal block header&quot;&gt;Enter Status&lt;/h3&gt;
+          &lt;textarea class=&quot;ui field&quot; name=&quot;profiletext&quot;&gt; &lt;/textarea&gt;
+          &lt;input class=&quot;ui blue button&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+</code></pre>
+
+<p>and we insert new elements above the form to display the status for the user:</p>
+<pre><code class="html">      &lt;div class=&quot;ui column form segment&quot;&gt;
+        &lt;h2 class=&quot;ui small header&quot;&gt; Status&lt;/h2&gt;
+        &lt;div class=&quot;ui green block label&quot;&gt;
+          &lt;p&gt; ${user.statusText} &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;hr&gt;
+        &lt;form action=&quot;/profile/changestatus&quot; method=&quot;post&quot;&gt;
+          &lt;h3 class=&quot;ui inverted teal block header&quot;&gt;Enter Status&lt;/h3&gt;
+          &lt;textarea class=&quot;ui field&quot; name=&quot;profiletext&quot;&gt; &lt;/textarea&gt;
+          &lt;input class=&quot;ui blue button&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Change&quot; /&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+</code></pre>
+
+<p>Save all files in eclipse, and refresh the home profile page. Entering some text, pressing 'change', should cause the new message to be displayed above the email. Log out and log back in again. Verify that the status text 'persists' i.e. is the same as you left it before logging out.</p>
+    </div>
+    <div class="tab-pane fade" id="03">
+      <h1>Reading from the Database</h1>
+<p>In this step we would like to have the 'members' page display the actual members in the database. Currently this is a hard coded list of Simpsons:</p>
+<pre><code class="html">...
+
+&lt;section class=&quot;ui segment&quot;&gt;
+  &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook's Members&lt;/h2&gt;
+  &lt;div class=&quot;ui list&quot;&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; marge [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+    &lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; bart [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+    &lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; lisa [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+    &lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; maggie [&lt;a href=&quot;home.html&quot;&gt;follow&lt;/a&gt;]
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>which is generated by 'app/controllers/Members.java' class:</p>
+<pre><code class="java">public class Members extends Controller
+{
+  public static void index()
+  {
+    render();
+  }
+}
+</code></pre>
+
+<p>To display a list of the members, we will retrieve it from the Users database. Change the index() function above as follows:</p>
+<pre><code class="java">  public static void index()
+  {
+    List&lt;User&gt; users = User.findAll();
+    render(users);
+  }
+</code></pre>
+
+<p>In the view, replace the complete section with the following:</p>
+<pre><code class="html">&lt;section class=&quot;ui segment&quot;&gt;
+  &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook's Members&lt;/h2&gt;
+  &lt;div class=&quot;ui list&quot;&gt;
+    #{list items:users, as:'user'}
+      &lt;div class=&quot;item&quot;&gt;
+        &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; 
+        &lt;div class=&quot;content&quot;&gt;
+          ${user.firstName} ${user.lastName} &lt;a href=&quot;/members/follow/${user.id}&quot;&gt; (follow) &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt; 
+    #{/list}
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>This is unusual syntax - it is not html, but rather what is called a templating language. In this case it is a way of writing a loop in a html-like notation, to read a list of users and display them inside a html list element. There are literally dozens of templating languages - this is a fairly simple one that comes with our play framework.</p>
+<p>Save everything and visit the members page. You should see a list of users full names. Sign up a few new members, and verify that they appear in the members page.</p>
+    </div>
+    <div class="tab-pane fade" id="04">
+      <h1>Following Members</h1>
+<p>Currently, our members page looks like this:</p>
+<p><img alt="" src="img/09.png"></p>
+<p>We would like it to look like this:</p>
+<p><img alt="" src="img/10.png"></p>
+<p>This is achieved by extending the list items in 'Views/members/index.html' with this element:</p>
+<pre><code class="html">  &lt;a href=&quot;/members/follow/${user.id}&quot;&gt; (follow) &lt;/a&gt;
+</code></pre>
+
+<p>Notice how the link appears in brackets after the users name, and refers to this route here:</p>
+<pre><code>  href=&quot;/members/follow/${user.id}&quot;
+</code></pre>
+
+<p>Can you figure our what is going on here? If you go back to the browser, and hover over the 'follow' links, you will see how the link is actually expanded with the user ids of each user inserted into each link. To see this, save everything in Eclipse, reload the browser, and hover over each of the 'follow' links in turn:</p>
+<p>We need a 'route' in the 'conf/routes' files that maps this url:</p>
+<pre><code>GET     /members/follow/{id}                  Members.follow
+</code></pre>
+
+<p>And we need a method in the Members controller to implement this route:</p>
+<pre><code class="Java">  public static void follow(Long id)
+  {
+    Logger.info(&quot;Following &quot; + id);
+    index();
+  }
+</code></pre>
+
+<p>Run the app now, and keep an eye on the console, you should see the IDs being 'followed' as expected.</p>
+<p>Finally, we can use the id to lookup the users name, and log the name to the console. This a new version of follow():</p>
+<pre><code class="Java">  public static void follow(Long id)
+  {
+    User userToFollow = User.findById(id);
+    Logger.info(&quot;Following &quot; + userToFollow.firstName);
+    index();
+  }
+</code></pre>
+
+<p>Run this now, you should see the users first name logged.</p>
+    </div>
+    <div class="tab-pane fade" id="05">
+      <h1>Saving Friendship List</h1>
+<p>We now have a mechanism whereby we can 'follow' another member. However, we would like to save this relationship to the database, so that we can list the members we are following on our home page. </p>
+<p>In the models package, create new class called <code>Friendship</code>:</p>
+<pre><code class="java">package models;
+
+import javax.persistence.*;
+import play.db.jpa.Model;
+
+@Entity
+public class Friendship extends Model
+{
+  @ManyToOne()
+  public User sourceUser;
+
+  @ManyToOne()
+  public User targetUser;
+
+  public Friendship(User source, User target)
+  {
+    sourceUser = source;
+    targetUser = target;
+  }
+}
+</code></pre>
+
+<p>This models a relationship between two users - a user who initiated the friendship (sourceUser) and the user he befriended (targerUser)</p>
+<p>In order to save the list of followers, we need to establish a collection of these <code>Friendship</code> objects, and store this collection in our User class. Make the following changes to User.java.</p>
+<h2>Import the appropriate libraries:</h2>
+<p>Place these import statements alongside the other import statement at the top of the User.java class:</p>
+<pre><code class="java">import java.util.List;
+import java.util.ArrayList;
+import javax.persistence.OneToMany;
+</code></pre>
+
+<h2>Introduce the 'friendships' Collection:</h2>
+<p>Place this declaration in the User class, after the existing attributes:</p>
+<pre><code class="java">  //...
+  public String password;
+  public String statusText;
+
+  @OneToMany(mappedBy = &quot;sourceUser&quot;)
+  public List&lt;Friendship&gt; friendships = new ArrayList&lt;Friendship&gt;();
+
+  public User(String firstName, String lastName, String email, String password)
+  {
+  //...
+</code></pre>
+
+<p>We also equip the User model class with two additional methods which will maintain this relationship:</p>
+<pre><code class="java">  public void befriend(User friend)
+  {
+    Friendship friendship = new Friendship(this, friend);
+    friendships.add(friendship);
+    friendship.save();
+    save();
+  }
+
+  public void unfriend(User friend)
+  {
+    Friendship thisFriendship = null;
+
+    for (Friendship friendship:friendships)
+    {
+      if (friendship.targetUser== friend)
+      {
+        thisFriendship = friendship;
+      }
+    }
+    friendships.remove(thisFriendship);
+    thisFriendship.delete();
+    save();
+  }
+</code></pre>
+
+<h1>Save new Users in the Collection:</h1>
+<p>Back in the Members class, extend the 'follow' method to uses these new features of the User model:</p>
+<pre><code class="java">  public static void follow(Long id)
+  {
+    User friend = User.findById(id);
+
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User me = User.findById(Long.parseLong(userId));
+
+    me.befriend(friend);
+    index();
+  }
+</code></pre>
+
+<p>Because we have made a change to the database, we will need to completely restart the application again. i.e. Ctrl-C in the command prompt, and enter <code>play run</code> again.</p>
+<p>Log in to spacebook as Homer, and see if you can 'Follow' marge. Although the UI doesnt show any signs of the friendship having been established, you should be able to see it by browsing the database:</p>
+<ul>
+<li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#111;&#99;&#97;&#108;&#104;&#111;&#115;&#116;&#58;&#57;&#48;&#48;&#48;&#47;&#64;&#100;&#98;">&#108;&#111;&#99;&#97;&#108;&#104;&#111;&#115;&#116;&#58;&#57;&#48;&#48;&#48;&#47;&#64;&#100;&#98;</a></li>
+</ul>
+<p><img alt="" src="img/24.png"></p>
+    </div>
+    <div class="tab-pane fade" id="06">
+      <h1>Displaying the Friends list</h1>
+<p>Our home page currently has a list of members we are following 'hard-coded' in 'views/home/index.html':</p>
+<pre><code class="html">      &lt;div class=&quot;ui column&quot;&gt;
+        &lt;h2&gt;Friends&lt;/h2&gt;
+        &lt;div class=&quot;ui list&quot;&gt;
+          &lt;div class=&quot;item&quot;&gt;
+            &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; &lt;a href=&quot;/publicprofile/marge&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)
+          &lt;/div&gt;
+          &lt;div class=&quot;item&quot;&gt;
+            &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; &lt;a href=&quot;/publicprofile/lisa&quot;&gt;lisa&lt;/a&gt;, (&lt;a href=&quot;drop/lisa&quot;&gt;drop&lt;/a&gt;)
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+</code></pre>
+
+<p>We have already done something like what we want to do in step 04: i.e. display a list of names, retrieved from the database. </p>
+<p>Replace this section with the following:</p>
+<pre><code class="html">        &lt;h2&gt;Friends&lt;/h2&gt;
+        &lt;div class=&quot;ui list&quot;&gt;
+          #{list items:user.friendships, as:'friendship'}
+            &lt;div class=&quot;item&quot;&gt;
+              &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+              &lt;div class=&quot;content&quot;&gt;
+                ${friendship.targetUser.firstName} ${friendship.targetUser.lastName}
+              &lt;/div&gt;
+            &lt;/div&gt;
+          #{/list}
+        &lt;/div&gt;
+ ~~~
+
+(try to keep the indentation consistent).
+
+Save everything in Eclipse, and refresh your home page. The 'Following' list is now dynamically generated. 
+
+Note the connection between this method in the Home class:
+
+~~~Java
+  public static void index()
+  {
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User user = User.findById(Long.parseLong(userId));
+    render(user);
+  }
+</code></pre>
+
+<p>... and this template code:</p>
+<pre><code class="html">          #{list items:user.friendships, as:'friendship'}
+            &lt;div class=&quot;item&quot;&gt;
+              &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+              &lt;div class=&quot;content&quot;&gt;
+                ${friendship.targetUser.firstName} ${friendship.targetUser.lastName}
+              &lt;/div&gt;
+            &lt;/div&gt;
+          #{/list}
+</code></pre>
+
+<p>In particular, as the User class now has a member called 'friendships' - we are just passing the currently logged in 'user' to the render method, which passes this on to the view. In the view, we just iterate through the friendship member of the user object we receive. This looks confusing at first, but it is reasonably straightforward and predictable once you get used to it.</p>
+<p>Experiment with signing up more members, logging in, and watching the list of friends growing.</p>
+<p>Also, keep an eye on the database. See if you can make sense of the contents of the friendships table.</p>
+    </div>
+    <div class="tab-pane fade" id="07">
+      <h1>Dropping Friends</h1>
+<p>You may have parts of this already implemented in an exercise in an earlier lab. If not, them introduce (or change) these features now:</p>
+<p>In the Home controller we need an action to be called if a friend is to be dropped:</p>
+<pre><code class="java">  public static void drop(Long id)
+  {
+    Logger.info(&quot;Dropping &quot; + name);
+    index();
+  }
+</code></pre>
+
+<p>..and this is the corresponding entry in the 'conf/routes file:</p>
+<pre><code>GET     /home/drop/{id}                       Home.drop
+</code></pre>
+
+<p>Here is what we would like to do now:</p>
+<ul>
+<li>once we get the id, delete the user from the 'following' list</li>
+<li>refresh the display, which will see the user removed from the list. </li>
+</ul>
+<p>Here is new link to be displayed after each friends' name in  <code>views/Home/index.html</code>:</p>
+<pre><code class="html"> (&lt;a href=&quot;/home/drop/${friendship.targetUser.id}&quot;&gt; drop &lt;/a&gt;)
+</code></pre>
+
+<p>Here is a drop implementation that deletes the friendship:</p>
+<pre><code class="java">  public static void drop(Long id)
+  {
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User user = User.findById(Long.parseLong(userId));
+
+    User friend = User.findById(id);
+
+    user.unfriend(friend);
+    Logger.info(&quot;Dropping &quot; + friend.email);
+    index();
+  }  
+</code></pre>
+
+<p>The pattern in the above should start to become familiar. First we find out who is logged in:</p>
+<pre><code class="java">    String userId = session.get(&quot;logged_in_userid&quot;);
+    User user = User.findById(Long.parseLong(userId));
+</code></pre>
+
+<p>Then we find out which user is about to be dropped:</p>
+<pre><code class="java">    User friend = User.findById(id);
+</code></pre>
+
+<p>We then remove the user from the logged in users following list (and we save the user as we have changed something):</p>
+<pre><code class="java">    user.unfriend(friend);
+</code></pre>
+
+<p>Finally, we log what has just happened, and refresh the view:</p>
+<pre><code class="java">    Logger.info(&quot;Dropping &quot; + friend.email);
+    index();
+</code></pre>
+
+<p>Save everything in Eclipse and try this out now. Whenever you make significant changes, it is often best to restart the app.</p>
+<p>You should be able to add and remove users from the 'following' list.</p>
+    </div>
+    <div class="tab-pane fade" id="08">
+      <h1>Friends List</h1>
+<p>In views/Home/index.html we are listing the friends for the current user:</p>
+<pre><code class="html">          #{list items:user.friendships, as:'friendship'}
+            &lt;div class=&quot;item&quot;&gt;
+              &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+              &lt;div class=&quot;content&quot;&gt;
+                ${friendship.targetUser.firstName} ${friendship.targetUser.lastName}
+                (&lt;a href=&quot;/home/drop/${friendship.targetUser.id}&quot;&gt; drop &lt;/a&gt;)
+              &lt;/div&gt;
+            &lt;/div&gt;
+          #{/list}
+</code></pre>
+
+<p>Here we display the name of the member we are following, and a link to 'drop' the member. However, we do not associate a link to the members profile page. We can do this now. Rework the friends name as follows:</p>
+<pre><code class="html">              &lt;a href=&quot;&quot;&gt; ${friendship.targetUser.firstName} ${friendship.targetUser.lastName}&lt;/a&gt;
+</code></pre>
+
+<p>Note that we have made the members name a link. Refresh the browser to see the change: However, if we click on the link it does not take us anywhere, as the 'href' attribute has been left blank (try it). We will fix this now.</p>
+<p>The first step will be to change the 'route' from being based on a string (representing the user name) to using the user id. This is a more robust and reliable mechanism. Change the parameter name to 'id':</p>
+<pre><code># Profiles
+GET     /publicprofile/{id}                     PublicProfile.visit
+</code></pre>
+
+<p>... and then change the visit method in PublicProfile controller to take this id parameter instead:</p>
+<pre><code class="java">  public static void visit(Long id)
+  {
+    Logger.info(&quot;Just visiting the page for &quot; + id);
+   // render(name);
+  }  
+</code></pre>
+
+<p>We commented out the call to render for the moment. </p>
+<p>Now, returning to 'views/Home/index.html', we can examine again our link (currently blank):</p>
+<pre><code class="html">            &lt;div class=&quot;item&quot;&gt;
+              &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+              &lt;div class=&quot;content&quot;&gt;
+                &lt;a href=&quot;&quot;&gt; ${friendship.targetUser.firstName} ${friendship.targetUser.lastName}&lt;/a&gt;
+                (&lt;a href=&quot;/home/drop/${friendship.targetUser.id}&quot;&gt; drop &lt;/a&gt;)
+              &lt;/div&gt;
+            &lt;/div&gt;
+</code></pre>
+
+<p>... and introduce a url to the method we have just modified:</p>
+<pre><code class="html">           &lt;div class=&quot;item&quot;&gt;
+              &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+              &lt;div class=&quot;content&quot;&gt;
+                &lt;a href=&quot;/publicprofile/${friendship.targetUser.id}&quot;&gt; ${friendship.targetUser.firstName} ${friendship.targetUser.lastName}&lt;/a&gt;
+                (&lt;a href=&quot;/home/drop/${friendship.targetUser.id}&quot;&gt; drop &lt;/a&gt;)
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+</code></pre>
+
+<p>Try these links now (the links to the friends on the home page). You should see a blank page.</p>
+    </div>
+    <div class="tab-pane fade" id="09">
+      <h1>UserProfile View</h1>
+<p>Now we try to further evolve the 'UserProfile' class to somehow render information about the requested user - i.e. the user whose ID is passed as a parameter to the visit method.</p>
+<p>The first step will be to see if we can use the id passed as a parameter to visit to retrieve user information from the database. This is relatively straightforward:</p>
+<pre><code class="java">  public static void visit(Long id)
+  {
+    User user = User.findById(id);
+    Logger.info(&quot;Just visiting the page for &quot; + user.firstName + ' ' + user.lastName );
+    //render(name);
+  }
+</code></pre>
+
+<p>In this code, we are asking the User model for a User object that matches the id:</p>
+<pre><code class="java">    User user = User.findById(id);
+</code></pre>
+
+<p>...and then we log the first and last names in this object to the console:</p>
+<pre><code class="java">    Logger.info(&quot;Just visiting the page for &quot; + user.firstName + ' ' + user.lastName );
+</code></pre>
+
+<p>Save the java source, reload the page, and verify that when you click on the user in the home page a log message is displayed as expected:</p>
+<pre><code>13:14:25,183 INFO  ~ Just visiting the page for Marge Simpson
+</code></pre>
+
+<p>We can now attempt to pass this user object to the render method:</p>
+<pre><code class="java">    render(user);
+</code></pre>
+
+<p>Save everything, and browse to the friend from the home page again:</p>
+<p>Note that many of the details are missing/incorrect. We will not be able to fix all of these yet (pictures or messages are not modeled in our database yet), however we should be able to display the users correct name, and perhaps their current status string.</p>
+<p>First the users name - this is currently rendered in the banner:</p>
+<pre><code class="html">  &lt;div class=&quot;ui small header&quot;&gt; ${name}'s Profile&lt;/div&gt;
+</code></pre>
+
+<p>This should be changed to:</p>
+<pre><code class="html">  &lt;div class=&quot;ui small header&quot;&gt; ${user.firstName} ${user.lastName}'s Profile&lt;/div&gt;
+</code></pre>
+
+<p>We can also extend the view to also display the users status message. Insert a paragraph to show the status text just below the image:</p>
+<pre><code class="html">&lt;p&gt; ${user.statusText} &lt;/p&gt;
+</code></pre>
+
+<p>Save and reload the profile page. There may not be a status message for this user, so logout, log in as the friend, change the status, and then log in as homer again and see if the status is being displayed. You should eventually see the message displayed</p>
+<p>There are two major features remaining:</p>
+<ul>
+<li>Messages</li>
+<li>Profile Images</li>
+</ul>
+<p>If we can integrate these two capabilities, then we will have completed a functioning 'dynamic' version of our static web site. i.e. we will have built a 'web app'.</p>
+    </div>
+    <div class="tab-pane fade" id="Exercises">
+      <h1>Exercises</h1>
+<h2>Archive of lab so far:</h2>
+<ul>
+<li><a href="archives/spacebook-part-4.zip">spacebook-part-4.zip</a></li>
+</ul>
+<h2>Exercise 1</h2>
+<p>Currently, when you follow a member there is not obvious change on the screen. i.e. you remain on the members page. </p>
+<pre><code class="java">  public static void follow(Long id)
+  {
+    User userToFollow = User.findById(id);
+
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User user = User.findById(Long.parseLong(userId));
+
+    user.following.add(userToFollow);
+    user.save();
+
+    index();
+  }
+</code></pre>
+
+<p>Change this such that when you follow a member, the home page is displayed immediately - where the new entry in the 'following' list should appear. Hint: You will have to call the index() method on the Home class (instead of the Members class as currently)</p>
+<h2>Exercise 2</h2>
+<p>Is there a way we can display the number of friends we have on the home screen - perhaps in brackets after the 'Friends' text.</p>
+<p>Recall that we are accessing the followers list in the 'home/index.html' view:</p>
+<pre><code class="html">    &lt;h4&gt;Friends&lt;/h4&gt;
+    &lt;ul&gt; 
+      #{list items:user.friendships, as:'friendship'}
+        &lt;li&gt; 
+          ${friendship.targetUser.firstName} ${friendship.targetUser.lastName} (&lt;a href=&quot;/home/drop/${friendship.targetUser.id}&quot;&gt; drop &lt;/a&gt;)
+        &lt;/li&gt;
+      #{/list}
+    &lt;/ul&gt; 
+</code></pre>
+
+<p>'user.friends' is the list friends, and 'user.friends.size()' will retrieve the number of entries in this list. In order to use this in a html element, you would need to surround it with <code>${...}</code>, as in: '<code>${user.friends.size()}</code></p>
+<h2>Exercise 3</h2>
+<p>Explore the database admin interface again:</p>
+<ul>
+<li><a href="http://localhost:9000/@db">http://localhost:9000/@db</a></li>
+</ul>
+<p>In particular, look at how the friendship list is represented:</p>
+<p><img alt="" src="img/15.png"></p>
+<p>See if you can figure out how you can use this interface to make changes to the friends list, and verify that these changes appear on the home page. In particular, see if you can have two browser windows open - one with a logged in user, and one with the db interface. Make changes on the db, and see if a refresh on the logged in home page occurs immediately (after pressing refresh).</p>
+    </div>
+</div>
+<br> <br>
+
+
+    </div>
+
+
+<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <small>
+    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+    </a>
+    </small>
+</div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("img-responsive");
+
+  $(".tab-content img").each(function()
+  {
+    var title = this.alt;
+    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  });
+})    </script>
+
+  </body>
+ </html>

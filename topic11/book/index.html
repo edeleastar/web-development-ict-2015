@@ -1,0 +1,593 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <div class="navbar-brand">
+        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+        Messages & Pictures
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#Lab-11" data-toggle="tab"> Lab-11 </a> </li>
+          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
+          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
+          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
+          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
+          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
+          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
+          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
+          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Lab-11">
+    <h1>Objectives</h1>
+<p>Convert the remaining 'name' based routes to 'id. Introduce a new model class to represent messages and incorporate messaging write/read into the controllers/views. Finally, introduce support for image upload/download</p>
+  </div>
+
+    <div class="tab-pane fade" id="01">
+      <h1>Lab10 Project</h1>
+<p>You should have a project from last weeks lab. If you dont have the project then this is a version (before the exercises) here</p>
+<ul>
+<li><a href="archives/spacebook-part-4.zip">spacebook-part-4.zip</a></li>
+</ul>
+<h1>Lab10 Exercise Solutions</h1>
+<h2>Exercise 1</h2>
+<p>Currently, when you follow a member there is not obvious change on the screen. i.e. you remain on the members page. </p>
+<pre><code class="java">  public static void follow(Long id)
+  public static void follow(Long id)
+  {
+    User friend = User.findById(id);
+
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User me = User.findById(Long.parseLong(userId));
+
+    me.befriend(friend);
+
+    index();
+  }
+</code></pre>
+
+<p>Change this such that when you follow a member, the home page is displayed immediately - where the new entry in the 'following' list should appear. Hint: You will have to call the index() method on the Home class (instead of the Members class as currently)</p>
+<h2>Exercise 1 Solution:</h2>
+<p>Change the last line of the follow action to this:</p>
+<pre><code>    Home.index();
+</code></pre>
+
+<p>(remove the existing last line)</p>
+<h2>Exercise 2</h2>
+<p>Is there a way we can display the number of friends we have on the home screen - perhaps in brackets after the 'Friends' text.</p>
+<p>Recall that we are accessing the followers list in the 'home/index.html' view:</p>
+<pre><code class="html">       &lt;h2&gt;Friends&lt;/h2&gt;
+        &lt;div class=&quot;ui list&quot;&gt;
+          #{list items:user.friendships, as:'friendship'}
+            &lt;div class=&quot;item&quot;&gt;
+              &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt;
+              &lt;a href=&quot;/publicprofile/${friendship.targetUser.id}&quot;&gt; ${friendship.targetUser.firstName} ${friendship.targetUser.lastName}&lt;/a&gt;
+              (&lt;a href=&quot;/home/drop/${friendship.targetUser.id}&quot;&gt; drop &lt;/a&gt;)
+            &lt;/div&gt;
+          #{/list}
+        &lt;/div&gt;
+</code></pre>
+
+<p>'user.friends' is the list friends, and 'user.friends.size()' will retrieve the number of entries in this list. In order to use this in a html element, you would need to surround it with <code>${...}</code>, as in: '<code>${user.friends.size()}</code></p>
+<h2>Exercise 2 Solution</h2>
+<p>Replace the current header in views/Home/index.html with this:</p>
+<pre><code class="html">    &lt;h2&gt;Friends (${user.friendships.size()})&lt;/h2&gt;
+</code></pre>
+    </div>
+    <div class="tab-pane fade" id="02">
+      <h1>Message Model</h1>
+<p>The first of the last two features we will tackle will be messages. This is interesting, as it will require a new model class to store messages + mechanisms for leaving and retrieving messages. We start with the model - we need a new class to represent individual messages. This is a 'Model' class, and will live in the model package - alongside our only other model class so far, User.</p>
+<p>To create this model, select the <code>models</code> package in eclipse, right click, and select the 'New-&gt;Class', ccall the class 'Message'. This should create a new class on your 'models' package:</p>
+<p><img alt="" src="img/11.png"></p>
+<p>The class will be empty:</p>
+<pre><code class="java">package models;
+
+public class Message
+{
+
+}
+</code></pre>
+
+<p>Instances of this class will hold individual messages, sent from one user to another. Each message is just a simple string - we can introduce it now as a member of the class - we will call it 'messageText':</p>
+<pre><code class="java">public class Message extends Model
+{
+  public String messageText;
+  //...
+}
+</code></pre>
+
+<p>We also need to know who sent the message, and whom it is intended for. These can also me modeled as class members</p>
+<pre><code class="java">public class Message extends Model
+{
+  public String messageText;
+  public User   from;
+  public User   to;
+  //...
+}
+</code></pre>
+
+<p>To make creating instances of Message more convenient, we can introduce a constructor, which will initialise the members we have just introduced:</p>
+<pre><code class="java">public class Message extends Model
+{
+  public String messageText;
+  public User   from;
+  public User   to;
+
+  public Message(User from, User to, String messageText)
+  {
+    this.from = from;
+    this.to = to;
+    this.messageText = messageText;
+  }
+}
+</code></pre>
+
+<p>This simple class is functionally complete, however there is one more step required. We would like instances of the class to persist to a database - i.e. be saved somewhere whenever we log out, so that they can be restored when the next user logs in. There are may ways of doing this, we are going to use a mechanism called 'JPA'. </p>
+<p>Just after the 'package models;' statement at the top of the file, introduce the necessary import statements to make the JPA mechanisms available:</p>
+<pre><code class="java">import javax.persistence.*;
+import play.db.jpa.*;
+</code></pre>
+
+<p>Now we will need to 'annotate' the class, essentially 'marking' specific parts of the class such that the JPA libraries will be able to 'persist' the class effectively. Here is the complete class (including the annotations):</p>
+<pre><code class="java">package models;
+
+import javax.persistence.*;
+import play.db.jpa.*;
+
+@Entity
+public class Message extends Model
+{
+  public String messageText;
+
+  @ManyToOne
+  public User from;
+
+  @ManyToOne
+  public User to;
+
+  public Message(User from, User to, String messageText)
+  {
+    this.from = from;
+    this.to = to;
+    this.messageText = messageText;
+  }
+}
+</code></pre>
+
+<ul>
+<li>@Entity: This indicates that the entire class will be saved to a database</li>
+<li>@ManyToOne: This indicates that the attirbute immediately following is another entity (also persisted), and that there may be many messages associated with that entity.</li>
+</ul>
+<p>Once we have defined messages, we new establish relationships from the User to this class. One approach would be to model the notion of an 'inbox' and 'outbox' - i.e. the list of messages a user has sent, or has received.</p>
+<p>Introduce the following two new attributes into the User model:</p>
+<pre><code class="java">  @OneToMany(mappedBy = &quot;to&quot;)
+  public List&lt;Message&gt; inbox = new ArrayList&lt;Message&gt;();
+
+  @OneToMany(mappedBy = &quot;from&quot;)
+  public List&lt;Message&gt; outbox = new ArrayList&lt;Message&gt;();
+</code></pre>
+
+<p>You should be able to make sense of these now.</p>
+    </div>
+    <div class="tab-pane fade" id="03">
+      <h1>sendMessage action I</h1>
+<p>It should be possible to leave Messages when we visit the public profile of a user:</p>
+<p><img alt="" src="img/12.png"></p>
+<p>This is enabled by a new form we can insert into -'views/PublicProfile/visit.html':</p>
+<pre><code class="html">        &lt;form action=&quot;/publicprofile/sendmessage/${user.id}&quot; class=&quot;ui form&quot; method=&quot;post&quot;&gt;
+          &lt;div class=&quot;field&quot;&gt;
+            &lt;textarea name=&quot;messageText&quot;&gt;&lt;/textarea&gt;
+          &lt;/div&gt;
+          &lt;button  class=&quot;ui fluid blue labeled submit icon button&quot;&gt;
+            &lt;i class=&quot;icon edit&quot;&gt;&lt;/i&gt; Send
+          &lt;/button&gt;
+        &lt;/form&gt;
+</code></pre>
+
+<p>Pace this inside the first column (below the division for the image)</p>
+<p>There are three key aspects to implementing this new feature:</p>
+<ul>
+<li>who is the message for?</li>
+<li>what is the message text?</li>
+<li>who is sending the message?</li>
+</ul>
+<h2>Who is the message for?</h2>
+<p>We tackle the first one by providing the Id of the target user in the route:</p>
+<pre><code>POST    /publicprofile/sendmessage/{id}         PublicProfile.sendMessage
+</code></pre>
+
+<p>This is the associated a new action on the PublicProfile controller:</p>
+<pre><code class="java">  public static void sendMessage(Long id, String messageText)
+  {
+    Logger.info(&quot;Message from user ID &quot; + id + &quot;: &quot; + messageText);
+    visit (id);
+  }
+</code></pre>
+
+<h2>What is the message text?</h2>
+<p>The message text is entered into this element:</p>
+<pre><code class="html">            &lt;textarea name=&quot;messageText&quot;&gt;&lt;/textarea&gt;
+</code></pre>
+
+<p>.. and delivered into the action as a parameter:</p>
+<pre><code class="java"> ...
+  public static void sendMessage(Long id, String messageText)
+ ...
+</code></pre>
+
+<h2>Who is sending the message?</h2>
+<p>In the above implementation, we are just logging out to the terminal the user id and message. </p>
+<p>Save everything, and reload a profile for a user, enter a message, and press the "Leave Message" button. If everything goes according to plan, then we should see something like this in the terminal window:</p>
+<pre><code>13:40:40,096 INFO  ~ Message from user ID 2: test
+13:40:32,664 INFO  ~ Just visiting the page for marge Simpson
+</code></pre>
+
+<p>Now we have successfully conveyed message text, entered by the user, to the web app. Our next step will be to figure out the following:</p>
+<ul>
+<li>Who the message is from</li>
+</ul>
+<p>and then save the message with these characteristics. We will do this in the next step.</p>
+    </div>
+    <div class="tab-pane fade" id="04">
+      <h1>sendMessage action II</h1>
+<p>Figuring out who sent the message is straightforward - it is whoever is currently logged in. Remember in the HomeProfile class we were able to get the current user by accessing the 'session':</p>
+<pre><code class="java">    String userId = session.get(&quot;logged_in_userid&quot;);
+    User user = User.findById(Long.parseLong(userId));
+</code></pre>
+
+<p>We can use the same technique here in the UserProfile class:</p>
+<pre><code class="java">  public static void sendMessage(Long id, String messageText)
+  {
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User fromUser = User.findById(Long.parseLong(userId));
+    //...
+  } 
+</code></pre>
+
+<p>'fromUser' now contains the user object for the sender of the message. Getting the user the message is intended for is easy - we have the id of that user as the parameter to the 'leaveMessage' function:</p>
+<pre><code class="java">  public static void sendMessage(Long id, String messageText)
+  {
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User fromUser = User.findById(Long.parseLong(userId));
+    User toUser = User.findById(id);
+    //...
+  } 
+</code></pre>
+
+<p>To test all of this, we can rework the log statement to print out the full names of the sender and receiver:</p>
+<pre><code class="java">  public static void sendMessage(Long id, String messageText)
+  {
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User fromUser = User.findById(Long.parseLong(userId));
+    User toUser = User.findById(id);
+
+    Logger.info(&quot;Message from user &quot; + 
+        fromUser.firstName + ' ' + fromUser.lastName +&quot; to &quot; +
+        toUser.firstName + ' ' + toUser.lastName +&quot;: &quot; +
+        messageText);    
+
+    visit(id);
+  } 
+</code></pre>
+
+<p>We can try this out now (saving everything) - and we should get a log message something like this when we leave a message:</p>
+<pre><code>13:54:35,798 INFO  ~ Message from user Homer Simpson to marge Simpson: test
+</code></pre>
+
+<p>Logging is useful for verifying that our implementation is on the right track. However, we do need to save this message to the database if we are going to be able to display message on the various profile pages.</p>
+<p>We already have the 'Message' class designed to help with this. Now we introduce a new method in the User class to store new messages:</p>
+<pre><code class="java">  public void sendMessage (User to, String messageText)
+  {
+    Message message = new Message (this, to, messageText);
+    outbox.add(message);
+    to.inbox.add(message);
+    message.save();
+  }
+</code></pre>
+
+<p>We now include call to this method in the sendMessage action:</p>
+<pre><code class="java">  public static void sendMessage(Long id, String messageText)
+  {
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User fromUser = User.findById(Long.parseLong(userId));
+    User toUser = User.findById(id);
+
+    Logger.info(&quot;Message from user &quot; + 
+        fromUser.firstName + ' ' + fromUser.lastName +&quot; to &quot; +
+        toUser.firstName + ' ' + toUser.lastName +&quot;: &quot; +
+        messageText);    
+
+    fromUser.sendMessage(toUser, messageText);
+    visit(id);
+  } 
+</code></pre>
+
+<p>Note the last statement - visit(id) - this is to make sure that once we have accepted the new message, we display the correct users profile page again. You should be able to try this our now - leave messages, and verify that the user profile page reloads successfully.</p>
+<p>Note, however, that the messages don;t seem to be going anywhere, and our message text area is cleared every time we leave a message. We need to find a way of listing the messages on this page, on the right where we currently have a 'hard coded' message. </p>
+<p>Before doing that, though, we can still verify whether the messages are being saved to the database. This can be done via the '@db' interface we explored earlier. Browse to this url here:</p>
+<ul>
+<li><a href="http://localhost:9000/@db">http://localhost:9000/@db</a></li>
+</ul>
+<p>...and navigate to the messages table, running the default query:</p>
+<p><img alt="" src="img/13.png"></p>
+    </div>
+    <div class="tab-pane fade" id="05">
+      <h1>Displaying Messages</h1>
+<p>Now that we can leave messages, and have them 'persisted', or next step will be to display them when a users profile is being rendered. Currently we have a hard-coded message in this position - this is the relevant html fragment in views/PublicProfile/visit.html:</p>
+<pre><code class="html">        &lt;h2&gt; Messages &lt;/h2&gt; 
+        &lt;ul&gt; 
+          &lt;li&gt;homer says...&quot;What time is dinner?&quot;&lt;/li&gt;      
+          &lt;li&gt;lisa says...&quot;Where is my saxaphone?&quot;&lt;/li&gt;      
+          &lt;li&gt;homer says...&quot;Where are you?&quot;&lt;/li&gt;      
+        &lt;/ul&gt;  
+</code></pre>
+
+<p>In order to be able to display the messages in this div, we will first need to review how this page itself it rendered. Recall this page is loaded by the 'visit' method of the 'PublicProfile' class:</p>
+<pre><code class="java">  public static void visit(Long id)
+  {
+    User user = User.findById(id);
+    Logger.info(&quot;Just visiting the page for &quot; + user.firstName + ' ' + user.lastName);
+    render(user);
+  }
+</code></pre>
+
+<p>The call to 'render' passes the User object representing the user whose profile we are browsing. </p>
+<p>In order to display the message, we rework the html fragment we reviewed above, this time we are writing a simple loop to populate the html list:</p>
+<pre><code>        &lt;div class=&quot;ui small header&quot;&gt;Messages&lt;/div&gt;
+        &lt;hr&gt;
+        &lt;ul&gt;
+          #{list items:user.inbox, as:'message'}
+            &lt;li&gt; 
+              ${message.from.firstName} says...  ${message.messageText}
+            &lt;/li&gt;
+          #{/list}
+        &lt;/ul&gt;
+</code></pre>
+
+<p>This is the most opaque of the 'template' code we have looked at so far. Its structure is difficulty to read, but you should be able to make out the essentials. The object 'usermessages' is being passed to the view, and in the view we do the following:</p>
+<ul>
+<li>determine if there are any messages in the object </li>
+<li>if there are, generate a 'ul' element and..</li>
+<li>populate that  ul' with a collection of 'li' elements, containing..</li>
+<li>the first name of the message sender + the message text itself</li>
+</ul>
+<p>Note how we navigate through the message object using '.' notation, e.g. 'usermessage.from.firstName' and 'usermessage.messageText'</p>
+<p>Try leaving some messages now - and you should expect to see the messages immediately on the same page. Also, log out and log in as someone else. Leave some messages from this user. Log back in as the first user and see how the messages list grows.</p>
+    </div>
+    <div class="tab-pane fade" id="06">
+      <h1>Home View</h1>
+<p>The home page is still displaying hard coded 'static' messages. This is the relevant html fragment:</p>
+<pre><code class="html">        &lt;h2&gt;Messages&lt;/h2&gt;
+        &lt;div class=&quot;ui list&quot;&gt;
+          &lt;div class=&quot;item&quot;&gt;
+            &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; marge says...&quot;Hey there Homer, when are you going to work?&quot;
+          &lt;/div&gt;
+          &lt;div class=&quot;item&quot;&gt;
+            &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; lisa says...&quot;Move off the couch dad!&quot;
+          &lt;/div&gt;
+        &lt;/div&gt;
+</code></pre>
+
+<p>This is the current 'Home' method that displays the home page:</p>
+<pre><code class="java">  public static void index()
+  {
+    String userId = session.get(&quot;logged_in_userid&quot;);
+    User user = User.findById(Long.parseLong(userId));
+    render(user);
+  }
+</code></pre>
+
+<p>As the inbox is already part of the user object passed to the view 'views/Home/index.html', we will display these messages as follows:</p>
+<pre><code class="html">        &lt;h2&gt;Messages&lt;/h2&gt;
+        &lt;div class=&quot;ui list&quot;&gt;
+          #{list items:user.inbox, as:'message'}
+            &lt;div class=&quot;item&quot;&gt;
+              &lt;i class=&quot;right triangle icon&quot;&gt;&lt;/i&gt; ${message.from.firstName} says...  ${message.messageText}
+            &lt;/div&gt;
+          #{/list}
+        &lt;/div&gt;
+</code></pre>
+
+<p>Thus, when a user logs in they will see any messages that have been left for them. Try this now. Leave messages for different users, and verify that they do appear when the relevant users log in.</p>
+    </div>
+    <div class="tab-pane fade" id="07">
+      <h1>Pictures</h1>
+<p>Our final feature is to facilitate the uploading of a profile picture for a user. This is a feature to be available on the public profile view: The first step to introduce a new attribute into the User model class to hold the profile picture:</p>
+<pre><code class="java">  public Blob   profilePicture;
+</code></pre>
+
+<p>Bring this in just after the statusText member. </p>
+<p>You will also need to 'import' this type - so anywhere in the imports section, include this line:</p>
+<pre><code class="java">import play.db.jpa.Blob;
+</code></pre>
+
+<p>Now in the Profile controller, we need two new methods - one to retrieve the profile picture, and one to upload it:</p>
+<pre><code class="java">  public static void getPicture(Long id) 
+  {
+    User user = User.findById(id);
+    Blob picture = user.profilePicture;
+    if (picture.exists())
+    {
+      response.setContentTypeIfNotSet(picture.type());
+      renderBinary(picture.get());
+    }
+  }
+
+  public static void uploadPicture(Long id, Blob picture)
+  {
+    User user = User.findById(id);
+    user.profilePicture = picture;
+    user.save();
+    index();
+  }
+</code></pre>
+
+<p>Again, import the blob in the top of this controller:</p>
+<pre><code class="java">import play.db.jpa.Blob;
+</code></pre>
+
+<p>Some of this code may start to become familiar. Each of the actions takes and ID - this is the id of the user whose picture we wish to upload/download.</p>
+<p>In uploadPicture - we merely make sure the picture is saved in the database. In getPicture, we first see if there is in fact a picture for this user - if there is we 'render' it, otherwise we do nothing.</p>
+<p>Next we must introduce two routes to match these actions:</p>
+<pre><code>POST    /profile/uploadpicture/{id}             Profile.uploadPicture
+GET     /profile/getpicture/{id}                Profile.getPicture
+</code></pre>
+
+<p>These should be self-explanatory.</p>
+<p>Finally, we need to make sure our view uses precisely these routes. This is the relevant section of views/Profile/index.html:</p>
+<pre><code class="html">      &lt;div class=&quot;ui column&quot;&gt;
+        &lt;p&gt;
+          &lt;img src=&quot;images/homer.gif&quot; /&gt;
+        &lt;/p&gt;
+        &lt;form action=&quot;homeprofile/upload&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+          &lt;input type=&quot;file&quot; name=&quot;userfile&quot; value=&quot;&quot; /&gt; &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;upload&quot; /&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+</code></pre>
+
+<p>Completely replace the above with this version:</p>
+<pre><code class="html">      &lt;div class=&quot;ui column&quot;&gt;
+        &lt;p&gt;
+          &lt;img src=&quot;/profile/getpicture/${user.id}&quot;&gt;
+        &lt;/p&gt;
+        &lt;form action=&quot;/profile/uploadpicture/${user.id}&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;    
+          &lt;input type=&quot;file&quot; name=&quot;picture&quot; /&gt; 
+          &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;upload&quot; /&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+</code></pre>
+
+<p>Note carefully the routes used, and also the input type 'file'.</p>
+<p>Save everything and see if this works as expected.</p>
+<p>Our final change will be to the user profile page - when we visit a users page we must display the image in the database for that user (not a hard coded reference to a file in the images directory). This is in UserProfile/visit.html. The images is now available via the route:</p>
+<pre><code class="html">      &lt;img src=&quot;/profile/getpicture/${user.id}&quot;/&gt; 
+</code></pre>
+
+<p>This completes all of the features we will introduce this semester.</p>
+    </div>
+    <div class="tab-pane fade" id="Exercises">
+      <h1>Exercises</h1>
+<h1>Archive of lab so far:</h1>
+<ul>
+<li><a href="archives/spacebook-part-5.zip">spacebook-part-5.zip</a></li>
+</ul>
+    </div>
+</div>
+<br> <br>
+
+
+    </div>
+
+
+<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <small>
+    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+    </a>
+    </small>
+</div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("img-responsive");
+
+  $(".tab-content img").each(function()
+  {
+    var title = this.alt;
+    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  });
+})    </script>
+
+  </body>
+ </html>

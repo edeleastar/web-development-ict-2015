@@ -1,0 +1,355 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+      <div class="navbar-brand">
+        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
+        Assignment Studio + Deployment
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href= "#Lab-12" data-toggle="tab"> Lab-12 </a> </li>
+          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
+          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
+          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
+          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
+          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Lab-12">
+    <h1>Objectives</h1>
+<p>Deploy the Spacebook app to Heroku. This will require a heroku account + a locally installed git tool set.</p>
+  </div>
+
+    <div class="tab-pane fade" id="01">
+      <h1>Git Bash</h1>
+<p>Download and install <a href="http://git-scm.com/downloads">Git for Windows</a>.</p>
+<p>This will be used in this lab. We shall refer to as <em>Git Bash</em>.</p>
+<p><img alt="Figure 1: Installation Wizard Git Bash" src="img/heroku_022.png"></p>
+<p>All the following commands should be run within the Git Bash terminal, not the standard windows terminal (Command Prompt).</p>
+    </div>
+    <div class="tab-pane fade" id="02">
+      <h1>SSH Keys</h1>
+<p>This section applies only if you do not have SSH keys on your computer. We shall explain shortly how you can check whether or not keys are present.</p>
+<p>Official Heroku documentation on managing SSH keys is available <a href="https://devcenter.heroku.com/articles/keys#adding-keys-to-heroku">here</a></p>
+<p>Your computer will communicate with Heroku using <a href="http://en.wikipedia.org/wiki/Secure_Shell">Secure Shell</a> (SSH).</p>
+<p>Here are brief instructions on how to check for the presence of SSH keys on your computer and to generate them if necessary.</p>
+<p>Git Bash should have an SSH client. Verify this with the following command:</p>
+<pre><code>ssh -v
+</code></pre>
+
+<p>The response should be similar to this:</p>
+<p><img alt="Figure 2: Verify presence of SSH client" src="img/heroku_001.png"></p>
+<p>Check if you already have SSH keys by checking for the presence of the<strong>.ssh</strong> folder and if it exists, listing its contents:</p>
+<pre><code>ls -l ~/.ssh
+</code></pre>
+
+<p>If keys are present then the response should be something simiar to that shown in Figure 3:</p>
+<p><img alt="Figure 3: SSH Keys" src="img/heroku_002.png"></p>
+<p>If keys are not present then generate a set with this command:</p>
+<pre><code>ssh-keygen
+
+</code></pre>
+
+<p>Accept the default prompts and in particular when prompted for a password and to confirm the password simply hit the return key on both occasions but without typing any characters for the password.</p>
+<ul>
+<li>That is: do <strong>not</strong> password protect the keys.</li>
+</ul>
+<p>Confirm that keys have been successfully generated by checking the contents of the <em>.ssh</em> folder which should be similar that shown in Figure 3 above.</p>
+    </div>
+    <div class="tab-pane fade" id="03">
+      <h1>Local Repository</h1>
+<p>You recall that we may be using a 'bootstrap.java' class to load the models. This may cause some difficulty with our deployment, so we will remove it from the project for the moment. You can do this form within Eclipse.</p>
+<p>Now, in the spacebook project, create a file called '.gitignore'. This is a special file containing a series of patterns for project files we do NOT want uploaded to heroku.</p>
+<p>Here are its contents:</p>
+<pre><code># Ignore all dotfiles...
+.*
+# except for .gitignore
+!.gitignore
+!.classpath
+!.project
+
+
+# Ignore Play! working directory #
+war
+db
+eclipse
+lib
+log
+logs
+modules
+precompiled
+project/project
+project/target
+crud/*
+data/*
+conf/crud/*
+conf/cloudbees*
+public/crud/*
+target
+tmp
+test-result
+server.pid
+*.iml
+*.eml
+</code></pre>
+
+<p>Still in the same project folder, create and a file named <strong>ProcFile</strong> containing the following:</p>
+<pre><code>web: play run --http.port=$PORT $PLAY_OPTS
+</code></pre>
+
+<p>Next, we need to make one significant change to the app. Open the 'Users' model and adjust the the class as follows:</p>
+<pre><code>@Entity
+@Table(name=&quot;`User`&quot;) //This is necessary because User is a reserved word in PostGreSQL
+public class User extends Model
+</code></pre>
+
+<p>'User' is a reserved table name in the database, so we have altered the name slightly to avoid a conflict.</p>
+<p>In Git Bash terminal <em>cd</em> into the folder containing your spacebook project, and create a git repository for the project:</p>
+<pre><code>git init
+</code></pre>
+
+<p>Add all files (except those matched by .gitignore) to the repo and commit them using these commands:</p>
+<pre><code>git add --all
+git commit -m 'first commit'
+</code></pre>
+
+<p>Verify that everything is ok by running this command</p>
+<pre><code>git status
+</code></pre>
+
+<p>The response should as follow:</p>
+<p><img alt="" src="img/heroku_016.png"></p>
+<p>We have now established a local git repository containing only those files required to run the application. Our next step is to push this repository to the heroku service. </p>
+    </div>
+    <div class="tab-pane fade" id="04">
+      <h1>Heroku repository</h1>
+<p>Create an account on <a href="http://www.heroku.com">Heroku</a>. Note carefully your login and password.</p>
+<p>Download and install <a href="https://toolbelt.heroku.com">Heroku Toolbelt for Windows</a>. Close and reopen Git Bash following installation of the Toolbelt. </p>
+<p>Once installed, verify that the installation ok by typing </p>
+<pre><code>heroku --version
+</code></pre>
+
+<p>The response should be something like:</p>
+<pre><code>heroku/toolbelt/3.12.1 (i386-mingw32) ruby/1.9.3
+</code></pre>
+
+<p>Login in to your heroku account from Git Bash</p>
+<pre><code>heroku login
+</code></pre>
+
+<p>You will be prompted for you email and password. Successful authentication will be confirmed. </p>
+<p>Next create an app and repository on Heroku as follows:</p>
+<pre><code>heroku create
+</code></pre>
+
+<p>The response will be something like this:</p>
+<p><img alt="Figure 1: Heroku: app and repository created" src="img/heroku_003.png"></p>
+<p>Notice the default name assigned by Heroku to the remote app.</p>
+<p>Verify with the command </p>
+<pre><code>git remote -v
+</code></pre>
+
+<p>and observe a response similar to that in Figure 2.</p>
+<p><img alt="Figure 2: Checking remote repo on Heroku" src="img/heroku_004.png"></p>
+<p>Now add your SSH keys to Heroku:</p>
+<pre><code>heroku keys:add
+</code></pre>
+
+<p><img alt="Figure 3: Heroku: Adding SSH Keys" src="img/heroku_005.png"></p>
+<p>Finally, push the local repo to Heroku:</p>
+<pre><code>git push heroku master
+</code></pre>
+
+<p>The response should be somewhat similar to that shown in Figure 4.</p>
+<p><img alt="Figure 4: Successful deployment" src="img/heroku_006.png"></p>
+<p>We shall now test the service: In the specific case of this lab we have been randomly assigned a remote Heroku repo named <em>guarded-reef-267.git</em>. The convention for construction a URI to access this repo or service can easily be deduced by studying the URI for this specific service:</p>
+<pre><code>http://guarded-reef-2677.herokuapp.com/api/users
+</code></pre>
+
+<p>The portions <strong>/api/users</strong> is determined by how we, the developers, wrote the application (<em>spacebook</em>). Notice where the actual name of the repo is located in the URI:</p>
+<pre><code>- guarded-reef-2677
+</code></pre>
+<p>Copy this URI into a browser's navigation bar: unfortunately an application error is flagged. The reason for this is that we have not set up a suitable database on Heroku. We shall attend to this shortly.</p>
+<h3>Changing name of Heroku app</h3>
+<p>We shall now change the Heroku-assigned name <em>guarded-reef-2677</em> to a more meaningful name <em>org-wit-spacebook-service-id</em> where <strong>id</strong> is your email address excluding @, periods, underscores and so on. For example john_doe@organs.com becomes johndoeorganscom. This is just a suggestion to ensure that the name you choose for the app on Heroku will be unique.</p>
+<p>Run the following command within the Heroku terminal:</p>
+<pre><code>heroku apps:rename org-wit-spacebook-service-id
+</code></pre>
+
+<p>A typical response is shown in Figure 5:</p>
+<p><img alt="Figure 5: Changing name of Heroku app from command line" src="img/heroku_007.png"></p>
+    </div>
+    <div class="tab-pane fade" id="05">
+      <h1>Heroku Database</h1>
+<p>You created a Heroku app in an earlier step (using the command <em>heroku create</em>) </p>
+<ul>
+<li>A database was made available as part of the app creation process.</li>
+<li>You can verify this by running the following command:</li>
+</ul>
+<pre><code>heroku pg:info
+</code></pre>
+
+<p>A typical response is depicted in Figure 1.</p>
+<p><img alt="Figure 1: Database information" src="img/heroku_012.png"></p>
+<p>In this case the DATABASE_URL is HEROKU_POSTGRESQL_MAUVE_URL.</p>
+<p>Log in to <a href="https://dashboard-next.heroku.com/apps/">Heroku</a> website for more detailed information such as is shown here in Figure 2 for the current project.</p>
+<p><img alt="Figure 2: App and associated database details on Heroku site" src="img/heroku_025.png"></p>
+<p>In order to make use of this database do the following:</p>
+<ul>
+<li>Modify the <em>application.conf</em> file:<ul>
+<li>Comment out any database activation statments such as, for example, <em>db = mem</em>.</li>
+<li>Add the following block to the end of the file.</li>
+</ul>
+</li>
+</ul>
+<pre><code>#================heroku databse config config=========================
+db=${DATABASE_URL}
+jpa.dialect=org.hibernate.dialect.PostgreSQLDialect
+jpa.ddl=update
+#================end database config heroku config====================
+</code></pre>
+
+<ul>
+<li>In the Heroku terminal add and commit the changes:</li>
+</ul>
+<pre><code>git add --all
+git commit -m 'database configured'
+git push heroku master
+</code></pre>
+
+<p>The response should be similar to that shown in Figure 3.
+<img alt="Figure 3: Application + configured database pushed to remote heroku repo" src="img/heroku_010.png"></p>
+<p><strong>Test App</strong></p>
+<p>You can test that the application is working correctly in a number of ways, listed here:</p>
+<ul>
+<li>Run the following command: output similar to that in Figure 4 indicates your app has been successfully deployed.</li>
+</ul>
+<pre><code>heroku ps
+</code></pre>
+
+<p><img alt="Figure 4: Successful deployment" src="img/heroku_023.png"></p>
+<p>Next run the command to open a browser: Figure 5 shows the command and additionally the response to the command and the output in the browser if the app is running correctly.</p>
+<pre><code>heroku open
+</code></pre>
+
+<p>This should open your web browser and display the application directly on the heroku platform.</p>
+    </div>
+</div>
+<br> <br>
+
+
+    </div>
+
+
+<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <small>
+    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+    </a>
+    </small>
+</div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("img-responsive");
+
+  $(".tab-content img").each(function()
+  {
+    var title = this.alt;
+    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  });
+})    </script>
+
+  </body>
+ </html>

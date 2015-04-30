@@ -223,15 +223,17 @@ git commit -m 'first commit'
 <pre><code>heroku/toolbelt/3.12.1 (i386-mingw32) ruby/1.9.3
 </code></pre>
 
+<p>(The versions numbers my be different)</p>
 <p>Login in to your heroku account from Git Bash</p>
 <pre><code>heroku login
 </code></pre>
 
 <p>You will be prompted for you email and password. Successful authentication will be confirmed. </p>
-<p>Next create an app and repository on Heroku as follows:</p>
+<p>Next create a new blank app and repository on Heroku as follows:</p>
 <pre><code>heroku create
 </code></pre>
 
+<p>NB: The above command MUST BE ENTERED from within the project folder</p>
 <p>The response will be something like this:</p>
 <p><img alt="Figure 1: Heroku: app and repository created" src="img/heroku_003.png"></p>
 <p>Notice the default name assigned by Heroku to the remote app.</p>
@@ -250,7 +252,8 @@ git commit -m 'first commit'
 <pre><code>git push heroku master
 </code></pre>
 
-<p>The response should be somewhat similar to that shown in Figure 4.</p>
+<p>This may take some time 
+The response should be somewhat similar to that shown in Figure 4.</p>
 <p><img alt="Figure 4: Successful deployment" src="img/heroku_006.png"></p>
 <p>We shall now test the service: In the specific case of this lab we have been randomly assigned a remote Heroku repo named <em>guarded-reef-267.git</em>. The convention for construction a URI to access this repo or service can easily be deduced by studying the URI for this specific service:</p>
 <pre><code>http://guarded-reef-2677.herokuapp.com/api/users

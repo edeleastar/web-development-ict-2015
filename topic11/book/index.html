@@ -7,11 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
 
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -45,7 +46,7 @@ figcaption
 
   <body>
 
-    <div class="container">
+  <div class="ui container">
 <style>
 
 
@@ -80,41 +81,54 @@ h3
 
 </style>
 
-<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-      <div class="navbar-brand">
-        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-        Messages & Pictures
-      </div>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href= "#Lab-11" data-toggle="tab"> Lab-11 </a> </li>
-          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
-          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
-          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
-          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
-          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
-          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
-          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
-          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
-      </ul>
-    </div>
+
+<div class="ui fixed top pointing inverted borderless compact menu labmenu">
+ <!-- <header class="header item">
+    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
+    Messages & Pictures
+  </header>-->
+  <header class="header item">
+    <a href="../index.html">Messages & Pictures </a>
+  </header>
+  <div class="right stackable tab-menu menu">
+    <a class="active header item" data-tab="Lab-11">
+        Lab-11
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="03">
+        03
+      </a>
+      <a class="item" data-tab="04">
+        04
+      </a>
+      <a class="item" data-tab="05">
+        05
+      </a>
+      <a class="item" data-tab="06">
+        06
+      </a>
+      <a class="item" data-tab="07">
+        07
+      </a>
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
   </div>
 </div>
 
 <br><br>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="Lab-11">
-    <h1>Objectives</h1>
+<div class="ui bottom attached  active tab segment lab" data-tab="Lab-11">
+  <h1>Objectives</h1>
 <p>Convert the remaining 'name' based routes to 'id. Introduce a new model class to represent messages and incorporate messaging write/read into the controllers/views. Finally, introduce support for image upload/download</p>
-  </div>
-
-    <div class="tab-pane fade" id="01">
-      <h1>Lab10 Project</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="01">
+  <h1>Lab10 Project</h1>
 <p>You should have a project from last weeks lab. If you dont have the project then this is a version (before the exercises) here</p>
 <ul>
 <li><a href="archives/spacebook-part-4.zip">spacebook-part-4.zip</a></li>
@@ -163,9 +177,9 @@ h3
 <p>Replace the current header in views/Home/index.html with this:</p>
 <pre><code class="html">    &lt;h2&gt;Friends (${user.friendships.size()})&lt;/h2&gt;
 </code></pre>
-    </div>
-    <div class="tab-pane fade" id="02">
-      <h1>Message Model</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="02">
+  <h1>Message Model</h1>
 <p>The first of the last two features we will tackle will be messages. This is interesting, as it will require a new model class to store messages + mechanisms for leaving and retrieving messages. We start with the model - we need a new class to represent individual messages. This is a 'Model' class, and will live in the model package - alongside our only other model class so far, User.</p>
 <p>To create this model, select the <code>models</code> package in eclipse, right click, and select the 'New-&gt;Class', ccall the class 'Message'. This should create a new class on your 'models' package:</p>
 <p><img alt="" src="img/11.png"></p>
@@ -258,9 +272,9 @@ public class Message extends Model
 </code></pre>
 
 <p>You should be able to make sense of these now.</p>
-    </div>
-    <div class="tab-pane fade" id="03">
-      <h1>sendMessage action I</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="03">
+  <h1>sendMessage action I</h1>
 <p>It should be possible to leave Messages when we visit the public profile of a user:</p>
 <p><img alt="" src="img/12.png"></p>
 <p>This is enabled by a new form we can insert into -'views/PublicProfile/visit.html':</p>
@@ -317,9 +331,9 @@ public class Message extends Model
 <li>Who the message is from</li>
 </ul>
 <p>and then save the message with these characteristics. We will do this in the next step.</p>
-    </div>
-    <div class="tab-pane fade" id="04">
-      <h1>sendMessage action II</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="04">
+  <h1>sendMessage action II</h1>
 <p>Figuring out who sent the message is straightforward - it is whoever is currently logged in. Remember in the HomeProfile class we were able to get the current user by accessing the 'session':</p>
 <pre><code class="java">    String userId = session.get(&quot;logged_in_userid&quot;);
     User user = User.findById(Long.parseLong(userId));
@@ -400,9 +414,9 @@ public class Message extends Model
 </ul>
 <p>...and navigate to the messages table, running the default query:</p>
 <p><img alt="" src="img/13.png"></p>
-    </div>
-    <div class="tab-pane fade" id="05">
-      <h1>Displaying Messages</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="05">
+  <h1>Displaying Messages</h1>
 <p>Now that we can leave messages, and have them 'persisted', or next step will be to display them when a users profile is being rendered. Currently we have a hard-coded message in this position - this is the relevant html fragment in views/PublicProfile/visit.html:</p>
 <pre><code class="html">        &lt;h2&gt; Messages &lt;/h2&gt; 
         &lt;ul&gt; 
@@ -443,9 +457,9 @@ public class Message extends Model
 </ul>
 <p>Note how we navigate through the message object using '.' notation, e.g. 'usermessage.from.firstName' and 'usermessage.messageText'</p>
 <p>Try leaving some messages now - and you should expect to see the messages immediately on the same page. Also, log out and log in as someone else. Leave some messages from this user. Log back in as the first user and see how the messages list grows.</p>
-    </div>
-    <div class="tab-pane fade" id="06">
-      <h1>Home View</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="06">
+  <h1>Home View</h1>
 <p>The home page is still displaying hard coded 'static' messages. This is the relevant html fragment:</p>
 <pre><code class="html">        &lt;h2&gt;Messages&lt;/h2&gt;
         &lt;div class=&quot;ui list&quot;&gt;
@@ -479,9 +493,9 @@ public class Message extends Model
 </code></pre>
 
 <p>Thus, when a user logs in they will see any messages that have been left for them. Try this now. Leave messages for different users, and verify that they do appear when the relevant users log in.</p>
-    </div>
-    <div class="tab-pane fade" id="07">
-      <h1>Pictures</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="07">
+  <h1>Pictures</h1>
 <p>Our final feature is to facilitate the uploading of a profile picture for a user. This is a feature to be available on the public profile view: The first step to introduce a new attribute into the User model class to hold the profile picture:</p>
 <pre><code class="java">  public Blob   profilePicture;
 </code></pre>
@@ -554,9 +568,9 @@ GET     /profile/getpicture/{id}                Profile.getPicture
 </code></pre>
 
 <p>This completes all of the features we will introduce this semester.</p>
-    </div>
-    <div class="tab-pane fade" id="Exercises">
-      <h1>Exercises</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
+  <h1>Exercises</h1>
 <h1>Archive of lab so far:</h1>
 <ul>
 <li><a href="archives/spacebook-part-5.zip">spacebook-part-5.zip</a></li>
@@ -565,31 +579,45 @@ GET     /profile/getpicture/{id}                Profile.getPicture
 <ul>
 <li><a href="archives/spacebook-final.zip">spacebook-final.zip</a></li>
 </ul>
-    </div>
 </div>
-<br> <br>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
 
 
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
     </div>
-
-
-<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <small>
-    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-    </a>
-    </small>
-</div>    <script>
+  </div>    <script>
 
 $(document).ready(function()
 {
-  $("img").addClass ("img-responsive");
+  $("img").addClass ("ui image");
 
-  $(".tab-content img").each(function()
-  {
-    var title = this.alt;
-    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
   });
 })    </script>
 

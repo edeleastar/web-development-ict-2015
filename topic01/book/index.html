@@ -7,11 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
 
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -45,7 +46,7 @@ figcaption
 
   <body>
 
-    <div class="container">
+  <div class="ui container">
 <style>
 
 
@@ -80,39 +81,48 @@ h3
 
 </style>
 
-<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-      <div class="navbar-brand">
-        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-        Introducing HTML
-      </div>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href= "#Lab-01" data-toggle="tab"> Lab-01 </a> </li>
-          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
-          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
-          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
-          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
-          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
-          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
-      </ul>
-    </div>
+
+<div class="ui fixed top pointing inverted borderless compact menu labmenu">
+ <!-- <header class="header item">
+    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
+    Introducing HTML
+  </header>-->
+  <header class="header item">
+    <a href="../index.html">Introducing HTML </a>
+  </header>
+  <div class="right stackable tab-menu menu">
+    <a class="active header item" data-tab="Lab-01">
+        Lab-01
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="03">
+        03
+      </a>
+      <a class="item" data-tab="04">
+        04
+      </a>
+      <a class="item" data-tab="05">
+        05
+      </a>
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
   </div>
 </div>
 
 <br><br>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="Lab-01">
-    <h1>Objectives</h1>
+<div class="ui bottom attached  active tab segment lab" data-tab="Lab-01">
+  <h1>Objectives</h1>
 <p>Install and configure a program we will use to create and edit web site - Eclipse. We will then use this tool to create a simple multi-page web site containing a small variety of text, images and links.</p>
-  </div>
-
-    <div class="tab-pane fade" id="01">
-      <h1>Setup</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="01">
+  <h1>Setup</h1>
 <h2>Instructions for working in Walton Building PC Labs:</h2>
 <p>If you are working on the workstations in the IT Building, locate the C: Drive in the Explorer. Navigate to C:\dev\eclipse\javascript folder. Run (double click on) the "Eclipse" application.</p>
 <p>Proceed with the next step of the lab.</p>
@@ -147,9 +157,9 @@ h3
 <p>If you close the welcome screen - then you should see the default project layout:</p>
 <p><img alt="" src="./img/05a.png"></p>
 <p>Congratulations - you have launched the Eclipse Web Development Environment.</p>
-    </div>
-    <div class="tab-pane fade" id="02">
-      <h1>First Project</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="02">
+  <h1>First Project</h1>
 <p>In Eclipse, select File-&gt;New-&gt;Other. Navigate to Web, and select "Static Web Project":</p>
 <p><img alt="" src="./img/38.png"></p>
 <p>Press "Next" and then give the project a name:</p>
@@ -173,9 +183,9 @@ h3
 <p>We will now attempt to view the file in a browser. We could locate the file on your disk, and open with a browser.However, Eclipse has a built in browser which can be more convenient. To trigger it, select the html file in the "Project Explorer" window ... Right click, select "Open with" and select "Web Browser"</p>
 <p>We should now be viewing the same file in a browser, within Eclipse:</p>
 <p><img alt="" src="./img/17.png"></p>
-    </div>
-    <div class="tab-pane fade" id="03">
-      <h1>Project Files</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="03">
+  <h1>Project Files</h1>
 <p>It is worth becoming familiar with the location of the html file you have just generated. Depending on which drive you selected, run "Windows Explorer" (Programs-&gt;Accessories-&gt;Windows Explorer), navigate to that drive, and open the "workspace" folder.</p>
 <p>You should see a folder for the project you just created, along with the html file itself:</p>
 <p><img alt="" src="./img/18.png"></p>
@@ -191,9 +201,9 @@ h3
 <p><img alt="" src="./img/23.png"></p>
 <p>You might notice that eclipse may show you errors in the html if your html is incorrect. Save the changes, and switch tabs to the browser view. It will currently display the content without the image. However, if you press the "reload" button (two arrows along the top), then it should display the new version with the image:</p>
 <p><img alt="" src="./img/24.png"></p>
-    </div>
-    <div class="tab-pane fade" id="04">
-      <h1>Lab01 Project</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="04">
+  <h1>Lab01 Project</h1>
 <p>Create a new project called "lab01" using the same options as in the first step of this lab.</p>
 <p><img alt="" src="./img/26.png"></p>
 <p>Notice that we now have two separate projects open. We will populate lab01 with some simple content to illustrate the basic html vocabulary we have been exploring. First, create come folders inside the lab01 project as shown - to be called "about", "catalogue" and "images":</p>
@@ -292,9 +302,9 @@ h3
 <p>In eclipse, you should be able to browse to the simple web site:</p>
 <p><img alt="" src="./img/33.png"></p>
 <p>Verify that the links work as expected.</p>
-    </div>
-    <div class="tab-pane fade" id="05">
-      <h1>CSS</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="05">
+  <h1>CSS</h1>
 <p>We will now introduce a stylesheet into our project. Stylesheets are usually maintained in separate files with the .css extension. Create one now in the lab01 project:</p>
 <p><img alt="" src="./img/34.png"></p>
 <p>Call it 'style.css'. The workspace should look like this:</p>
@@ -340,9 +350,9 @@ h3
   border-bottom: 1px solid black;
 }
 </code></pre>
-    </div>
-    <div class="tab-pane fade" id="Exercises">
-      <h1>Exercises</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
+  <h1>Exercises</h1>
 <h1>Solution So Far..</h1>
 <p>This is an archive (zip file) of a solution to the lab so far:</p>
 <ul>
@@ -379,31 +389,45 @@ h3
 <p>Currently you may not have the CSS file 'linked' to all pages. i.e. only index.html is styled with the css rules you have defined. See if you can link the other pages now.</p>
 <h2>A new page</h2>
 <p>Incorporate a brand new page into the project. It can contain any content you think would be useful. Look at some online dvd / movie rental sites for idea.</p>
-    </div>
 </div>
-<br> <br>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
 
 
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
     </div>
-
-
-<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <small>
-    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-    </a>
-    </small>
-</div>    <script>
+  </div>    <script>
 
 $(document).ready(function()
 {
-  $("img").addClass ("img-responsive");
+  $("img").addClass ("ui image");
 
-  $(".tab-content img").each(function()
-  {
-    var title = this.alt;
-    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
   });
 })    </script>
 

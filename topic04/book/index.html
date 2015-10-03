@@ -7,11 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
 
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -45,7 +46,7 @@ figcaption
 
   <body>
 
-    <div class="container">
+  <div class="ui container">
 <style>
 
 
@@ -80,44 +81,63 @@ h3
 
 </style>
 
-<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-      <div class="navbar-brand">
-        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-        Navigation
-      </div>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href= "#Lab-04" data-toggle="tab"> Lab-04 </a> </li>
-          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
-          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
-          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
-          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
-          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
-          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
-          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
-          <li><a href= "#08" data-toggle="tab"> 08 </a> </li>
-          <li><a href= "#09" data-toggle="tab"> 09 </a> </li>
-          <li><a href= "#10" data-toggle="tab"> 10 </a> </li>
-          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
-      </ul>
-    </div>
+
+<div class="ui fixed top pointing inverted borderless compact menu labmenu">
+ <!-- <header class="header item">
+    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
+    Navigation
+  </header>-->
+  <header class="header item">
+    <a href="../index.html">Navigation </a>
+  </header>
+  <div class="right stackable tab-menu menu">
+    <a class="active header item" data-tab="Lab-04">
+        Lab-04
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="03">
+        03
+      </a>
+      <a class="item" data-tab="04">
+        04
+      </a>
+      <a class="item" data-tab="05">
+        05
+      </a>
+      <a class="item" data-tab="06">
+        06
+      </a>
+      <a class="item" data-tab="07">
+        07
+      </a>
+      <a class="item" data-tab="08">
+        08
+      </a>
+      <a class="item" data-tab="09">
+        09
+      </a>
+      <a class="item" data-tab="10">
+        10
+      </a>
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
   </div>
 </div>
 
 <br><br>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="Lab-04">
-    <h1>Objectives</h1>
+<div class="ui bottom attached  active tab segment lab" data-tab="Lab-04">
+  <h1>Objectives</h1>
 <p>Restructure the output of the last lab to participate in a tabbed navigation structure, and then produce a simple application mockup using these techniques. Do this by introduce a simple tabbed design into the site to provide the user with the visual metaphor for navigation. We then 'wire-up' these tabs to lead the user through the site. We will do this twice: once for the example content we laid out in last weeks lab. Then we will build a completely different site, using the same CSS rules.</p>
-  </div>
-
-    <div class="tab-pane fade" id="01">
-      <h1>Setup</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="01">
+  <h1>Setup</h1>
 <p>Create a new Eclipse project - select project type to be "Static Web Project" again, and call this project "lab04". Copy over the content from the project 'lab03' from last week. In Eclipse project explorer, your workspace should look something like this:</p>
 <p><img alt="" src="./img/20.png"></p>
 <p>If you dont have lab03 completed (with the exercises), these are the four files we generated in that project:</p>
@@ -138,9 +158,9 @@ h3
 <p>In your browser, you can select 'save link as' or equivalent and save these into your own workstation. To do this you will first have to locate the actual folder in which the lab04 project is stored, save the four files into that folder, and the select 'File-&gt;Refresh'  in eclipse (with the lab04 project selected) for the files to appear.</p>
 <p>Alternatively, just save to the desktop and drag/drop into the eclipse project.</p>
 <p>For the remainder of this lab, we will work away in lab04 project.</p>
-    </div>
-    <div class="tab-pane fade" id="02">
-      <h1>Navigation</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="02">
+  <h1>Navigation</h1>
 <p>With a shared navigation structure like this, we may wish to give the readers a visual clue as to weather the link is in fact meaningful or not. For instance, if we are on the home page, since it is dedicated to Mauris, the text "Mauris" in the bullet points, would not be a link as a link for this text would open the same page. The same applies to the others pages (i.e, page1.html and page2.html). In other words, links to the current page should be inactive.</p>
 <p>We can do this by just removing the relevant link from each page: i.e.</p>
 <p>delete the <code>&lt;a&gt;</code> tags for the text Mauris from home.html,</p>
@@ -156,9 +176,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/2.clearnav/home.html">home.html</a></li>
 </ul>
-    </div>
-    <div class="tab-pane fade" id="03">
-      <h1>Tabs</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="03">
+  <h1>Tabs</h1>
 <p>Make sure the 'navigation' division is located towards the top of the page structure between the header and the maincontent. (If you copied the output of last weeks lab, it will be near the end)If we were to take a view of any of the pages using the folding feature if eclipse, we would like to see this:</p>
 <p><img alt="" src="./img/22.png"></p>
 <p>Now adjust the style sheet as follows:</p>
@@ -214,9 +234,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/4.tabsnext/home.html">home.html</a></li>
 </ul>
-    </div>
-    <div class="tab-pane fade" id="04">
-      <h1>Enhanced Tabs</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="04">
+  <h1>Enhanced Tabs</h1>
 <p>In this series of adjustments, we will enhance the emphasis on the currently selected tab. Look at the final version we are about to prepare, and contrast it with your current work:</p>
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/6.tabsfinal/home.html">home.html</a></li>
@@ -275,9 +295,9 @@ h3
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/6.tabsfinal/home.html">home.html</a></li>
 </ul>
 <p>Study this rule carefully, it is probably the most complex rule we have seen to date</p>
-    </div>
-    <div class="tab-pane fade" id="05">
-      <h1>Spacebook Preview</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="05">
+  <h1>Spacebook Preview</h1>
 <p>We move on now to build a 'mockup' of a web application we are about to study. Here is a preview (images only) of the site/application:</p>
 <p><img alt="" src="./img/02.png"></p>
 <p><img alt="" src="./img/03.png"></p>
@@ -291,9 +311,9 @@ h3
 <p><img alt="" src="./img/maggie.gif"></p>
 <p><img alt="" src="./img/marge.gif"></p>
 <p>We will need these images when constructing the site, so right click to download to your workstation.You will be using these images in the site in the next few steps.</p>
-    </div>
-    <div class="tab-pane fade" id="06">
-      <h1>Spacebook Project</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="06">
+  <h1>Spacebook Project</h1>
 <p>Create a new project called 'lab04-spacebook', and copy in the images from the last step into an images folder in your project:</p>
 <p><img alt="" src="./img/09.png"></p>
 <p>This can be achieved by just dragging/dropping the images from explorer/finder directly into a folder called images in the eclipse project.</p>
@@ -330,9 +350,9 @@ h3
 </code></pre>
 
 <p>Inspect it carefully and note the major sections. We have already set up the appropriate navigation structure in the "navigation" division.</p>
-    </div>
-    <div class="tab-pane fade" id="07">
-      <h1>Spacebook Skeleton</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="07">
+  <h1>Spacebook Skeleton</h1>
 <p>Taking the template we have just inspected:</p>
 <ul>
 <li><a href="./archives/template.html">template.html</a></li>
@@ -379,9 +399,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part2/home.html">home.html</a></li>
 </ul>
-    </div>
-    <div class="tab-pane fade" id="08">
-      <h1>Home</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="08">
+  <h1>Home</h1>
 <p>We will now create some static content to simulate our live "SpaceBook" site. In Home.html, insert the following content into the "primary" division of home.html:</p>
 <pre><code class="html">        &lt;h2&gt; Friends &lt;/h2&gt;
         &lt;ul&gt;
@@ -414,9 +434,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part3/home.html">home.html</a></li>
 </ul>
-    </div>
-    <div class="tab-pane fade" id="09">
-      <h1>Members, Profile</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="09">
+  <h1>Members, Profile</h1>
 <p>For members.html, the following "primary" content:</p>
 <pre><code class="html">      &lt;h2&gt; Members &lt;/h2&gt;
         &lt;ul&gt;
@@ -482,9 +502,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part3/homeprofile.html">homeprofile.html</a></li>
 </ul>
-    </div>
-    <div class="tab-pane fade" id="10">
-      <h1>Friend Profile</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="10">
+  <h1>Friend Profile</h1>
 <p>On the home page, the links to "lisa" and "marge" dont lead anywhere. Bring in these two pages into your project:</p>
 <ul>
 <li>lisa.html:</li>
@@ -582,9 +602,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part3/home.html">home.html</a></li>
 </ul>
-    </div>
-    <div class="tab-pane fade" id="Exercises">
-      <h2>Exercises</h2>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
+  <h2>Exercises</h2>
 <h2>Completed Lab</h2>
 <p>Your project might now look like this in eclipse:</p>
 <p><img alt="" src="./img/10.png"></p>
@@ -621,31 +641,45 @@ h3
 <ul>
 <li><a href="http://reference.sitepoint.com/html/input/type">http://reference.sitepoint.com/html/input/type</a></li>
 </ul>
-    </div>
 </div>
-<br> <br>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
 
 
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
     </div>
-
-
-<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <small>
-    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-    </a>
-    </small>
-</div>    <script>
+  </div>    <script>
 
 $(document).ready(function()
 {
-  $("img").addClass ("img-responsive");
+  $("img").addClass ("ui image");
 
-  $(".tab-content img").each(function()
-  {
-    var title = this.alt;
-    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
   });
 })    </script>
 

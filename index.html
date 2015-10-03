@@ -7,11 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
 
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -45,381 +46,255 @@ figcaption
 
   <body>
 
-    <div class="container">
-  <div class="row vertical-align">
-    <div class="col-md-7">
-       <div class="page-header">
-         <h2>
-           <a href="#"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
-           Web Development <small> (Topics) </small>
-         </h2>
-        </div>
+  <div class="ui container">
+  <header class="ui middle aligned stackable grid segment">
+    <div class="eight wide column">
+      <h2>
+         Web Development <small> (Topics) </small>
+      </h2>
     </div>
-    <div class="col-md-2">
-       <a href="talkwall.html" class="btn btn-block btn-primary btn-sm">Presentations</a>
-       <a href="labwall.html" class="btn btn-block btn-primary btn-sm">Labs</a>
-    </div>
-    <div class="col-md-3">
-<img width="396" height="89" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYwAAABZCAYAAAAtvRNiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NUVGQzY2OTMxRkRFMTFFNDg0MjdFREU3NENDRkJFRkYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NUVGQzY2OTQxRkRFMTFFNDg0MjdFREU3NENDRkJFRkYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1RUZDNjY5MTFGREUxMUU0ODQyN0VERTc0Q0NGQkVGRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1RUZDNjY5MjFGREUxMUU0ODQyN0VERTc0Q0NGQkVGRiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PjL0AEAAAEhwSURBVHja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" />    </div>
-  </div>
-
-
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Introducing HTML</h3>
-    </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img class="img-responsive" src="./topic01/./talk-1/a-introduction.png">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic01/index.html> Introducing HTML</a> </h2>
-              <blockquote>
-                <p>Explore the nature of the Web and in particular the role of HTTP protocol and the HTML standard. Identify the 'client/server' nature of the web and its implications and the role of the web browser.</p><p>Explore the basics of HTML. Its structure and format is relatively straightforward - and we explore of a small number of html elements (sometimes called 'tags').</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+    <div class="one wide column sitemap">
+      <div class="popup" data-content="Top Level Topic View">
+        <a href="index.html"> <i class="big sitemap icon"></i></a>
       </div>
     </div>
-  </div>
-
-  </div>
-  <hr>
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Introducing CSS</h3>
-    </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img class="img-responsive" src="./topic02/./talk-1/a-html-elements.jpeg">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic02/index.html> Introducing CSS</a> </h2>
-              <blockquote>
-                <p>HTML Elements are at the heart of the HTML specification. There are perhaps a dozen categories of elements to explore. Here we review these and examine the role and format of each one in detail.</p><p>To introduce 'style' into a page we need another language - Cascading Style Sheets. This is a different language from HTML and is usually stored in a separate file - the stylesheet.</p><p>This language looks simple at first, but as we will see in the next few weeks, it is considerably more complex than HTML and will require a very careful approach to get right</p><p>Both HTML &amp; CSS continue to evolve. Understanding where it is going is part and parcel of becoming a programmer. Here we look a some aspects of the history of HTML, including some major milestones in its evolution.</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+    <div class="one wide column">
+      <div class="popup" data-content="All Presentations">
+        <a href="talkwall.html"> <i class="big film icon"></i></a>
       </div>
     </div>
-  </div>
-
-  </div>
-  <hr>
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Box Model</h3>
-    </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img class="img-responsive" src="./topic03/./talk-1/a-box-model.png">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic03/index.html> Box Model</a> </h2>
-              <blockquote>
-                <p>At the heart of the layout engine in web browsers is a concept called the 'box model'. This defines a general layout structure for all HTML elements, providing a language for specifying important dimensions and relationships to other elements.</p><p>Using an understanding of the fundamental features of the box model we can start to produce more interesting page layouts. Specifically, we can break a page down into sections and use box model properties to dimension and position these sections in a flexible manner. This will allow is to grow multi-column pages that can vary according to the size of the browser windows used to view them.</p><p>When you finish this lab you will have the knowledge to prepare your first project for this module. The briefing is here - pay close attention to the guidelines</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+    <div class="one wide column">
+      <div class="popup" data-content="All Labs">
+        <a href="labwall.html"> <i class="big lab icon"></i></a>
       </div>
     </div>
-  </div>
-
-  </div>
-  <hr>
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Navigation</h3>
+    <div class="five wide column">
+      <img class="ui image" src="http://www.wit.ie/assets/images/wit_crest.png">
     </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img class="img-responsive" src="./topic04/./talk-1/a-web-design.jpg">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic04/index.html> Navigation</a> </h2>
-              <blockquote>
-                <p>Building a web site is not just a matter or using correct and pleasing CSS and HTML layout, it also involves project planing and management. This involves considering the general context of the site under development, gaining an overall perspective of the customers needs before work commences, and in general following a plan in order to complete quality work in a timely manner.</p><p>Central to a well design site is a clear and understandably navigation structure. This must easily allow the user to explore the site, provide sufficient context such that the user knows where they are at any stage, and do this in a visually pleasing and efficient manner.</p><p>HTML5, the latest version of the standard, introduced a range of new elements. Among the most interesting are the so-called 'semantic' elements. These attempt to re-examine the proliferation of DIVs in html, and proposed an alternative vocabulary that would better reflect the purpose of many of these DIVs</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+  </header>
+
+<script>
+  $('.popup')
+  .popup()
+;
+</script>
+
+
+<div class="ui four doubling stackable cards">
+
+    <a class="ui card" href="./topic01/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Introducing HTML </div>
+    </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic01/./talk-1/a-introduction.png">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>Explore the nature of the Web and in particular the role of HTTP protocol and the HTML standard. Identify the 'client/server' nature of the web and its implications and the role of the web browser.</p><p>Explore the basics of HTML. Its structure and format is relatively straightforward - and we explore of a small number of html elements (sometimes called 'tags').</p>
       </div>
     </div>
-  </div>
+  </a>
 
-  </div>
-  <hr>
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Semantic UI</h3>
+    <a class="ui card" href="./topic02/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Introducing CSS </div>
     </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img class="img-responsive" src="./topic05/./talk-1/a-semantic-ui-styles.png">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic05/index.html> Semantic UI</a> </h2>
-              <blockquote>
-                <p>CSS is a large, complex and sophisticated technology. It requires considerable investment to ensure a page can have a consistent and pleasing appearance across a range of browsers and devices. Here we look at a CSS Framework that proposes to take some of this burden from the programmer - Semantic UI. The framework defines a clear and consistent style, available just by including its style sheets into our projects.</p><p>Semantic UI attempts to define a language for visual communication with the context of a web browser. Learning this language is relatively easy - but is helped by a review of the general approach taken by the framework, which is a little different from other frameworks.</p><p>CSS3 is the current standard - some of its aspects still evolving. SASS &amp; LESS are tow notable CSS preprocessors, enabling higher order style sheet design. CSS Frameworks, usually built in SASS or LESS, radically boost the design process leveraging large, already worked out, themes and designs.</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic02/./talk-1/a-html-elements.jpeg">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>HTML Elements are at the heart of the HTML specification. There are perhaps a dozen categories of elements to explore. Here we review these and examine the role and format of each one in detail.</p><p>To introduce 'style' into a page we need another language - Cascading Style Sheets. This is a different language from HTML and is usually stored in a separate file - the stylesheet.</p><p>This language looks simple at first, but as we will see in the next few weeks, it is considerably more complex than HTML and will require a very careful approach to get right</p><p>Both HTML &amp; CSS continue to evolve. Understanding where it is going is part and parcel of becoming a programmer. Here we look a some aspects of the history of HTML, including some major milestones in its evolution.</p>
       </div>
     </div>
-  </div>
+  </a>
 
-  </div>
-  <hr>
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Introduction to Play</h3>
+    <a class="ui card" href="./topic03/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Box Model </div>
     </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img class="img-responsive" src="./topic06/./talk-1/a-introduction-to-dynamic-web.gif">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic06/index.html> Introduction to Play</a> </h2>
-              <blockquote>
-                <p>The applications to date have been static - essentially a collecting of individual web pages. For more sophisticated web site we need to move to creating web applications. This will require a shift to considering the web site as an aggregating of fragments of web pages, composed and assembled by a program we also write.</p><p>To build a web application we need a web framework. This will define the superstructure of our application and provide essential features to enable us to compose a complicated and efficient web application</p><p>This is the starter web application you will build in this weeks lab. It will always have a very specific structure coupled with a tightly controller life cycle for handing requests.</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic03/./talk-1/a-box-model.png">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>At the heart of the layout engine in web browsers is a concept called the 'box model'. This defines a general layout structure for all HTML elements, providing a language for specifying important dimensions and relationships to other elements.</p><p>Using an understanding of the fundamental features of the box model we can start to produce more interesting page layouts. Specifically, we can break a page down into sections and use box model properties to dimension and position these sections in a flexible manner. This will allow is to grow multi-column pages that can vary according to the size of the browser windows used to view them.</p><p>When you finish this lab you will have the knowledge to prepare your first project for this module. The briefing is here - pay close attention to the guidelines</p>
       </div>
     </div>
-  </div>
+  </a>
 
-  </div>
-  <hr>
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Routes & Actions</h3>
+    <a class="ui card" href="./topic04/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Navigation </div>
     </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img class="img-responsive" src="./topic07/./talk-1/a-play-project-structure.png">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic07/index.html> Routes & Actions</a> </h2>
-              <blockquote>
-                <p>Play applications follow a specific layout and structure. Understanding this is the key to making sense of play applications, allowing the developer to 'grow' applications in an orderly manner.</p><p>Play applications are orchestrated through the routes file. This matches the urls the application can 'serve' to the controllers, which will build the views specific to each request.</p><p>Web applications can be designed, implemented and tested in an orderly manner - as part of a structured and organised process. Central to such a process is a series of 'user stories', which concisely capture the features the application is to deliver.</p><p>The exercises in this weeks lab will reinforce your understand of routes/controllers. Here we preview how you might approach these exercises.</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic04/./talk-1/a-web-design.jpg">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>Building a web site is not just a matter or using correct and pleasing CSS and HTML layout, it also involves project planing and management. This involves considering the general context of the site under development, gaining an overall perspective of the customers needs before work commences, and in general following a plan in order to complete quality work in a timely manner.</p><p>Central to a well design site is a clear and understandably navigation structure. This must easily allow the user to explore the site, provide sufficient context such that the user knows where they are at any stage, and do this in a visually pleasing and efficient manner.</p><p>HTML5, the latest version of the standard, introduced a range of new elements. Among the most interesting are the so-called 'semantic' elements. These attempt to re-examine the proliferation of DIVs in html, and proposed an alternative vocabulary that would better reflect the purpose of many of these DIVs</p>
       </div>
     </div>
-  </div>
+  </a>
 
-  </div>
-  <hr>
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Forms & Models</h3>
+    <a class="ui card" href="./topic05/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Semantic UI </div>
     </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img class="img-responsive" src="./topic08/./talk-1/a-play-review.png">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic08/index.html> Forms & Models</a> </h2>
-              <blockquote>
-                <p>The framework structure should now be feeling more familiar. Here we review the major features of the framework again, this time focusing on how the framework delivers the major features of a Web Application.</p><p>A key differentiator between a Static Web Site and a Web Application is forms. This is where the user is invited to entered information - and this data may be retained and stored somewhere. </p><p>Retrieving information from the form and storing it is a model is at the heart of Form design. Here we look at the implementation of a simple sign up form.</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic05/./talk-1/a-semantic-ui-styles.png">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>CSS is a large, complex and sophisticated technology. It requires considerable investment to ensure a page can have a consistent and pleasing appearance across a range of browsers and devices. Here we look at a CSS Framework that proposes to take some of this burden from the programmer - Semantic UI. The framework defines a clear and consistent style, available just by including its style sheets into our projects.</p><p>Semantic UI attempts to define a language for visual communication with the context of a web browser. Learning this language is relatively easy - but is helped by a review of the general approach taken by the framework, which is a little different from other frameworks.</p><p>CSS3 is the current standard - some of its aspects still evolving. SASS &amp; LESS are tow notable CSS preprocessors, enabling higher order style sheet design. CSS Frameworks, usually built in SASS or LESS, radically boost the design process leveraging large, already worked out, themes and designs.</p>
       </div>
     </div>
-  </div>
+  </a>
 
-  </div>
-  <hr>
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Sessions</h3>
+    <a class="ui card" href="./topic06/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Introduction to Play </div>
     </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img class="img-responsive" src="./topic09/./talk-1/a-review-forms.png">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic09/index.html> Sessions</a> </h2>
-              <blockquote>
-                <p>Another look at the forms concept. Forms are the central mechanism for acquiring information from a user - enabling simple strings and numbers to be entered into a page and 'submitted' to an application.</p><p>A database is where we store information between requests. The model classes we introduce are saved here and we can subsequently query and update any objects we insert. </p><p>Keeping track of the currently logged in user is a challenge - as HTTP is, by definition 'stateless'. In Play we have a simple and convenient session mechanism, which can conveniently remember information about the currently logged in user.</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic06/./talk-1/a-introduction-to-dynamic-web.gif">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>The applications to date have been static - essentially a collecting of individual web pages. For more sophisticated web site we need to move to creating web applications. This will require a shift to considering the web site as an aggregating of fragments of web pages, composed and assembled by a program we also write.</p><p>To build a web application we need a web framework. This will define the superstructure of our application and provide essential features to enable us to compose a complicated and efficient web application</p><p>This is the starter web application you will build in this weeks lab. It will always have a very specific structure coupled with a tightly controller life cycle for handing requests.</p>
       </div>
     </div>
-  </div>
+  </a>
 
-  </div>
-  <hr>
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Templates</h3>
+    <a class="ui card" href="./topic07/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Routes & Actions </div>
     </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img class="img-responsive" src="./topic10/./talk-1/a-exercises.png">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic10/index.html> Templates</a> </h2>
-              <blockquote>
-                <p>These are the worked solutions to the exercises in Lab10</p><p>The Status Text is a text field the the user can enter on her profile page. The members list will be a list of actual users (not a hard coded list of the simpsons) that will be displayed on the Members page </p><p>Implementing a way of following friends requires a new Model class. This will model a "Friendship" relationship, one of which will be created whenever a user 'follows' another user.</p><p>This is the specification for Assignment 2. You can either pursue a project using a (new) CSS framework, or attempt a set of stories in the Spacebook/Play project.</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic07/./talk-1/a-play-project-structure.png">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>Play applications follow a specific layout and structure. Understanding this is the key to making sense of play applications, allowing the developer to 'grow' applications in an orderly manner.</p><p>Play applications are orchestrated through the routes file. This matches the urls the application can 'serve' to the controllers, which will build the views specific to each request.</p><p>Web applications can be designed, implemented and tested in an orderly manner - as part of a structured and organised process. Central to such a process is a series of 'user stories', which concisely capture the features the application is to deliver.</p><p>The exercises in this weeks lab will reinforce your understand of routes/controllers. Here we preview how you might approach these exercises.</p>
       </div>
     </div>
-  </div>
+  </a>
 
-  </div>
-  <hr>
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Messages & Pictures</h3>
+    <a class="ui card" href="./topic08/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Forms & Models </div>
     </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img class="img-responsive" src="./topic11/./talk-1/a-exercises.png">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic11/index.html> Messages & Pictures</a> </h2>
-              <blockquote>
-                <p>Solutions to the exercises from Lab 11</p><p>A complete look at the Spacebook application, with a focus in the structure of the Play Framework, the routes and the controllers.</p><p>A key feature of spacebook is to emable users to leave messages for their friends. This will require a new Model class to represent individual Message objects, new actions in our Profile controller + new features in our templates.</p><p>The final feature of Spacebook is to facilitate an image upload form a user Profile page. This will need an extension to the User model + a new action and template fragment.</p><p>This is the specification for Assignment 2. You can either pursue a project using a (new) CSS framework, or attempt a set of stories in the Spacebook/Play project.</p>
-              </blockquote>
-            </div>
-          </div>
-        </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic08/./talk-1/a-play-review.png">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>The framework structure should now be feeling more familiar. Here we review the major features of the framework again, this time focusing on how the framework delivers the major features of a Web Application.</p><p>A key differentiator between a Static Web Site and a Web Application is forms. This is where the user is invited to entered information - and this data may be retained and stored somewhere. </p><p>Retrieving information from the form and storing it is a model is at the heart of Form design. Here we look at the implementation of a simple sign up form.</p>
       </div>
     </div>
-  </div>
+  </a>
 
-  </div>
-  <hr>
-  <div class="row">
-      <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Assignment Studio + Deployment</h3>
+    <a class="ui card" href="./topic09/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Sessions </div>
     </div>
-    <div class="panel-body">
-      <div class="section">
-        <div class="container" id="topiccontainer">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="thumbnail">
-<img width="450" height="324" title="" alt="" src="data:image/jpeg;base64,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" />              </div>
-            </div>
-            <div class="col-md-7">
-              <h2> <a href=./topic12/index.html> Assignment Studio + Deployment</a> </h2>
-              <blockquote>
-                
-              </blockquote>
-            </div>
-          </div>
-        </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic09/./talk-1/a-review-forms.png">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>Another look at the forms concept. Forms are the central mechanism for acquiring information from a user - enabling simple strings and numbers to be entered into a page and 'submitted' to an application.</p><p>A database is where we store information between requests. The model classes we introduce are saved here and we can subsequently query and update any objects we insert. </p><p>Keeping track of the currently logged in user is a challenge - as HTTP is, by definition 'stateless'. In Play we have a simple and convenient session mechanism, which can conveniently remember information about the currently logged in user.</p>
       </div>
     </div>
-  </div>
+  </a>
 
-  </div>
-  <hr>
+    <a class="ui card" href="./topic10/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Templates </div>
+    </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic10/./talk-1/a-exercises.png">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>These are the worked solutions to the exercises in Lab10</p><p>The Status Text is a text field the the user can enter on her profile page. The members list will be a list of actual users (not a hard coded list of the simpsons) that will be displayed on the Members page </p><p>Implementing a way of following friends requires a new Model class. This will model a "Friendship" relationship, one of which will be created whenever a user 'follows' another user.</p><p>This is the specification for Assignment 2. You can either pursue a project using a (new) CSS framework, or attempt a set of stories in the Spacebook/Play project.</p>
+      </div>
+    </div>
+  </a>
+
+    <a class="ui card" href="./topic11/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Messages & Pictures </div>
+    </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic11/./talk-1/a-exercises.png">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>Solutions to the exercises from Lab 11</p><p>A complete look at the Spacebook application, with a focus in the structure of the Play Framework, the routes and the controllers.</p><p>A key feature of spacebook is to emable users to leave messages for their friends. This will require a new Model class to represent individual Message objects, new actions in our Profile controller + new features in our templates.</p><p>The final feature of Spacebook is to facilitate an image upload form a user Profile page. This will need an extension to the User model + a new action and template fragment.</p><p>This is the specification for Assignment 2. You can either pursue a project using a (new) CSS framework, or attempt a set of stories in the Spacebook/Play project.</p>
+      </div>
+    </div>
+  </a>
+
+    <a class="ui card" href="./topic12/index.html">
+    <div class="content">
+      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+      <div class="header"> Assignment Studio + Deployment </div>
+    </div>
+    <div class="ui bordered rounded image">
+      <img src="./topic12/./talk-1/play-yaml-tips.png">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>Some useful tips for Yaml file processing, parameter passing and Image preloading in Play apps.</p>
+      </div>
+    </div>
+  </a>
+
+</div>
+
 <hr>
+   </div>
+
+
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
     </div>
-
-
-<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <small>
-    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-    </a>
-    </small>
-</div>    <script>
+  </div>    <script>
 
 $(document).ready(function()
 {
-  $("img").addClass ("img-responsive");
+  $("img").addClass ("ui image");
 
-  $(".tab-content img").each(function()
-  {
-    var title = this.alt;
-    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
   });
 })    </script>
 

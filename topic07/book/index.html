@@ -7,11 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
 
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -45,7 +46,7 @@ figcaption
 
   <body>
 
-    <div class="container">
+  <div class="ui container">
 <style>
 
 
@@ -80,41 +81,54 @@ h3
 
 </style>
 
-<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-      <div class="navbar-brand">
-        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-        Routes & Actions
-      </div>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href= "#Lab-07" data-toggle="tab"> Lab-07 </a> </li>
-          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
-          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
-          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
-          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
-          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
-          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
-          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
-          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
-      </ul>
-    </div>
+
+<div class="ui fixed top pointing inverted borderless compact menu labmenu">
+ <!-- <header class="header item">
+    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
+    Routes & Actions
+  </header>-->
+  <header class="header item">
+    <a href="../index.html">Routes & Actions </a>
+  </header>
+  <div class="right stackable tab-menu menu">
+    <a class="active header item" data-tab="Lab-07">
+        Lab-07
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="03">
+        03
+      </a>
+      <a class="item" data-tab="04">
+        04
+      </a>
+      <a class="item" data-tab="05">
+        05
+      </a>
+      <a class="item" data-tab="06">
+        06
+      </a>
+      <a class="item" data-tab="07">
+        07
+      </a>
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
   </div>
 </div>
 
 <br><br>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="Lab-07">
-    <h1>Objectives</h1>
+<div class="ui bottom attached  active tab segment lab" data-tab="Lab-07">
+  <h1>Objectives</h1>
 <p>Enhance the app to implement a simple UX based in static contentExtend the application to include a range of static content.Continue to explore the routes file, and implement a new route/controller combination to deliver a complete view.</p>
-  </div>
-
-    <div class="tab-pane fade" id="01">
-      <h1>Lab06 Exercises</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="01">
+  <h1>Lab06 Exercises</h1>
 <p>This lab assumes you have competed Lab06. This is the project you may have imported last week (the final version):</p>
 <ul>
 <li><a href="archives/spacebook-baseline.zip">spacebook-baseline.zip</a></li>
@@ -159,9 +173,9 @@ h3
   &lt;a class=&quot;ui item&quot; href=&quot;/login&quot;&gt;Logout&lt;/a&gt;      
 &lt;/nav&gt;
 </code></pre>
-    </div>
-    <div class="tab-pane fade" id="02">
-      <h1>Running the App</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="02">
+  <h1>Running the App</h1>
 <p>Your project should still look like this:</p>
 <p><img alt="" src="img/00.png"></p>
 <p>Run the app from the command line as before. I.e. in the Command Prompt, navigate to the folder containing the project and enter:</p>
@@ -189,9 +203,9 @@ Listening for transport dt_socket at address: 8000
 <p>and the application should appear:</p>
 <p><img alt="" src="img/04.png"></p>
 <p>Verify that by selecting any of the tabs, a different message appears on each page. </p>
-    </div>
-    <div class="tab-pane fade" id="03">
-      <h1>Home Page Content</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="03">
+  <h1>Home Page Content</h1>
 <p>Examine again the 'static' version of spacebook:</p>
 <ul>
 <li><a href="img/staticsite/home.html">static-site</a></li>
@@ -329,9 +343,9 @@ Listening for transport dt_socket at address: 8000
 <ul>
 <li><a href="img/staticsite/home.html">static-site</a></li>
 </ul>
-    </div>
-    <div class="tab-pane fade" id="04">
-      <h1>Links to User Profiles</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="04">
+  <h1>Links to User Profiles</h1>
 <p>Returning to the home page, notice that homer has 2 friends, Marge and Lisa. Selecting either of these generates an error:</p>
 <p><img alt="" src="img/10.png"></p>
 <p>These links are generated by these html elements in 'views/Home/index.html':</p>
@@ -425,9 +439,9 @@ GET     /publicprofile                          PublicProfile.index
 </code></pre>
 
 <p>Can you see how they are related? In the next step we will try to have some content displayed on these blank pages</p>
-    </div>
-    <div class="tab-pane fade" id="05">
-      <h1>Public Profile I</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="05">
+  <h1>Public Profile I</h1>
 <p>We have just made the following changes:</p>
 <pre><code class="html">...
    &lt;a href=&quot;/publicprofile/marge&quot;&gt;marge&lt;/a&gt;, (&lt;a href=&quot;drop/marge&quot;&gt;drop&lt;/a&gt;)
@@ -484,9 +498,9 @@ GET     /publicprofile/{name}                   PublicProfile.visit
 </code></pre>
 
 <p>And then we made sure there was a file called 'visit.html' in the views/PublicProfile folder.</p>
-    </div>
-    <div class="tab-pane fade" id="06">
-      <h1>Public Profile II</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="06">
+  <h1>Public Profile II</h1>
 <p>How do we communicate from our java method:</p>
 <pre><code class="java">  public static void visit(String name)
   {
@@ -533,9 +547,9 @@ GET     /publicprofile/{name}                   PublicProfile.visit
 
 <p>Make the above change to visit.html and visit Lisa and Marges pages and verify that the correct names are being displayed. </p>
 <p>Note carefully the use of <code>${name}</code> - this is substituted, when the page is assembled, by whatever value is passed to render.</p>
-    </div>
-    <div class="tab-pane fade" id="07">
-      <h1>User Profile III</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="07">
+  <h1>User Profile III</h1>
 <p>How about displaying some content for marges and lisa's profile pages. </p>
 <p>Open 'visit.html' - incorporate this content replacing the <code>&lt;p&gt;</code> element </p>
 <pre><code class="html">&lt;section class=&quot;ui raised segment&quot;&gt;
@@ -582,9 +596,9 @@ GET     /                                       Home.index
 
 <p>Do you see the significance of this? Try some experiments with/without this change to see if you can understand the effect.</p>
 <p>You can now delete Application.java and the Application view from the project</p>
-    </div>
-    <div class="tab-pane fade" id="Exercises">
-      <h1>Exercises:</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
+  <h1>Exercises:</h1>
 <p>Archive of lab so far:</p>
 <ul>
 <li><a href="archives/spacebook-part-1.zip">spacebook-part-1.zip</a></li>
@@ -643,31 +657,45 @@ NB: This exercise will also require a changes to the 'conf/routes' file. Specifi
 </ul>
 <p>If all goes according to plan, clicking on the links should cause log message to appear. However, the user interface may take you to a blank page each time. Can you change this? Try calling "index();" in the drop method. </p>
 <p>Can you explain what is happening?</p>
-    </div>
 </div>
-<br> <br>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
 
 
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
     </div>
-
-
-<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <small>
-    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-    </a>
-    </small>
-</div>    <script>
+  </div>    <script>
 
 $(document).ready(function()
 {
-  $("img").addClass ("img-responsive");
+  $("img").addClass ("ui image");
 
-  $(".tab-content img").each(function()
-  {
-    var title = this.alt;
-    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
   });
 })    </script>
 

@@ -7,11 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
 
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -45,7 +46,7 @@ figcaption
 
   <body>
 
-    <div class="container">
+  <div class="ui container">
 <style>
 
 
@@ -80,40 +81,51 @@ h3
 
 </style>
 
-<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-      <div class="navbar-brand">
-        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-        Sessions
-      </div>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href= "#Lab-09" data-toggle="tab"> Lab-09 </a> </li>
-          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
-          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
-          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
-          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
-          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
-          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
-          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
-      </ul>
-    </div>
+
+<div class="ui fixed top pointing inverted borderless compact menu labmenu">
+ <!-- <header class="header item">
+    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
+    Sessions
+  </header>-->
+  <header class="header item">
+    <a href="../index.html">Sessions </a>
+  </header>
+  <div class="right stackable tab-menu menu">
+    <a class="active header item" data-tab="Lab-09">
+        Lab-09
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="03">
+        03
+      </a>
+      <a class="item" data-tab="04">
+        04
+      </a>
+      <a class="item" data-tab="05">
+        05
+      </a>
+      <a class="item" data-tab="06">
+        06
+      </a>
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
   </div>
 </div>
 
 <br><br>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="Lab-09">
-    <h1>Objectives</h1>
+<div class="ui bottom attached  active tab segment lab" data-tab="Lab-09">
+  <h1>Objectives</h1>
 <p>Introduce a 'Session' object to keep track of the currently logged in user. Use this Session object to be able to display the name of the logged in user on each page. Explore how this session can be used to further customise other aspects of the views</p>
-  </div>
-
-    <div class="tab-pane fade" id="01">
-      <h1>Exercise Solutions</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="01">
+  <h1>Exercise Solutions</h1>
 <p>These are solutions to last weeks exercises:</p>
 <h2>Exercise 1:</h2>
 <p>We need to go back to our login form, which currently looks like this (excluding the header for clarity):</p>
@@ -176,9 +188,9 @@ h3
 </code></pre>
 
 <p>Test this now.</p>
-    </div>
-    <div class="tab-pane fade" id="02">
-      <h1>Sessions</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="02">
+  <h1>Sessions</h1>
 <p>Now we can have users sign up, the next step is to have them log in, and for our app to know who is logged in at any given time.</p>
 <p>We will need to decide whether to allow a user to log in (they must register first), and subsequently 'remember' which user has logged in. This is accomplished as follows</p>
 <ul>
@@ -224,9 +236,9 @@ h3
 </code></pre>
 
 <p>Try this out now. If an unregistered email/password is entered then the login screen is displayed again. If valid credentials are provided, then we will get the home screen. Also check the console for the appropriate log messages.</p>
-    </div>
-    <div class="tab-pane fade" id="03">
-      <h1>Home Page Heading</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="03">
+  <h1>Home Page Heading</h1>
 <p>Once a user is successfully logged in, we would like to display the user name in the title of some of the pages. Currently this is hard coded on some pages to "Homer Simpson" - views/index.html for instance:</p>
 <pre><code class="html">  &lt;h2 class=&quot;ui header&quot;&gt;SpaceBook: Homer's Home Page&lt;/h2&gt;
 </code></pre>
@@ -255,9 +267,9 @@ h3
 </code></pre>
 
 <p>Try this now. Sign up Homer, and verify that his name appears. Then sign up Marge her name should be on the home page instead.</p>
-    </div>
-    <div class="tab-pane fade" id="04">
-      <h1>Profile Page Heading</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="04">
+  <h1>Profile Page Heading</h1>
 <p>We can do a similar exercise for the home profile page. This is how it is 'rendered':</p>
 <pre><code class="java">public class Profile extends Controller
 {
@@ -288,9 +300,9 @@ h3
 
 <p>Save and reload the home profile page. The users name should appear.</p>
 <p>Log out now and login as a different user (you may need to register a new one). Verify that the new user's name appears as expected in the titles of home and home profile views.</p>
-    </div>
-    <div class="tab-pane fade" id="05">
-      <h1>Passing Objects to Views</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="05">
+  <h1>Passing Objects to Views</h1>
 <p>In the Home controller we have action methods like this:</p>
 <pre><code class="java">  public static void index()
   {
@@ -320,9 +332,9 @@ h3
 
 <p>This, of course, means that other properties of the user object are also available if we need them.</p>
 <p>You may need to restart the app - and register a new user - after making the above changes.</p>
-    </div>
-    <div class="tab-pane fade" id="06">
-      <h1>Logout</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="06">
+  <h1>Logout</h1>
 <p>When the user logs out we no longer want to remember any details. We 'forget' the user be clearing the session. </p>
 <p>Do this in the Accounts.logout method:</p>
 <pre><code class="java">  public static void logout()
@@ -333,9 +345,9 @@ h3
 </code></pre>
 
 <p>Try this now. </p>
-    </div>
-    <div class="tab-pane fade" id="Exercises">
-      <h1>Exercises</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
+  <h1>Exercises</h1>
 <ul>
 <li><a href="archives/spacebook-part-3.zip">spacebook-part-3.zip</a></li>
 </ul>
@@ -399,31 +411,45 @@ public class Bootstrap extends Job
 </ul>
 <p>...and see if the users we specified are there. See if you can log in without registering.</p>
 <p>Add a few more users and see if they appear as expected (you will have to stop and restart the application for this to take effect).</p>
-    </div>
 </div>
-<br> <br>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
 
 
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
     </div>
-
-
-<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <small>
-    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-    </a>
-    </small>
-</div>    <script>
+  </div>    <script>
 
 $(document).ready(function()
 {
-  $("img").addClass ("img-responsive");
+  $("img").addClass ("ui image");
 
-  $(".tab-content img").each(function()
-  {
-    var title = this.alt;
-    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
   });
 })    </script>
 

@@ -7,11 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
 
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -45,7 +46,7 @@ figcaption
 
   <body>
 
-    <div class="container">
+  <div class="ui container">
 <style>
 
 
@@ -80,44 +81,63 @@ h3
 
 </style>
 
-<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-      <div class="navbar-brand">
-        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-        Introducing CSS
-      </div>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href= "#Lab-02" data-toggle="tab"> Lab-02 </a> </li>
-          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
-          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
-          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
-          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
-          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
-          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
-          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
-          <li><a href= "#08" data-toggle="tab"> 08 </a> </li>
-          <li><a href= "#09" data-toggle="tab"> 09 </a> </li>
-          <li><a href= "#10" data-toggle="tab"> 10 </a> </li>
-          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
-      </ul>
-    </div>
+
+<div class="ui fixed top pointing inverted borderless compact menu labmenu">
+ <!-- <header class="header item">
+    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
+    Introducing CSS
+  </header>-->
+  <header class="header item">
+    <a href="../index.html">Introducing CSS </a>
+  </header>
+  <div class="right stackable tab-menu menu">
+    <a class="active header item" data-tab="Lab-02">
+        Lab-02
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="03">
+        03
+      </a>
+      <a class="item" data-tab="04">
+        04
+      </a>
+      <a class="item" data-tab="05">
+        05
+      </a>
+      <a class="item" data-tab="06">
+        06
+      </a>
+      <a class="item" data-tab="07">
+        07
+      </a>
+      <a class="item" data-tab="08">
+        08
+      </a>
+      <a class="item" data-tab="09">
+        09
+      </a>
+      <a class="item" data-tab="10">
+        10
+      </a>
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
   </div>
 </div>
 
 <br><br>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="Lab-02">
-    <h1>Objectives</h1>
+<div class="ui bottom attached  active tab segment lab" data-tab="Lab-02">
+  <h1>Objectives</h1>
 <p>Begin a new project which will have CSS stylesheet from the beginning. Explore some of the basic features of CSS, including colours, font and techniques for setting styles across entire sections of a page.</p>
-  </div>
-
-    <div class="tab-pane fade" id="01">
-      <h1>Setup</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="01">
+  <h1>Setup</h1>
 <h2>Projects from Lab01</h2>
 <p>You may have a projects in eclipse called 'fitstgo' and 'lab01' from last week:</p>
 <p><img alt="" src="./img/x01.png"></p>
@@ -141,9 +161,9 @@ h3
 <p><img alt="" src="./img/x05.png"></p>
 <p>For the remainder of this lab, you can work in this new project.</p>
 <p>Before starting, see if you can locate the actual project files in Explorer/Finder. See if you can open the index.html file using Chrome or some other browser.</p>
-    </div>
-    <div class="tab-pane fade" id="02">
-      <h1>CSS Inheritance</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="02">
+  <h1>CSS Inheritance</h1>
 <p>Currently our CSS file looks like this:</p>
 <pre><code class="css">body
 {
@@ -197,9 +217,9 @@ h1
 </code></pre>
 
 <p>Have a close look at the resultant page. What type of font is used by the headings? What type for the paragraphs? Can you explain the difference? Comment out the body font rule again (as we did above). What is the effect?</p>
-    </div>
-    <div class="tab-pane fade" id="03">
-      <h1>CSS Classes</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="03">
+  <h1>CSS Classes</h1>
 <p>Open the newreleases.html file in the editor and browser views.</p>
 <p>How would we style each paragraph separately so that each new release had a different colour text? Styling the <code>&lt;p&gt;</code> element means that all <code>&lt;p&gt;</code> elements are styled in the same way. We can define a class of elements, and then apply styles to any element that belongs to that class.</p>
 <p>Open up the newreleases.html file and go to the first paragraph. This text we want to display as red. Add an attribute called class, with an id "special" to the <code>&lt;p&gt;</code> element as below:</p>
@@ -281,9 +301,9 @@ p
   color: red;
 }
 </code></pre>
-    </div>
-    <div class="tab-pane fade" id="04">
-      <h1>Fonts</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="04">
+  <h1>Fonts</h1>
 <h3>Font families</h3>
 <p>Each font family contains a set of fonts that share common characteristics. There are five font familys: sans-serif, serif, monospace, cursive, and fantasy. Each family includes a large set of fonts. Fonts are not consistently available from one computer to another. The available fonts depends on the operating system as well as the fonts and applications that a user has installed. Here's a an example of how to use font-family:</p>
 <pre><code class="css">body
@@ -362,9 +382,9 @@ h2
 </code></pre>
 
 <p>Experiment with changing the headings for your mydvds web site so that the default bold is changed to normal weight. Add the rule to your CSS file and reload the web site. Once you have seen the difference in the headings, change it back to bold.</p>
-    </div>
-    <div class="tab-pane fade" id="05">
-      <h1>Colours</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="05">
+  <h1>Colours</h1>
 <p>Web colours are specified in terms of how much red, green, and blue make up the colour. You specify the amount of each colour from 0 to 100% and then add them all together to arrive at a final colour.</p>
 <p>You can use the names of colours, but CSS defines the names of only 17 colours. That number limits the expressiveness of your pages. By specifying colours in red, green and blue, you can have access to sixteen million colours.</p>
 <h2>Specifying Colour using colour names</h2>
@@ -398,9 +418,9 @@ h2
   background-color:  #cc6600;
 }
 </code></pre>
-    </div>
-    <div class="tab-pane fade" id="06">
-      <h1>Font &amp; Colour CSS</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="06">
+  <h1>Font &amp; Colour CSS</h1>
 <p>In your current style.css project, change your CSS file so it now contains the following:</p>
 <pre><code class="css">body
 {
@@ -441,9 +461,9 @@ p
 
 <p>This property allows us to specify the line height between each line. Like other font-related properties, you can specify the height in pixels, or using an em or percentage value that's relative to the font size. Save your CSS file and reload your index and newreleases web pages to see the change.</p>
 <p>Try a few different line heights like 200%, .5em, and 20px to see the effect. Change the height back to 1.6em when you are finished.</p>
-    </div>
-    <div class="tab-pane fade" id="07">
-      <h1>More Content</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="07">
+  <h1>More Content</h1>
 <p>We will rework the index.html home page with some more content to illustrate some interesting CSS rules. Replace the first paragraph with the following content:</p>
 <pre><code class="html">    &lt;p&gt;
       We have the biggest selection of DVDs and Games in Ireland.  
@@ -505,9 +525,9 @@ p
 <p>Save these three files to your computer. To do this, right click on each one in turn and select save as. Then you can drag and drop them directly into the images folder in your eclipse project.</p>
 <p>If all this goes according to plan,  index page should now look something like this:</p>
 <p><img alt="" src="./img/x07.png"></p>
-    </div>
-    <div class="tab-pane fade" id="08">
-      <h1>Returns Paragraph</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="08">
+  <h1>Returns Paragraph</h1>
 <p>Locate the 'returns' paragraph in the home page (the third paragraph):</p>
 <pre><code class="html">  &lt;p&gt;
     Once you finish watching your DVD or playing your Game you simply return it to us
@@ -632,9 +652,9 @@ p
   color: black;
 }
 </code></pre>
-    </div>
-    <div class="tab-pane fade" id="09">
-      <h1>Configuring Eclipse</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="09">
+  <h1>Configuring Eclipse</h1>
 <p>Our challenge now is to make adjustments to move and entire set of content into its own 'panel', which we wish to move to the right hand side of our page. Achieving this effect here:</p>
 <p><img alt="" src="./img/x14.png"></p>
 <p>This will involve more significant surgery on the page itself in particular we will need to superimpose a structure on the page, grouping a whole set of elements into a new section.</p>
@@ -696,9 +716,9 @@ p
 </code></pre>
 
 <p>the folding editor is a little temperamental, and can loose structural information easily. So, to restore reliably restore a correct view, close and reopen the editor (making sure to save the file), and you should be able to generate a consistent view.</p>
-    </div>
-    <div class="tab-pane fade" id="10">
-      <h1>Sidebar</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="10">
+  <h1>Sidebar</h1>
 <p>We can now target this division directly with the following rule in the CSS:</p>
 <pre><code class="css">#releases
 {
@@ -918,9 +938,9 @@ p
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-    </div>
-    <div class="tab-pane fade" id="Exercises">
-      <h1>Exercises</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
+  <h1>Exercises</h1>
 <h2>Solution</h2>
 <p>This is a solution to the lab:</p>
 <ul>
@@ -953,31 +973,45 @@ p
 <p>Find an image to represent the shop, and see if you can mimic the CSS rules we just deployed to move the image into a right hand column as we have with the sidebar.</p>
 </li>
 </ul>
-    </div>
 </div>
-<br> <br>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
 
 
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
     </div>
-
-
-<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <small>
-    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-    </a>
-    </small>
-</div>    <script>
+  </div>    <script>
 
 $(document).ready(function()
 {
-  $("img").addClass ("img-responsive");
+  $("img").addClass ("ui image");
 
-  $(".tab-content img").each(function()
-  {
-    var title = this.alt;
-    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
   });
 })    </script>
 

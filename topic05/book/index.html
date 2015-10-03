@@ -7,11 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
 
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -45,7 +46,7 @@ figcaption
 
   <body>
 
-    <div class="container">
+  <div class="ui container">
 <style>
 
 
@@ -80,41 +81,54 @@ h3
 
 </style>
 
-<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-      <div class="navbar-brand">
-        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-        Semantic UI
-      </div>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href= "#Lab-05" data-toggle="tab"> Lab-05 </a> </li>
-          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
-          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
-          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
-          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
-          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
-          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
-          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
-          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
-      </ul>
-    </div>
+
+<div class="ui fixed top pointing inverted borderless compact menu labmenu">
+ <!-- <header class="header item">
+    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
+    Semantic UI
+  </header>-->
+  <header class="header item">
+    <a href="../index.html">Semantic UI </a>
+  </header>
+  <div class="right stackable tab-menu menu">
+    <a class="active header item" data-tab="Lab-05">
+        Lab-05
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="03">
+        03
+      </a>
+      <a class="item" data-tab="04">
+        04
+      </a>
+      <a class="item" data-tab="05">
+        05
+      </a>
+      <a class="item" data-tab="06">
+        06
+      </a>
+      <a class="item" data-tab="07">
+        07
+      </a>
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
   </div>
 </div>
 
 <br><br>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="Lab-05">
-    <h1>Objectives</h1>
+<div class="ui bottom attached  active tab segment lab" data-tab="Lab-05">
+  <h1>Objectives</h1>
 <p>In this lab we reconfigure one of our earlier labs to use the Semantic UI CSS framework. This will involve downloading and installing the latest version into our project, and then reconfiguring the elements, classes and IDs we have been using to instead use the Semantic UI design vocabulary.</p>
-  </div>
-
-    <div class="tab-pane fade" id="01">
-      <h1>Setup</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="01">
+  <h1>Setup</h1>
 <p>Create new project called lab05-spacebook-semantic. Copy over all sources from last weeks lab, which is available here:</p>
 <ul>
 <li><a href="./archives/lab04-spacebook.zip">lab04-spacebook.zip</a></li>
@@ -138,9 +152,9 @@ h3
 <p>This will include the semantic style sheet into your home page. It will immediately be restyled something like this:</p>
 <p><img alt="" src="img/03x.png"></p>
 <p>Place the above link is all the pages in the project. You should see small changes in the style throught the site consistent with the above image.</p>
-    </div>
-    <div class="tab-pane fade" id="02">
-      <h1>Menu</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="02">
+  <h1>Menu</h1>
 <p>Move the navigation section to top of body (to before the header):</p>
 <pre><code class="html">  &lt;body id=&quot;home&quot;&gt;
      &lt;div id=&quot;navigation&quot;&gt;
@@ -199,9 +213,9 @@ h3
 <li><a href="http://semantic-ui.com/collections/menu.html" target="_blank"> Semantic UI Menus </a></li>
 </ul>
 <p>In this documentation, the '&lt;&gt;' icon allows you to reveal the html used to achieve the various effects. See if you can make sense of one or two of the effects, and try them out in your menus.</p>
-    </div>
-    <div class="tab-pane fade" id="03">
-      <h1>Header</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="03">
+  <h1>Header</h1>
 <p>This is the Semantic UI approach to headers:</p>
 <ul>
 <li><a href="http://semantic-ui.com/elements/header.html" target="_blank"> Semantic UI Headers </a></li>
@@ -225,9 +239,9 @@ h3
 <li><a href="http://semantic-ui.com/elements/header.html" target="_blank"> Semantic UI Headers </a></li>
 </ul>
 <p>Experiment and explore ....</p>
-    </div>
-    <div class="tab-pane fade" id="04">
-      <h1>Sections and Articles</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="04">
+  <h1>Sections and Articles</h1>
 <p>The 'maincontent' div of the home page currently looks like this:</p>
 <pre><code>    &lt;div id=&quot;maincontent&quot;&gt;
       &lt;div id=&quot;primary&quot;&gt;     
@@ -290,9 +304,9 @@ h3
 <ul>
 <li><a href="http://semantic-ui.com/elements/segment.html" target="_blank"> HTML Sections </a></li>
 </ul>
-    </div>
-    <div class="tab-pane fade" id="05">
-      <h1>Grid</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="05">
+  <h1>Grid</h1>
 <p>Examine the main section on 'home.html' again - and make the adjustments shown below:</p>
 <pre><code class="html">    &lt;section class=&quot;ui two column grid segment&quot;&gt;
       &lt;article class=&quot;ui column&quot;&gt;     
@@ -342,9 +356,9 @@ h3
 </ul>
 <p>(Including the 'very rich history' article when you have time!)</p>
 <p>The mechansisms here completely replace the floating/clearing and nesting + width dimensions of the legacy CSS we carried in to this project. We have just touched the surface here - establishing a effective 2 column layout with very little effort.</p>
-    </div>
-    <div class="tab-pane fade" id="06">
-      <h1>Navigation Again</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="06">
+  <h1>Navigation Again</h1>
 <p>Currently our navigation is mechanism is not complete - in that it does not give visual feedback on the 'active' menu item.</p>
 <p>If we mark one of the menu items as follows in 'home.html':</p>
 <pre><code>    &lt;nav class=&quot;ui menu&quot;&gt;
@@ -374,9 +388,9 @@ h3
 </code></pre>
 
 <p>You should see appropriate indication from the menu bar as to which page you are currently on in the site.</p>
-    </div>
-    <div class="tab-pane fade" id="07">
-      <h1>Forms</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="07">
+  <h1>Forms</h1>
 <p>Designing forms is more complicated that the elements of Semantic UI we have looked at so far.</p>
 <ul>
 <li><a href="http://semantic-ui.com/collections/form.html" target="_blank"> Forms </a></li>
@@ -406,9 +420,9 @@ h3
 
 <p>There will be some subtle changes to the layout, but we will need to explore these in more depth later. Have a read of some of the documentation in the meantime. </p>
 <p>Notice the structure of though. In general a form consistes of fields. and fields may have labels. Also, note the style of the button after we made the above change.</p>
-    </div>
-    <div class="tab-pane fade" id="Exercises">
-      <h1>Exercises</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
+  <h1>Exercises</h1>
 <p>Archive of the Lab so far</p>
 <ul>
 <li><a href="./archives/lab05-spacebook-semantic.zip">lab05-spacebook-semantic.zip</a></li>
@@ -428,31 +442,45 @@ h3
 <h2>Exercise 3: Rework Assignment</h2>
 <p>Take your assignment 2 solution - starting with 1 or 2 pages only, and change them to use the semantic UI framework, removing your own style sheet initially (you can bring in parts of it later).</p>
 <p>To do this, you will need to make use of the semantic menus and grid system - more or less as we have been doing here. There is considerably more variation possible of course - and it would be interesting to see what new visual features your site could take one based on this particular framework.</p>
-    </div>
 </div>
-<br> <br>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
 
 
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
     </div>
-
-
-<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <small>
-    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-    </a>
-    </small>
-</div>    <script>
+  </div>    <script>
 
 $(document).ready(function()
 {
-  $("img").addClass ("img-responsive");
+  $("img").addClass ("ui image");
 
-  $(".tab-content img").each(function()
-  {
-    var title = this.alt;
-    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
   });
 })    </script>
 

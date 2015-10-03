@@ -7,11 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
 
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -45,7 +46,7 @@ figcaption
 
   <body>
 
-    <div class="container">
+  <div class="ui container">
 <style>
 
 
@@ -80,45 +81,52 @@ h3
 
 </style>
 
-<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-      <div class="navbar-brand">
-        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-        Assignment Studio + Deployment
-      </div>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href= "#Lab-12" data-toggle="tab"> Lab-12 </a> </li>
-          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
-          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
-          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
-          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
-          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
-      </ul>
-    </div>
+
+<div class="ui fixed top pointing inverted borderless compact menu labmenu">
+ <!-- <header class="header item">
+    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
+    Assignment Studio + Deployment
+  </header>-->
+  <header class="header item">
+    <a href="../index.html">Assignment Studio + Deployment </a>
+  </header>
+  <div class="right stackable tab-menu menu">
+    <a class="active header item" data-tab="Lab-12">
+        Lab-12
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="03">
+        03
+      </a>
+      <a class="item" data-tab="04">
+        04
+      </a>
+      <a class="item" data-tab="05">
+        05
+      </a>
   </div>
 </div>
 
 <br><br>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="Lab-12">
-    <h1>Objectives</h1>
+<div class="ui bottom attached  active tab segment lab" data-tab="Lab-12">
+  <h1>Objectives</h1>
 <p>Deploy the Spacebook app to Heroku. This will require a heroku account + a locally installed git tool set.</p>
-  </div>
-
-    <div class="tab-pane fade" id="01">
-      <h1>Git Bash</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="01">
+  <h1>Git Bash</h1>
 <p>Download and install <a href="http://git-scm.com/downloads">Git for Windows</a>.</p>
 <p>This will be used in this lab. We shall refer to as <em>Git Bash</em>.</p>
 <p><img alt="Figure 1: Installation Wizard Git Bash" src="img/heroku_022.png"></p>
 <p>All the following commands should be run within the Git Bash terminal, not the standard windows terminal (Command Prompt).</p>
-    </div>
-    <div class="tab-pane fade" id="02">
-      <h1>SSH Keys</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="02">
+  <h1>SSH Keys</h1>
 <p>This section applies only if you do not have SSH keys on your computer. We shall explain shortly how you can check whether or not keys are present.</p>
 <p>Official Heroku documentation on managing SSH keys is available <a href="https://devcenter.heroku.com/articles/keys#adding-keys-to-heroku">here</a></p>
 <p>Your computer will communicate with Heroku using <a href="http://en.wikipedia.org/wiki/Secure_Shell">Secure Shell</a> (SSH).</p>
@@ -145,9 +153,9 @@ h3
 <li>That is: do <strong>not</strong> password protect the keys.</li>
 </ul>
 <p>Confirm that keys have been successfully generated by checking the contents of the <em>.ssh</em> folder which should be similar that shown in Figure 3 above.</p>
-    </div>
-    <div class="tab-pane fade" id="03">
-      <h1>Local Repository</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="03">
+  <h1>Local Repository</h1>
 <p>You recall that we may be using a 'bootstrap.java' class to load the models. This may cause some difficulty with our deployment, so we will remove it from the project for the moment. You can do this form within Eclipse.</p>
 <p>Now, in the spacebook project, create a file called '.gitignore'. This is a special file containing a series of patterns for project files we do NOT want uploaded to heroku.</p>
 <p>Here are its contents:</p>
@@ -210,9 +218,9 @@ git commit -m 'first commit'
 <p>The response should as follow:</p>
 <p><img alt="" src="img/heroku_016.png"></p>
 <p>We have now established a local git repository containing only those files required to run the application. Our next step is to push this repository to the heroku service. </p>
-    </div>
-    <div class="tab-pane fade" id="04">
-      <h1>Heroku repository</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="04">
+  <h1>Heroku repository</h1>
 <p>Create an account on <a href="http://www.heroku.com">Heroku</a>. Note carefully your login and password.</p>
 <p>Download and install <a href="https://toolbelt.heroku.com">Heroku Toolbelt for Windows</a>. Close and reopen Git Bash following installation of the Toolbelt. </p>
 <p>Once installed, verify that the installation ok by typing </p>
@@ -271,9 +279,9 @@ The response should be somewhat similar to that shown in Figure 4.</p>
 
 <p>A typical response is shown in Figure 5:</p>
 <p><img alt="Figure 5: Changing name of Heroku app from command line" src="img/heroku_007.png"></p>
-    </div>
-    <div class="tab-pane fade" id="05">
-      <h1>Heroku Database</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="05">
+  <h1>Heroku Database</h1>
 <p>You created a Heroku app in an earlier step (using the command <em>heroku create</em>) </p>
 <ul>
 <li>A database was made available as part of the app creation process.</li>
@@ -326,31 +334,45 @@ git push heroku master
 </code></pre>
 
 <p>This should open your web browser and display the application directly on the heroku platform.</p>
-    </div>
 </div>
-<br> <br>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
 
 
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
     </div>
-
-
-<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <small>
-    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-    </a>
-    </small>
-</div>    <script>
+  </div>    <script>
 
 $(document).ready(function()
 {
-  $("img").addClass ("img-responsive");
+  $("img").addClass ("ui image");
 
-  $(".tab-content img").each(function()
-  {
-    var title = this.alt;
-    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
   });
 })    </script>
 

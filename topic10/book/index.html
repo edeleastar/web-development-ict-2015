@@ -7,11 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-     <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_light.min.css" rel="stylesheet" />
 
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -45,7 +46,7 @@ figcaption
 
   <body>
 
-    <div class="container">
+  <div class="ui container">
 <style>
 
 
@@ -80,43 +81,60 @@ h3
 
 </style>
 
-<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-      <div class="navbar-brand">
-        <a onclick="window.history.back()" href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> </a>
-        Templates
-      </div>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href= "#Lab-10" data-toggle="tab"> Lab-10 </a> </li>
-          <li><a href= "#01" data-toggle="tab"> 01 </a> </li>
-          <li><a href= "#02" data-toggle="tab"> 02 </a> </li>
-          <li><a href= "#03" data-toggle="tab"> 03 </a> </li>
-          <li><a href= "#04" data-toggle="tab"> 04 </a> </li>
-          <li><a href= "#05" data-toggle="tab"> 05 </a> </li>
-          <li><a href= "#06" data-toggle="tab"> 06 </a> </li>
-          <li><a href= "#07" data-toggle="tab"> 07 </a> </li>
-          <li><a href= "#08" data-toggle="tab"> 08 </a> </li>
-          <li><a href= "#09" data-toggle="tab"> 09 </a> </li>
-          <li><a href= "#Exercises" data-toggle="tab"> Exercises </a> </li>
-      </ul>
-    </div>
+
+<div class="ui fixed top pointing inverted borderless compact menu labmenu">
+ <!-- <header class="header item">
+    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
+    Templates
+  </header>-->
+  <header class="header item">
+    <a href="../index.html">Templates </a>
+  </header>
+  <div class="right stackable tab-menu menu">
+    <a class="active header item" data-tab="Lab-10">
+        Lab-10
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="03">
+        03
+      </a>
+      <a class="item" data-tab="04">
+        04
+      </a>
+      <a class="item" data-tab="05">
+        05
+      </a>
+      <a class="item" data-tab="06">
+        06
+      </a>
+      <a class="item" data-tab="07">
+        07
+      </a>
+      <a class="item" data-tab="08">
+        08
+      </a>
+      <a class="item" data-tab="09">
+        09
+      </a>
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
   </div>
 </div>
 
 <br><br>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="Lab-10">
-    <h1>Objectives</h1>
+<div class="ui bottom attached  active tab segment lab" data-tab="Lab-10">
+  <h1>Objectives</h1>
 <p>Show a list of live list of members on the service. Extend the User model to include a list of members being followed. Allow a user to 'friend' and and 'drop' other members </p>
-  </div>
-
-    <div class="tab-pane fade" id="01">
-      <h1>Lab09 Project</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="01">
+  <h1>Lab09 Project</h1>
 <p>You should have a project from last weeks lab. If you dont have the project then this is a version (before the exercises) here</p>
 <ul>
 <li><a href="archives/spacebook-part-3.zip">spacebook-part-3.zip</a></li>
@@ -184,9 +202,9 @@ public class Bootstrap extends Job
 
 <p>Proceed with this now if you have not already done so.</p>
 <p>When you restart the app, these two users should be already registered, so you should be able to log in immediately.</p>
-    </div>
-    <div class="tab-pane fade" id="02">
-      <h1>Saving to the Database</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="02">
+  <h1>Saving to the Database</h1>
 <p>If you log in to this user here:</p>
 <ul>
 <li>username 'homer@simpson.com'</li>
@@ -344,9 +362,9 @@ public class User extends Model
 </code></pre>
 
 <p>Save all files in eclipse, and refresh the home profile page. Entering some text, pressing 'change', should cause the new message to be displayed above the email. Log out and log back in again. Verify that the status text 'persists' i.e. is the same as you left it before logging out.</p>
-    </div>
-    <div class="tab-pane fade" id="03">
-      <h1>Reading from the Database</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="03">
+  <h1>Reading from the Database</h1>
 <p>In this step we would like to have the 'members' page display the actual members in the database. Currently this is a hard coded list of Simpsons:</p>
 <pre><code class="html">...
 
@@ -405,9 +423,9 @@ public class User extends Model
 
 <p>This is unusual syntax - it is not html, but rather what is called a templating language. In this case it is a way of writing a loop in a html-like notation, to read a list of users and display them inside a html list element. There are literally dozens of templating languages - this is a fairly simple one that comes with our play framework.</p>
 <p>Save everything and visit the members page. You should see a list of users full names. Sign up a few new members, and verify that they appear in the members page.</p>
-    </div>
-    <div class="tab-pane fade" id="04">
-      <h1>Following Members</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="04">
+  <h1>Following Members</h1>
 <p>Currently, our members page looks like this:</p>
 <p><img alt="" src="img/09.png"></p>
 <p>We would like it to look like this:</p>
@@ -444,9 +462,9 @@ public class User extends Model
 </code></pre>
 
 <p>Run this now, you should see the users first name logged.</p>
-    </div>
-    <div class="tab-pane fade" id="05">
-      <h1>Saving Friendship List</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="05">
+  <h1>Saving Friendship List</h1>
 <p>We now have a mechanism whereby we can 'follow' another member. However, we would like to save this relationship to the database, so that we can list the members we are following on our home page. </p>
 <p>In the models package, create new class called <code>Friendship</code>:</p>
 <pre><code class="java">package models;
@@ -540,9 +558,9 @@ import javax.persistence.OneToMany;
 <li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#111;&#99;&#97;&#108;&#104;&#111;&#115;&#116;&#58;&#57;&#48;&#48;&#48;&#47;&#64;&#100;&#98;">&#108;&#111;&#99;&#97;&#108;&#104;&#111;&#115;&#116;&#58;&#57;&#48;&#48;&#48;&#47;&#64;&#100;&#98;</a></li>
 </ul>
 <p><img alt="" src="img/24.png"></p>
-    </div>
-    <div class="tab-pane fade" id="06">
-      <h1>Displaying the Friends list</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="06">
+  <h1>Displaying the Friends list</h1>
 <p>Our home page currently has a list of members we are following 'hard-coded' in 'views/home/index.html':</p>
 <pre><code class="html">      &lt;div class=&quot;ui column&quot;&gt;
         &lt;h2&gt;Friends&lt;/h2&gt;
@@ -602,9 +620,9 @@ Note the connection between this method in the Home class:
 <p>In particular, as the User class now has a member called 'friendships' - we are just passing the currently logged in 'user' to the render method, which passes this on to the view. In the view, we just iterate through the friendship member of the user object we receive. This looks confusing at first, but it is reasonably straightforward and predictable once you get used to it.</p>
 <p>Experiment with signing up more members, logging in, and watching the list of friends growing.</p>
 <p>Also, keep an eye on the database. See if you can make sense of the contents of the friendships table.</p>
-    </div>
-    <div class="tab-pane fade" id="07">
-      <h1>Dropping Friends</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="07">
+  <h1>Dropping Friends</h1>
 <p>You may have parts of this already implemented in an exercise in an earlier lab. If not, them introduce (or change) these features now:</p>
 <p>In the Home controller we need an action to be called if a friend is to be dropped:</p>
 <pre><code class="java">  public static void drop(Long id)
@@ -661,9 +679,9 @@ Note the connection between this method in the Home class:
 
 <p>Save everything in Eclipse and try this out now. Whenever you make significant changes, it is often best to restart the app.</p>
 <p>You should be able to add and remove users from the 'following' list.</p>
-    </div>
-    <div class="tab-pane fade" id="08">
-      <h1>Friends List</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="08">
+  <h1>Friends List</h1>
 <p>In views/Home/index.html we are listing the friends for the current user:</p>
 <pre><code class="html">          #{list items:user.friendships, as:'friendship'}
             &lt;div class=&quot;item&quot;&gt;
@@ -717,9 +735,9 @@ GET     /publicprofile/{id}                     PublicProfile.visit
 </code></pre>
 
 <p>Try these links now (the links to the friends on the home page). You should see a blank page.</p>
-    </div>
-    <div class="tab-pane fade" id="09">
-      <h1>UserProfile View</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="09">
+  <h1>UserProfile View</h1>
 <p>Now we try to further evolve the 'UserProfile' class to somehow render information about the requested user - i.e. the user whose ID is passed as a parameter to the visit method.</p>
 <p>The first step will be to see if we can use the id passed as a parameter to visit to retrieve user information from the database. This is relatively straightforward:</p>
 <pre><code class="java">  public static void visit(Long id)
@@ -767,9 +785,9 @@ GET     /publicprofile/{id}                     PublicProfile.visit
 <li>Profile Images</li>
 </ul>
 <p>If we can integrate these two capabilities, then we will have completed a functioning 'dynamic' version of our static web site. i.e. we will have built a 'web app'.</p>
-    </div>
-    <div class="tab-pane fade" id="Exercises">
-      <h1>Exercises</h1>
+</div>
+<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
+  <h1>Exercises</h1>
 <h2>Archive of lab so far:</h2>
 <ul>
 <li><a href="archives/spacebook-part-4.zip">spacebook-part-4.zip</a></li>
@@ -813,31 +831,45 @@ GET     /publicprofile/{id}                     PublicProfile.visit
 <p>In particular, look at how the friendship list is represented:</p>
 <p><img alt="" src="img/15.png"></p>
 <p>See if you can figure out how you can use this interface to make changes to the friends list, and verify that these changes appear on the home page. In particular, see if you can have two browser windows open - one with a logged in user, and one with the db interface. Make changes on the db, and see if a refresh on the logged in home page occurs immediately (after pressing refresh).</p>
-    </div>
 </div>
-<br> <br>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
 
 
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
     </div>
-
-
-<div class="credits navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <small>
-    Prepared by Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-        target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-    </a>
-    </small>
-</div>    <script>
+  </div>    <script>
 
 $(document).ready(function()
 {
-  $("img").addClass ("img-responsive");
+  $("img").addClass ("ui image");
 
-  $(".tab-content img").each(function()
-  {
-    var title = this.alt;
-    $(this).after('<figcaption class="caption"> <em>'+ title +'</em></figcaption>');
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
   });
 })    </script>
 

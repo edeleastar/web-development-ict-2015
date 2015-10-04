@@ -81,17 +81,15 @@ h3
 
 </style>
 
-
-<div class="ui fixed top pointing inverted borderless compact menu labmenu">
- <!-- <header class="header item">
-    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
-    Forms & Models
-  </header>-->
+<div class="ui fixed top pointing inverted menu labmenu">
   <header class="header item">
-    <a href="../index.html">Forms & Models </a>
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Forms & Models
+    </a>
   </header>
-  <div class="right stackable tab-menu menu">
-    <a class="active header item" data-tab="Lab-08">
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="Lab-08">
         Lab-08
     </a>
       <a class="item" data-tab="01">
@@ -118,17 +116,17 @@ h3
       <a class="item" data-tab="Exercises">
         Exercises
       </a>
-  </div>
+    </div>
 </div>
 
 <br><br>
 
-<div class="ui bottom attached  active tab segment lab" data-tab="Lab-08">
-  <h1>Objectives</h1>
+  <div  class="ui tab segment lab" data-tab="Lab-08">
+    <h1>Objectives</h1>
 <p>Implement three new views, each associated with the same controller. These view provide an 'account management' feature, allowing users to sign up and log in to the spacebook service. Introduce a model class to store information in a database and browse this database locally</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="01">
-  <h1>Review the project structure</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="01">
+    <h1>Review the project structure</h1>
 <h2>Lab07 Project</h2>
 <p>You should have a project from last weeks lab. If you dont have the project then this is a version (before the exercises) here</p>
 <ul>
@@ -145,9 +143,9 @@ h3
 <h2>public</h2>
 <p><img alt="" src="img/03.png"></p>
 <p>Examine these files in your project, and verify that everything is as shown above. We can ignore the others folders for the moment</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="02">
-  <h1>Signup, Login &amp; Logout Templates</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="02">
+    <h1>Signup, Login &amp; Logout Templates</h1>
 <p>Our application does not currently support certain critical features:</p>
 <ul>
 <li>Signing up to the service</li>
@@ -297,9 +295,9 @@ GET    /home                                    Home.index
 <li><a href="http://localhost:9000/members">http://localhost:9000/members</a></li>
 <li><a href="http://localhost:9000/profile">http://localhost:9000/profile</a></li>
 </ul>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="03">
-  <h1>Signup, Login &amp; Logout Screens</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="03">
+    <h1>Signup, Login &amp; Logout Screens</h1>
 <p>The accounts pages now need some <code>forms</code> to enable the user to sign up / log in.</p>
 <p>The forms can be designed using the Semantic UI styles - as demonstrated here:</p>
 <ul>
@@ -353,9 +351,9 @@ GET    /home                                    Home.index
 </code></pre>
 
 <p>Incorporate these into the view and see how they look in the running application. (Note that the buttons will give <code>not found</code> errors)</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="04">
-  <h1>Responding to forms</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="04">
+    <h1>Responding to forms</h1>
 <p>When you press signup or login either of these pages:</p>
 <ul>
 <li><a href="http://localhost:9000/signup">http://localhost:9000/signup</a></li>
@@ -403,9 +401,9 @@ POST   /register                                Accounts.register
 
 <p>Note the difference here - the two new routes are 'POST' (not 'GET') routes.</p>
 <p>Test the app now, and verify that you are able to navigate as expected. You should be able to visit each page, from the start. Note that any value you enter will be ignored - you will always be able to log in. However, we have the basic nav structure in place which we can build on later.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="05">
-  <h1>Form Input</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="05">
+    <h1>Form Input</h1>
 <p>Recall that we have a 'signup' form in 'views/accounts/signup.html':</p>
 <pre><code class="html">&lt;section class=&quot;ui form segment&quot;&gt;
   &lt;form action=&quot;/register&quot; method=&quot;POST&quot;&gt;
@@ -530,9 +528,9 @@ POST   /register                                Accounts.register
 </code></pre>
 
 <p>...and should see all of theme echoed to the console.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="06">
-  <h1>User Model</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="06">
+    <h1>User Model</h1>
 <p>In Eclipse, select the 'models' package (in 'app'), right click, and select 'new-&gt;class' as shown here: </p>
 <p><img alt="" src="img/00a.png"></p>
 <p>Call the class 'User', and accept the defaults:</p>
@@ -595,9 +593,9 @@ public class User extends Model
 </code></pre>
 
 <p>Restart the application - this is necessary because we have changed an important database configuration parameter. Browse to the form again and fill in the form. Verify that there are no errors when you press signup.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="07">
-  <h1>Database Browsing</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="07">
+    <h1>Database Browsing</h1>
 <p>From the last step we note that when a someone fills out the form and presses 'sign up' then ultimately this method here is called:</p>
 <pre><code class="java">  public static void register(String firstName, String lastName, String email, String password)
   {
@@ -635,9 +633,9 @@ public class User extends Model
 <p>Or add new ones:</p>
 <p><img alt="" src="img/20a.png"></p>
 <p>Experiment with adding/removing some entries, using both or application and this console.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
-  <h1>Exercises</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="Exercises">
+    <h1>Exercises</h1>
 <h1>Archive of lab so far:</h1>
 <ul>
 <li><a href="archives/spacebook-part-2.zip">spacebook-part-2.zip</a></li>
@@ -671,7 +669,7 @@ public class User extends Model
 
 <p>Again using step 5 of this lab as a guide, can you make the necessary changes such that when the Change button is pressed, a log message is printed on the console?</p>
 <p>Remember, to implement complete this exercises you will need to write both a java method and a matching route - as demonstrated in step 5. Also. the 'action' attribute of the form above will need to be completed. Also, note the name on the <code>&lt;textarea&gt;</code> field.</p>
-</div>
+  </div>
 <script>
 $('.ui.menu .item')
   .tab({

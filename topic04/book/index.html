@@ -81,17 +81,15 @@ h3
 
 </style>
 
-
-<div class="ui fixed top pointing inverted borderless compact menu labmenu">
- <!-- <header class="header item">
-    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
-    Navigation
-  </header>-->
+<div class="ui fixed top pointing inverted menu labmenu">
   <header class="header item">
-    <a href="../index.html">Navigation </a>
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Navigation
+    </a>
   </header>
-  <div class="right stackable tab-menu menu">
-    <a class="active header item" data-tab="Lab-04">
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="Lab-04">
         Lab-04
     </a>
       <a class="item" data-tab="01">
@@ -127,17 +125,17 @@ h3
       <a class="item" data-tab="Exercises">
         Exercises
       </a>
-  </div>
+    </div>
 </div>
 
 <br><br>
 
-<div class="ui bottom attached  active tab segment lab" data-tab="Lab-04">
-  <h1>Objectives</h1>
+  <div  class="ui tab segment lab" data-tab="Lab-04">
+    <h1>Objectives</h1>
 <p>Restructure the output of the last lab to participate in a tabbed navigation structure, and then produce a simple application mockup using these techniques. Do this by introduce a simple tabbed design into the site to provide the user with the visual metaphor for navigation. We then 'wire-up' these tabs to lead the user through the site. We will do this twice: once for the example content we laid out in last weeks lab. Then we will build a completely different site, using the same CSS rules.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="01">
-  <h1>Setup</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="01">
+    <h1>Setup</h1>
 <p>Create a new Eclipse project - select project type to be "Static Web Project" again, and call this project "lab04". Copy over the content from the project 'lab03' from last week. In Eclipse project explorer, your workspace should look something like this:</p>
 <p><img alt="" src="./img/20.png"></p>
 <p>If you dont have lab03 completed (with the exercises), these are the four files we generated in that project:</p>
@@ -158,9 +156,9 @@ h3
 <p>In your browser, you can select 'save link as' or equivalent and save these into your own workstation. To do this you will first have to locate the actual folder in which the lab04 project is stored, save the four files into that folder, and the select 'File-&gt;Refresh'  in eclipse (with the lab04 project selected) for the files to appear.</p>
 <p>Alternatively, just save to the desktop and drag/drop into the eclipse project.</p>
 <p>For the remainder of this lab, we will work away in lab04 project.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="02">
-  <h1>Navigation</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="02">
+    <h1>Navigation</h1>
 <p>With a shared navigation structure like this, we may wish to give the readers a visual clue as to weather the link is in fact meaningful or not. For instance, if we are on the home page, since it is dedicated to Mauris, the text "Mauris" in the bullet points, would not be a link as a link for this text would open the same page. The same applies to the others pages (i.e, page1.html and page2.html). In other words, links to the current page should be inactive.</p>
 <p>We can do this by just removing the relevant link from each page: i.e.</p>
 <p>delete the <code>&lt;a&gt;</code> tags for the text Mauris from home.html,</p>
@@ -176,9 +174,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/2.clearnav/home.html">home.html</a></li>
 </ul>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="03">
-  <h1>Tabs</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="03">
+    <h1>Tabs</h1>
 <p>Make sure the 'navigation' division is located towards the top of the page structure between the header and the maincontent. (If you copied the output of last weeks lab, it will be near the end)If we were to take a view of any of the pages using the folding feature if eclipse, we would like to see this:</p>
 <p><img alt="" src="./img/22.png"></p>
 <p>Now adjust the style sheet as follows:</p>
@@ -234,9 +232,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/4.tabsnext/home.html">home.html</a></li>
 </ul>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="04">
-  <h1>Enhanced Tabs</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="04">
+    <h1>Enhanced Tabs</h1>
 <p>In this series of adjustments, we will enhance the emphasis on the currently selected tab. Look at the final version we are about to prepare, and contrast it with your current work:</p>
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/6.tabsfinal/home.html">home.html</a></li>
@@ -295,9 +293,9 @@ h3
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/6.tabsfinal/home.html">home.html</a></li>
 </ul>
 <p>Study this rule carefully, it is probably the most complex rule we have seen to date</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="05">
-  <h1>Spacebook Preview</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="05">
+    <h1>Spacebook Preview</h1>
 <p>We move on now to build a 'mockup' of a web application we are about to study. Here is a preview (images only) of the site/application:</p>
 <p><img alt="" src="./img/02.png"></p>
 <p><img alt="" src="./img/03.png"></p>
@@ -311,9 +309,9 @@ h3
 <p><img alt="" src="./img/maggie.gif"></p>
 <p><img alt="" src="./img/marge.gif"></p>
 <p>We will need these images when constructing the site, so right click to download to your workstation.You will be using these images in the site in the next few steps.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="06">
-  <h1>Spacebook Project</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="06">
+    <h1>Spacebook Project</h1>
 <p>Create a new project called 'lab04-spacebook', and copy in the images from the last step into an images folder in your project:</p>
 <p><img alt="" src="./img/09.png"></p>
 <p>This can be achieved by just dragging/dropping the images from explorer/finder directly into a folder called images in the eclipse project.</p>
@@ -350,9 +348,9 @@ h3
 </code></pre>
 
 <p>Inspect it carefully and note the major sections. We have already set up the appropriate navigation structure in the "navigation" division.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="07">
-  <h1>Spacebook Skeleton</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="07">
+    <h1>Spacebook Skeleton</h1>
 <p>Taking the template we have just inspected:</p>
 <ul>
 <li><a href="./archives/template.html">template.html</a></li>
@@ -399,9 +397,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part2/home.html">home.html</a></li>
 </ul>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="08">
-  <h1>Home</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="08">
+    <h1>Home</h1>
 <p>We will now create some static content to simulate our live "SpaceBook" site. In Home.html, insert the following content into the "primary" division of home.html:</p>
 <pre><code class="html">        &lt;h2&gt; Friends &lt;/h2&gt;
         &lt;ul&gt;
@@ -434,9 +432,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part3/home.html">home.html</a></li>
 </ul>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="09">
-  <h1>Members, Profile</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="09">
+    <h1>Members, Profile</h1>
 <p>For members.html, the following "primary" content:</p>
 <pre><code class="html">      &lt;h2&gt; Members &lt;/h2&gt;
         &lt;ul&gt;
@@ -502,9 +500,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part3/homeprofile.html">homeprofile.html</a></li>
 </ul>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="10">
-  <h1>Friend Profile</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="10">
+    <h1>Friend Profile</h1>
 <p>On the home page, the links to "lisa" and "marge" dont lead anywhere. Bring in these two pages into your project:</p>
 <ul>
 <li>lisa.html:</li>
@@ -602,9 +600,9 @@ h3
 <ul>
 <li><a href="http://edeleastar.github.io/web-development/topic04/book/archives/part3/home.html">home.html</a></li>
 </ul>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
-  <h2>Exercises</h2>
+  </div>
+  <div  class="ui tab segment lab" data-tab="Exercises">
+    <h2>Exercises</h2>
 <h2>Completed Lab</h2>
 <p>Your project might now look like this in eclipse:</p>
 <p><img alt="" src="./img/10.png"></p>
@@ -641,7 +639,7 @@ h3
 <ul>
 <li><a href="http://reference.sitepoint.com/html/input/type">http://reference.sitepoint.com/html/input/type</a></li>
 </ul>
-</div>
+  </div>
 <script>
 $('.ui.menu .item')
   .tab({

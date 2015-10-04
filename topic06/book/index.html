@@ -81,17 +81,15 @@ h3
 
 </style>
 
-
-<div class="ui fixed top pointing inverted borderless compact menu labmenu">
- <!-- <header class="header item">
-    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
-    Introduction to Play
-  </header>-->
+<div class="ui fixed top pointing inverted menu labmenu">
   <header class="header item">
-    <a href="../index.html">Introduction to Play </a>
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Introduction to Play
+    </a>
   </header>
-  <div class="right stackable tab-menu menu">
-    <a class="active header item" data-tab="Lab-06">
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="Lab-06">
         Lab-06
     </a>
       <a class="item" data-tab="01">
@@ -124,17 +122,17 @@ h3
       <a class="item" data-tab="Exercises">
         Exercises
       </a>
-  </div>
+    </div>
 </div>
 
 <br><br>
 
-<div class="ui bottom attached  active tab segment lab" data-tab="Lab-06">
-  <h1>Objectives</h1>
+  <div  class="ui tab segment lab" data-tab="Lab-06">
+    <h1>Objectives</h1>
 <p>Move the Spacebook application from the static site into the structure provide by the Play framework. This will require installation of the framework, creation of a starter project and incorporation of the work we have already completed in the last lab.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="01">
-  <h1>DOS Commands</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="01">
+    <h1>DOS Commands</h1>
 <p>Open a command prompt on Windows. The easiest way to do this is in Windows 7 to type 'cmd' in the Search Box on the Windows start menu:</p>
 <p><img alt="" src="img/14.png"></p>
 <p>When you type it, the start menu might change to the following:</p>
@@ -188,9 +186,9 @@ h3
 </ul>
 <p>Perhaps you might take this opportunity to adjust your workspace and projects to adopt the above conventions. If you do, then you will find that using DOS commands to navigate your folders will be considerably easier.</p>
 <p>Before going on to the next step, make sure you are comfortable navigating in DOS around the file system, and in particular make sure you can navigate to your web development workspace.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="02">
-  <h1>Installing and Running Play</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="02">
+    <h1>Installing and Running Play</h1>
 <h2>Windows</h2>
 <p>Visit the following site:</p>
 <ul>
@@ -259,9 +257,9 @@ export PATH
 </code></pre>
 
 <p>However, it is best to ensure that the play command is on the system path.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="03">
-  <h1>Create a Play/Eclipse Project</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="03">
+    <h1>Create a Play/Eclipse Project</h1>
 <h2>Static version of Spacebook</h2>
 <p>Before we get in to creating a play project, we need to bring in a sample web project we will use for some raw material. </p>
 <p>You may already have a project called 'lab05-spacebook' in your workspace from an earlier lab:</p>
@@ -339,9 +337,9 @@ We can import this project into eclipse. First, change into the spacebook folder
 <p>Once imported into eclipse, the project should look like this:</p>
 <p><img alt="" src="img/01.png"></p>
 <p>The project may not look like this initially. If it doesnt, then switch to the "Java Perspective" in Eclipse, and it should resemble the above. To switch perspectives - in eclipse select "Window-&gt;Open Perspective-&gt;Java"</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="04">
-  <h1>Running an Play Application</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="04">
+    <h1>Running an Play Application</h1>
 <p>Back in DOS, from inside the spacebook folder, type the following command:</p>
 <pre><code>play run
 </code></pre>
@@ -381,9 +379,9 @@ Listening for transport dt_socket at address: 8000
 <li><a href="http://localhost:9000/">http://localhost:9000/</a></li>
 </ul>
 <p>Try this a few times to get used to starting/stopping the application</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="05">
-  <h1>Introducing some Content</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="05">
+    <h1>Introducing some Content</h1>
 <p>In Eclipse, open the java class "Application.java" - which is in the 'controllers' package located within the folder app:</p>
 <pre><code class="java">package controllers;
 
@@ -480,9 +478,9 @@ public class Application extends Controller
 </code></pre>
 
 <p>in main.html.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="06">
-  <h1>Play Project Layout</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="06">
+    <h1>Play Project Layout</h1>
 <p>We can start the process of making our site 'dynamic'. This means that the pages will be composed of multiple fragments, as opposed to the single 'static' pages we have been constructing to date.</p>
 <p>Look again at our static site, as we may have left it in an earlier lab:</p>
 <ul>
@@ -560,9 +558,9 @@ public class Application extends Controller
 <p>and browsing the 'source. To do this, placing the mouse on the canvas, right click and select 'View Page Source'</p>
 <p><img alt="" src="img/31.png"></p>
 <p>You will be doing this occasionally during when building web apps. Compare the <code>&lt;head&gt;</code> of this page with the html we pasted into main.html. See if you can analyse precisely the differences. They are small and will seem very obscure (for the moment).</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="07">
-  <h1>Navbar</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="07">
+    <h1>Navbar</h1>
 <p>Reflect again on the site we have already built:</p>
 <ul>
 <li><a href="archives/final/home.html">lab05-spacebook</a></li>
@@ -618,9 +616,9 @@ public class Application extends Controller
 <p>Try the navbar links - you will note that get an error for each of them, something like:</p>
 <p><img alt="" src="img/35.png"></p>
 <p>Will will fix these in the next step.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="08">
-  <h1>Controller &amp; Views</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="08">
+    <h1>Controller &amp; Views</h1>
 <h2>Controllers</h2>
 <p>Review again the class 'controllers/application.java'</p>
 <pre><code>package controllers;
@@ -688,9 +686,9 @@ public class Application extends Controller
 <p><img alt="" src="img/37.png"></p>
 <p>Finally, delete the Application controller + Application view folder - leaving you application like this:</p>
 <p><img alt="" src="img/45.png"></p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="09">
-  <h1>Routes</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="09">
+    <h1>Routes</h1>
 <p>In order for the app to function correctly - we need one more change. Locate and open the file 'conf/routes':</p>
 <pre><code># Routes
 # This file defines all application routes (Higher priority routes first)
@@ -769,9 +767,9 @@ GET     /public/                                staticDir:public
 <li>Profile</li>
 </ul>
 <p>Note that this text will appear in the browsers window title - not on the canvas. Run the app and verify that this behaves as expected.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
-  <h1>Exercises</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="Exercises">
+    <h1>Exercises</h1>
 <h2>Exercise 1: Active Tab</h2>
 <p>If you look at the nav bar you will notice that there is no concept of an 'active' tab as such. i.e. user cannot clearly see which tab they have just selected.</p>
 <p>The reason of this is that none of the <code>&lt;li&gt;</code> elements are have <code>class="ui active item"</code> (check the lab05-project to see what this looks like).</p>
@@ -801,7 +799,7 @@ GET     /public/                                staticDir:public
 
 <p>You should get a suitable message. Back in eclipse, select 'File-Import-&gt;General-&gt;Existing project into workspace' and select the <code>folder</code> containing the project you have just extracted. Select the project and it will become another project in your workspace called 'spacebook-baseline'</p>
 <p>Explore and run the project. It should be more or less the same as the one you have been building in this lab. Keep this project - and the solutions to each lab from now on - in your workspace alongside the version you will be evolving each week.</p>
-</div>
+  </div>
 <script>
 $('.ui.menu .item')
   .tab({

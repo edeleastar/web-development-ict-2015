@@ -81,17 +81,15 @@ h3
 
 </style>
 
-
-<div class="ui fixed top pointing inverted borderless compact menu labmenu">
- <!-- <header class="header item">
-    <a onclick="window.history.back()" href="#"> <i class="chevron left icon"></i> </a>
-    Box Model
-  </header>-->
+<div class="ui fixed top pointing inverted menu labmenu">
   <header class="header item">
-    <a href="../index.html">Box Model </a>
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Box Model
+    </a>
   </header>
-  <div class="right stackable tab-menu menu">
-    <a class="active header item" data-tab="Lab-03">
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="Lab-03">
         Lab-03
     </a>
       <a class="item" data-tab="01">
@@ -121,17 +119,17 @@ h3
       <a class="item" data-tab="Exercises">
         Exercises
       </a>
-  </div>
+    </div>
 </div>
 
 <br><br>
 
-<div class="ui bottom attached  active tab segment lab" data-tab="Lab-03">
-  <h1>Objectives</h1>
+  <div  class="ui tab segment lab" data-tab="Lab-03">
+    <h1>Objectives</h1>
 <p>This weeks lab will give you more practical experience od the box model and specifically how to build a simple multi-column layout using the techniques we have explored in class. You should complete this lab before starting to consider your project in detail.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="01">
-  <h1>Setup</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="01">
+    <h1>Setup</h1>
 <p>In eclipse, create a new 'Static Web Project' called "lab03". This time we will not be using any content from the previous labs.</p>
 <p>In this project create two files in the default 'WebContent' folder:</p>
 <ul>
@@ -206,9 +204,9 @@ h3
 
 <p>Reloading in the browser, it should look like this:</p>
 <p><img alt="" src="./img/01.png"></p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="02">
-  <h1>Div</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="02">
+    <h1>Div</h1>
 <p>We are now going to divide our content into a series of sections:</p>
 <ul>
 <li>
@@ -300,9 +298,9 @@ h3
 <p>For instance, try collapsing everything in the page. This can be done by pressing all of the "-" signs in the left hand margin. Alternatively, if you bring the mouse into that margin and right click, the folding menu should be available (as we have seen).</p>
 <p>You may be able to generate a view something like this:</p>
 <p><img alt="" src="./img/02.png"></p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="03">
-  <h1>Body syle</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="03">
+    <h1>Body syle</h1>
 <p>We already have an empty style sheet in place. However, it is not yet linked to our home page.</p>
 <p>Insert the following into the \&lt;head> element to tie in the sylesheet:</p>
 <pre><code class="html">    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;home.css&quot; media=&quot;screen&quot; /&gt;
@@ -332,9 +330,9 @@ h3
 <p>Additionally, discover the equivalent notations for html (quite different).</p>
 <p>This rule is stating that we want no top/bottom for the page, however auto for left and right is resizing the margins to be proportional to the container width (the browser window), and equal in size.</p>
 <p>The overall effect is a pleasing border on either size of the page, of equal size.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="04">
-  <h1>Maincontent</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="04">
+    <h1>Maincontent</h1>
 <p>We will now attempt to "float" the "maincontent" section to the right, with the "navigation" section hopefully moving in to the left.</p>
 <p>Try the following rule:</p>
 <pre><code class="css">#maincontent
@@ -365,9 +363,9 @@ h3
 <p>-</p>
 <p><img alt="" src="./img/10.png"></p>
 <p>As you can see, the "navigation" and "footer" sections have moved up to the left, slipping inside the maincontent. This is because these sections are current obeying the default layout rules. In effect, they will be automatically resizing the fit the available space liberated by the 20% space of the \<body> that maincontent has liberated.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="05">
-  <h1>Navigation</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="05">
+    <h1>Navigation</h1>
 <p>We can introduce a rule to definitively tie the navigation to 20% of the parent size. and float it left (also turning on a border so we can visualize it easier)</p>
 <pre><code class="css">#navigation
 {  
@@ -391,9 +389,9 @@ h3
 
 <p><img alt="" src="./img/12.png"></p>
 <p>Experiment with other percentages to get a feel for the layout behaviour</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="06">
-  <h1>Header, footer</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="06">
+    <h1>Header, footer</h1>
 <p>We can now target the headder and footer, and move them into place.</p>
 <p>First the header:</p>
 <pre><code class="css">#header
@@ -427,9 +425,9 @@ h3
 <p>Setting clear to "both", means clear (move below) and blocks floated left or right.</p>
 <p>Refresh produces a pleasing result:</p>
 <p><img alt="" src="./img/14.png"></p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="07">
-  <h1>Simplify</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="07">
+    <h1>Simplify</h1>
 <p>Our full CSS is now as follows:</p>
 <pre><code class="css">body
 {
@@ -505,9 +503,9 @@ h3
 </code></pre>
 
 <p>And when we want to remove the border, we can just delete that rule.</p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="08">
-  <h1>Primary, secondary</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="08">
+    <h1>Primary, secondary</h1>
 <p>We can also further subdivide sections within existing sections. The "maincontent" section currently contains 6 paragraphs:</p>
 <p><img alt="" src="./img/15.png"></p>
 <p>Using nesting, we can divide these into two sections:</p>
@@ -539,9 +537,9 @@ h3
 
 <p>This is the final result:</p>
 <p><img alt="" src="./img/19.png"></p>
-</div>
-<div class="ui bottom attached tab  segment lab" data-tab="Exercises">
-  <h1>Exercises</h1>
+  </div>
+  <div  class="ui tab segment lab" data-tab="Exercises">
+    <h1>Exercises</h1>
 <h3>Archive of Completed Lab:</h3>
 <ul>
 <li><a href="./archives/lab03.zip">lab03.zip</a></li>
@@ -618,7 +616,7 @@ h3
 <ul>
 <li><a href="http://en.wikipedia.org/wiki/Lorem_ipsum">http://en.wikipedia.org/wiki/Lorem_ipsum</a></li>
 </ul>
-</div>
+  </div>
 <script>
 $('.ui.menu .item')
   .tab({
